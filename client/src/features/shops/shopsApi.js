@@ -1,0 +1,130 @@
+import axios from 'axios';
+import { extractListPayload, extractObjectPayload, resolveApiBaseUrl } from '../../lib/api';
+
+// Configuration for Axios client communicating with FARM backend.
+// Ideally, BASE_URL should come from environment variables.
+const BASE_URL = resolveApiBaseUrl(
+  import.meta.env.VITE_API_URL || import.meta.env.VITE_BACKEND_URL
+);
+
+const shopsClient = axios.create({
+  baseURL: `${BASE_URL}/shops`,
+  headers: {
+    'Content-Type': 'application/json',
+  },
+});
+
+import { MOCK_SHOPS } from './mockData';
+
+// Optionally auto-inject auth tokens from localStorage for protected endpoints
+shopsClient.interceptors.request.use(
+  (config) => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      config.headers['Authorization'] = `Bearer ${token}`;
+    }
+    return config;
+  },
+  (error) => Promise.reject(error)
+);
+
+export const shopsApi = {
+  /**
+   * 1. Get List of Nearby Shops (Geospatial search + AI Scoring)
+   * @param {Object} params - { lng: number, lat: number, max_distance?: number, category?: string }
+   * @returns {Promise<Array>} List of Shop objects
+   */
+  getNearbyShops: async (params) => {
+    // const response = await shopsClient.get('/nearby', { params });
+    // return extractListPayload(response.data);
+
+    // Simulate network delay
+    await new Promise(resolve => setTimeout(resolve, 600));
+    return MOCK_SHOPS;
+  },
+
+  /**
+   * 2. Get Single Shop Detail
+   * @param {string} shopId 
+   * @returns {Promise<Object>} The Shop object
+   */
+  getShopDetail: async (shopId) => {
+    // const response = await shopsClient.get(`/${shopId}`);
+    // return extractObjectPayload(response.data);
+    await new Promise(resolve => setTimeout(resolve, 300));
+    const shop = MOCK_SHOPS.find(s => s.id === shopId);
+    if (!shop) throw new Error("Shop not found");
+    return shop;
+  },
+
+  /**
+   * 3. Search Shops by keyword
+   * @param {Object} params - { q: string, limit?: number }
+   * @returns {Promise<Array>} List of Shop objects
+   */
+  searchShops: async (params) => {
+    // const response = await shopsClient.get('/search', { params });
+    // return extractListPayload(response.data);
+    await new Promise(resolve => setTimeout(resolve, 500));
+    const q = (params?.q || "").toLowerCase();
+    const results = MOCK_SHOPS.filter(s =>
+      s.name.toLowerCase().includes(q) ||
+      (s.address && s.address.toLowerCase().includes(q))
+    );
+    return results;
+  },
+
+  /**
+   * 4. Get all shops with pagination (General purpose / Admin)
+   * @param {Object} params - { limit?: number, skip?: number }
+   * @returns {Promise<Array>} List of Shop objects
+   */
+  getAllShops: async (params = { limit: 50, skip: 0 }) => {
+    // const response = await shopsClient.get('/', { params });
+    // return extractListPayload(response.data);
+    await new Promise(resolve => setTimeout(resolve, 500));
+    return MOCK_SHOPS.slice(params.skip || 0, (params.skip || 0) + (params.limit || 50));
+  },
+
+  /**
+   * 5. Create a new shop (Requires Authentication)
+   * @param {Object} shopData - Data adhering to backend ShopCreate schema
+   * @returns {Promise<Object>} Created Shop object
+   */
+  createShop: async (shopData) => {
+    // const response = await shopsClient.post('/', shopData);
+    // return extractObjectPayload(response.data);
+    await new Promise(resolve => setTimeout(resolve, 500));
+    return {
+      id: `shop-new-${Date.now()}`,
+      ...shopData
+    };
+  },
+
+  /**
+   * 6. Update Shop information (Requires Authentication: Owner or Admin)
+   * @param {string} shopId
+   * @param {Object} updateData - Data to update
+   * @returns {Promise<Object>} Updated Shop object
+   */
+  updateShop: async (shopId, updateData) => {
+    // const response = await shopsClient.put(`/${shopId}`, updateData);
+    // return extractObjectPayload(response.data);
+    await new Promise(resolve => setTimeout(resolve, 500));
+    const shop = MOCK_SHOPS.find(s => s.id === shopId);
+    if (!shop) throw new Error("Shop not found");
+    return { ...shop, ...updateData };
+  },
+
+  /**
+   * 7. Delete / Hide a shop (Soft delete)
+   * @param {string} shopId 
+   * @returns {Promise<Object>} Message showing success
+   */
+  deleteShop: async (shopId) => {
+    // const response = await shopsClient.delete(`/${shopId}`);
+    // return response.data;
+    await new Promise(resolve => setTimeout(resolve, 500));
+    return { message: "Shop deleted successfully" };
+  }
+};

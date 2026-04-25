@@ -1,0 +1,222 @@
+{
+  "project_name": "DrinkMap Hanoi",
+  "version": "1.0.0",
+  "theme_philosophy": {
+    "name": "Hanoi Veranda",
+    "description": "A fusion of Hanoi's nostalgic 'subsidy period' aesthetics and modern, breathable garden minimalism. It balances the chaotic energy of the Old Quarter with the serenity of a lakeside morning.",
+    "emotional_tone": ["Fresh", "Nostalgic", "Social", "Trusted"],
+    "keywords": ["Sống ảo", "Chill", "Góc quen", "Tinh tế"]
+  },
+  "typography": {
+    "font_family": {
+      "primary": "Be Vietnam Pro, sans-serif",
+      "headings": "Playfair Display, serif",
+      "monospace": "JetBrains Mono, monospace"
+    },
+    "scale": {
+      "xs": "0.75rem",
+      "sm": "0.875rem",
+      "base": "1rem",
+      "lg": "1.125rem",
+      "xl": "1.25rem",
+      "2xl": "1.5rem",
+      "3xl": "1.875rem",
+      "4xl": "2.25rem",
+      "5xl": "3rem"
+    },
+    "weights": {
+      "light": 300,
+      "regular": 400,
+      "medium": 500,
+      "semibold": 600,
+      "bold": 700
+    },
+    "usage": {
+      "headings": "Playfair Display for H1-H3. Use strictly for emotional impact (Hero sections, Shop Names).",
+      "body": "Be Vietnam Pro for all UI text, labels, and descriptions. High legibility is key.",
+      "ui_labels": "Be Vietnam Pro Medium/Semibold, uppercase tracking-wide for pills and tabs."
+    }
+  },
+  "colors": {
+    "palette": {
+      "primary": {
+        "DEFAULT": "#2C7A7B",
+        "foreground": "#FFFFFF",
+        "50": "#E6FFFA",
+        "100": "#B2F5EA",
+        "500": "#319795",
+        "700": "#2C7A7B",
+        "900": "#234E52"
+      },
+      "secondary": {
+        "DEFAULT": "#D97706",
+        "foreground": "#FFFFFF",
+        "100": "#FEF3C7",
+        "500": "#F59E0B",
+        "700": "#B45309"
+      },
+      "background": {
+        "light": "#FDFBF7",
+        "dark": "#1A202C",
+        "overlay": "rgba(255, 255, 255, 0.85)"
+      },
+      "surface": {
+        "light": "#FFFFFF",
+        "dark": "#2D3748",
+        "glass": "rgba(255, 255, 255, 0.7)"
+      },
+      "text": {  
+        "primary": "#2D3748",
+        "secondary": "#718096",
+        "muted": "#A0AEC0",
+        "inverse": "#FFFFFF"
+      },
+      "status": {
+        "success": "#38A169",
+        "error": "#E53E3E",
+        "warning": "#DD6B20",
+        "info": "#3182CE"
+      }
+    },
+    "gradients": {
+      "warm_overlay": "linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.6) 100%)",
+      "brand_shimmer": "linear-gradient(90deg, #2C7A7B 0%, #38B2AC 50%, #2C7A7B 100%)"
+    }
+  },
+  "layout_strategies": {
+    "mobile_first": true,
+    "containers": {
+      "max_width": "max-w-md md:max-w-2xl lg:max-w-7xl mx-auto",
+      "padding": "px-4 md:px-8 lg:px-12",
+      "section_spacing": "py-12 md:py-24"
+    },
+    "grid_system": {
+      "bento_grid": "grid grid-cols-1 md:grid-cols-3 gap-4",
+      "listing_grid": "grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
+    },
+    "z_index": {
+      "map": 0,
+      "controls": 10,
+      "bottom_sheet": 20,
+      "modal": 50,
+      "toast": 100
+    }
+  },
+  "components": {
+    "map": {
+      "style_id": "clean_street_map",
+      "markers": {
+        "default": "Simple circular marker with brand color border and white fill.",
+        "active": "Scaled up (1.2x) with bounce animation.",
+        "clusters": "Brand primary color with white text count."
+      },
+      "controls": "Floating pill buttons with glassmorphism effect."
+    },
+    "bottom_sheet": {
+      "style": "Fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-xl rounded-t-3xl shadow-2xl border-t border-white/20",
+      "handle": "w-12 h-1.5 bg-gray-300 rounded-full mx-auto mt-3 mb-6",
+      "behavior": "Draggable with snap points (minimized, half, full)."
+    },
+    "cards": {
+      "shop_card": {
+        "structure": "Image aspect-square or 4:3, rounded-xl overflow-hidden. Content below.",
+        "typography": "Title in bold (Be Vietnam Pro), rating in accent color, distance in muted text.",
+        "interaction": "Scale 1.02 on hover, shadow-lg transition-all."
+      },
+      "review_card": {
+        "structure": "Avatar left, content right. Photos in horizontal scroll.",
+        "style": "bg-white p-4 rounded-lg border border-gray-100 shadow-sm."
+      }
+    },
+    "buttons": {
+      "primary": "bg-primary text-white rounded-full px-6 py-3 font-medium hover:bg-primary-900 transition-colors shadow-lg shadow-primary/30",
+      "secondary": "bg-white text-primary border-2 border-primary/20 rounded-full px-6 py-3 font-medium hover:border-primary/50 transition-colors",
+      "ghost": "text-gray-600 hover:bg-gray-100 rounded-lg px-4 py-2",
+      "floating_action": "w-14 h-14 rounded-full bg-secondary text-white shadow-xl flex items-center justify-center absolute bottom-24 right-4 z-30"
+    },
+    "inputs": {
+      "default": "bg-gray-50 border-gray-200 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all",
+      "search_bar": "bg-white shadow-lg rounded-full px-6 py-3 flex items-center gap-3 border border-gray-100"
+    },
+    "tags": {
+      "pill": "px-3 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-600 border border-transparent",
+      "active_pill": "bg-primary/10 text-primary border-primary/20"
+    }
+  },
+  "motion": {
+    "libraries": ["framer-motion"],
+    "preferences": {
+      "reduced_motion": "respect-user-settings",
+      "duration": {
+        "fast": 0.2,
+        "normal": 0.3,
+        "slow": 0.5
+      },
+      "easing": "cubic-bezier(0.16, 1, 0.3, 1)"
+    },
+    "transitions": {
+      "page_load": "fade-in up (y: 20)",
+      "list_stagger": "staggerChildren: 0.05",
+      "hover": "scale: 1.02",
+      "tap": "scale: 0.95",
+      "bottom_sheet": "spring damping: 20 stiffness: 300"
+    }
+  },
+  "assets": {
+    "icons": {
+      "library": "lucide-react",
+      "style": "Stroke width 1.5px or 2px. Rounded caps/joins.",
+      "usage": "Use consistent sizing (w-5 h-5 for UI, w-6 h-6 for nav)."
+    },
+    "images": {
+      "categories": [
+        {
+          "name": "Map Context",
+          "url": "https://images.unsplash.com/photo-1752802043560-52a8a53e37ae",
+          "alt": "Hanoi Old Quarter Street"
+        },
+        {
+          "name": "Signature Coffee",
+          "url": "https://images.unsplash.com/photo-1751569543716-70c5fb9a8298",
+          "alt": "Vietnamese Egg Coffee"
+        },
+        {
+          "name": "Modern Interior",
+          "url": "https://images.unsplash.com/photo-1704883647012-c6f4d29fe360",
+          "alt": "Minimalist Cafe with Plants"
+        },
+        {
+          "name": "Bubble Tea",
+          "url": "https://images.unsplash.com/photo-1741243038487-1d835e67bcbf",
+          "alt": "Tiger Sugar Bubble Tea"
+        },
+        {
+          "name": "Matcha Art",
+          "url": "https://images.unsplash.com/photo-1761150285879-e80fef8f035b",
+          "alt": "Matcha Latte Art"
+        }
+      ],
+      "rules": "Always use 'object-cover' for images. Add subtle overlay gradient for text legibility if needed."
+    }
+  },
+  "accessibility": {
+    "standards": "WCAG 2.1 AA",
+    "requirements": [
+      "Contrast ratio > 4.5:1 for normal text.",
+      "Interactive elements min-size 44x44px.",
+      "All images must have alt text.",
+      "Focus rings must be visible and distinct (ring-2 ring-offset-2 ring-primary).",
+      "Data-testid attributes on all interactive elements."
+    ]
+  },
+  "universal_guidelines": [
+    "Do NOT use gradients for backgrounds, use solid colors or subtle noise textures.",
+    "Avoid centering text in long paragraphs. Left-align for readability.",
+    "Use 'sonner' for all toast notifications.",
+    "Components must use named exports.",
+    "Mobile-first responsive design is mandatory.",
+    "Map must be the primary layer; other UI elements float above it.",
+    "Use data-testid for all clickable elements."
+  ],
+  "instructions_to_main_agent": "Start by setting up the global theme in Tailwind config. Then create the Layout wrapper with the Map background. Build the draggable Bottom Sheet component early as it's the core navigation pattern. Prioritize the mobile view. Use the provided image URLs for placeholders."
+}

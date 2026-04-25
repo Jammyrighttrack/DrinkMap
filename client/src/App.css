@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #FDFBF7;
+    --foreground: #18181B; /* zinc-900 */
+  }
+
+  .dark {
+    --background: #09090B; /* zinc-950 */
+    --foreground: #FAFAFA; /* zinc-50 */
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent; /* Loại bỏ highlight xanh khi tap trên iOS */
+  }
+
+  body {
+    @apply bg-[var(--background)] text-[var(--foreground)] antialiased;
+    font-family: 'Be Vietnam Pro', system-ui, sans-serif;
+    /* Custom Selection Styling cho xịn xò */
+    @apply selection:bg-blue-500/30 selection:text-blue-900 dark:selection:text-blue-100;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    /* Playfair Display chuyên trị tiêu đề tạo cảm giác Premium/Classic */
+    font-family: 'Playfair Display', serif;
+    text-wrap: balance; /* Tránh tình trạng 1 chữ đơn độc rớt xuống dòng cuối */
+  }
+
+  code, pre {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer components {
+  /* Class dùng chung cho các Modal, Bottomsheet tạo hiệu ứng Kính mờ (Glassmorphism) cực xịn */
+  .glass-panel {
+    @apply bg-white/80 dark:bg-zinc-900/80 backdrop-blur-xl border border-white/40 dark:border-zinc-800/60 shadow-[0_8px_30px_rgb(0,0,0,0.08)] dark:shadow-black/50;
+  }
+}
+
+@layer utilities {
+  /* Ẩn hoàn toàn thanh scrollbar nhưng vẫn cho phép cuộn */
+  .scrollbar-hide {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
+  }
+
+  /* Custom thanh cuộn dọc gầy, hiện đại (dành cho PC) */
+  .scrollbar-elegant::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .scrollbar-elegant::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-elegant::-webkit-scrollbar-thumb {
+    @apply bg-zinc-300 dark:bg-zinc-700 rounded-full;
+  }
+
+  .scrollbar-elegant::-webkit-scrollbar-thumb:hover {
+    @apply bg-zinc-400 dark:bg-zinc-600;
+  }
+
+  /* Hiệu ứng gradient mờ ở hai mép 2 bên dành cho các thanh cuộn ngang (Ví dụ: Thanh Categories) */
+  .mask-edges {
+    mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+  }
+}
