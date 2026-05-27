@@ -2,16 +2,8 @@ import os
 import time
 import cloudinary.utils
 from fastapi import APIRouter, Depends, HTTPException, Query
-from pydantic import BaseModel
 from app.core.auth import get_current_user
-
-class CloudinarySignature(BaseModel):
-    signature: str
-    timestamp: int
-    cloud_name: str
-    api_key: str
-    folder: str
-    resource_type: str
+from app.dtos.uploadDTO import CloudinarySignature
 
 router = APIRouter()
 
@@ -59,7 +51,7 @@ async def get_cloudinary_signature(
     
     # 4. Tạo chữ ký bảo mật bằng API Secret
     try:
-        signature = uploadAPI.utils.api_sign_request(
+        signature = cloudinary.utils.api_sign_request(
             params_to_sign,
             api_secret
         )  

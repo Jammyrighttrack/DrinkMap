@@ -1,10 +1,14 @@
 import json
 import uuid
+import os
 from pymongo import MongoClient
+from dotenv import load_dotenv
 
 # 1. CẤU HÌNH KẾT NỐI
-MONGO_URI = "mongodb+srv://lytruonggiang28082005_db_user:1rLZnLyCGCnuUQum@data.i3zbxsx.mongodb.net/?appName=Data"
-DB_NAME = "drinkmap_db" 
+load_dotenv("../.env") 
+
+MONGO_URI = os.getenv("MONGO_URL")
+DB_NAME = os.getenv("DB_NAME")
 
 def seed_shops_from_geojson(file_path):
     # Kết nối tới MongoDB Atlas

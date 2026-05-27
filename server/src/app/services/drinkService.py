@@ -1,8 +1,10 @@
 from app.crud.drinkRepository import DrinkRepository
+from app.crud.shopRepository import ShopRepository
 from app.dtos.drinkDTO import DrinkResponse, DrinkCreateRequest
 from typing import List, Dict
 import uuid
 from datetime import datetime, timezone
+from fastapi import HTTPException
 
 class DrinkService:
     @staticmethod
@@ -40,11 +42,16 @@ class DrinkService:
 
     @staticmethod
     async def add_drink(drink_data: DrinkCreateRequest) -> DrinkResponse:
+        # Guard: verify shop exists before adding to its menu
+        shop = await ShopRepository.get_by_id(drink_data.shop_id)
+        if not shop:
+            raise HTTPException(status_code=404, detail="Không tìm thấy quán để thêm menu")
+
         drink_dict = drink_data.model_dump()
         drink_dict["id"] = str(uuid.uuid4())
         drink_dict["created_at"] = datetime.now(timezone.utc).isoformat()
         drink_dict["updated_at"] = datetime.now(timezone.utc).isoformat()
-        
+
         await DrinkRepository.create(drink_dict)
         drink_dict.pop("_id", None)
         return DrinkResponse(**drink_dict)

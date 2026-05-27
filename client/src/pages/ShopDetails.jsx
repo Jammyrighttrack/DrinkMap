@@ -132,10 +132,14 @@ export default function ShopDetails() {
   }, [dispatch, id]);
 
   const shop = useMemo(() => {
-    if (!selectedShop || selectedShop.id !== id) {
-      return null;
-    }
-
+    // `id` from useParams may be a UUID or a slug depending on how the user navigated.
+    // selectedShop.id is always the canonical UUID; selectedShop.slug may be absent.
+    // We trust the result if: id matches UUID, OR id matches slug, OR no stale shop.
+    if (!selectedShop) return null;
+    const isMatchById = selectedShop.id === id;
+    const isMatchBySlug = selectedShop.slug != null && selectedShop.slug === id;
+    // If neither matches, we might have a stale shop from a previous navigation — skip it.
+    if (!isMatchById && !isMatchBySlug) return null;
     return normalizeShopDetails(selectedShop);
   }, [id, selectedShop]);
 

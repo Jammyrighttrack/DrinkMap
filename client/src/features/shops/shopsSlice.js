@@ -38,16 +38,7 @@ export const searchShops = createAsyncThunk(
   }
 );   
 
-export const fetchAllShops = createAsyncThunk(
-  'shops/fetchAllShops',
-  async (params, { rejectWithValue }) => {
-    try {
-      return await shopsApi.getAllShops(params);
-    } catch (error) {
-      return rejectWithValue(error.response?.data || error.message);
-    }
-  }
-);
+
 
 export const createNewShop = createAsyncThunk(
   'shops/createNewShop',
@@ -90,7 +81,6 @@ const initialState = {
   // Lists
   nearbyShops: [],       // Shops shown on map bounding box
   searchResults: [],     // Text-based search results
-  allShops: [],          // Admin / Pagination view list
   
   // Single Entity View
   selectedShop: null,    // The shop currently clicked / viewed

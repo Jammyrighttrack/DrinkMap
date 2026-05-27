@@ -8,6 +8,7 @@ from pathlib import Path
 # Import Router tổng (nơi gom tất cả auth, shops, users...)
 from app.api.main import api_router
 from app.core.database import Database
+from app.core.ai_config import init_redis, close_redis
 
 # 1. Khởi chạy môi trường
 ROOT_DIR = Path(__file__).parent.parent.parent # Trỏ ra thư mục gốc chứa .env
@@ -18,8 +19,10 @@ load_dotenv(ROOT_DIR / '.env')
 async def lifespan(app: FastAPI):
     # Startup: Kết nối DB khi bật server
     await Database.connect_db()
+    await init_redis()
     yield
     # Shutdown: Ngắt kết nối DB khi tắt server
+    await close_redis()
     await Database.close_db()
         
 # 3. Khởi tạo FastAPI App
@@ -31,12 +34,22 @@ app = FastAPI(
 )
 
 # 4. Cấu hình CORS (Middleware)
+# NOTE: allow_credentials=True requires explicit origins (cannot mix with "*").
+# Listing both localhost variants covers React dev server (Vite default).
+origins = [
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "http://127.0.0.1:5173"],
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
+    expose_headers=["*"],
 )
 
 # 5. Kết nối Router Tổng (Chứa tất cả các routes đã tách)

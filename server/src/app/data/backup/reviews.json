@@ -1,0 +1,1002 @@
+[
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "The Coffee House",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại The Coffee House! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Conifer Bốn Mùa – Four Seasons",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Conifer Bốn Mùa – Four Seasons! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Cafe Muối",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Cafe Muối! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Café Mai Hương",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Café Mai Hương! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Kafebean",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Kafebean! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Cà Phê Nola",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Cà Phê Nola! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Trang Anh",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Trang Anh! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Orick Coffee",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Orick Coffee! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Van Viet Cafe",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Van Viet Cafe! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Cà Phê Cosa Nostra",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Cà Phê Cosa Nostra! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Cà Phê HAN",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Cà Phê HAN! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Cà Phê MVTTS",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Cà Phê MVTTS! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Cà Phê AnAn",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Cà Phê AnAn! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Cà Phê Linh",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Cà Phê Linh! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Cà Phê Aha",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Cà Phê Aha! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Cà Phê Aroi",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Cà Phê Aroi! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Cà Phê Mai",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Cà Phê Mai! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Trung Nguyên Coffee",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Trung Nguyên Coffee! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "The Hanoi Social Club",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại The Hanoi Social Club! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Cà Phê Canopee",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Cà Phê Canopee! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Cà Phê AnAn",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Cà Phê AnAn! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Cà Phê AnAn",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Cà Phê AnAn! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Cà Phê Apple Tart",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Cà Phê Apple Tart! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Wanna Waffle?",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Wanna Waffle?! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Cà Phê 26",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Cà Phê 26! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Cà Phê Hanoi House",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Cà Phê Hanoi House! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Cà Phê Giang",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Cà Phê Giang! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Cà Phê Giảng - Cà Phê Trứng",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Cà Phê Giảng - Cà Phê Trứng! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Cà Phê La Studio",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Cà Phê La Studio! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Raw Juicery",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Raw Juicery! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Cà Phê Glamour",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Cà Phê Glamour! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Highlands Coffee",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Highlands Coffee! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Timeline",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Timeline! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Cà Phê Loading T",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Cà Phê Loading T! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Cà Phê Aha",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Cà Phê Aha! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Cà Phê Hà Nội Deli",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Cà Phê Hà Nội Deli! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Cà Phê Loft Stop",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Cà Phê Loft Stop! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Doong Tea & Coffee Express",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Doong Tea & Coffee Express! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Cà Phê Countryside",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Cà Phê Countryside! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Cà Phê J'Adore",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Cà Phê J'Adore! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Stamp Coffee",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Stamp Coffee! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Cà Phê L'étage",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Cà Phê L'étage! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "The Balcony",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại The Balcony! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "The Note Coffee",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại The Note Coffee! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Cà Phê Dinh 13",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Cà Phê Dinh 13! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Cà Phê Huế Organic",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Cà Phê Huế Organic! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Cà Phê La Place",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Cà Phê La Place! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Highlands Coffee",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Highlands Coffee! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Cà Phê Cabine",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Cà Phê Cabine! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Cộng Cà Phê",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Cộng Cà Phê! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Tranquil Books & Coffee",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Tranquil Books & Coffee! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Cộng Cà Phê",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Cộng Cà Phê! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Cà Phê Kufu",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Cà Phê Kufu! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Cà Phê Runam",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Cà Phê Runam! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Cà Phê Dose",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Cà Phê Dose! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Cà Phê Lộc",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Cà Phê Lộc! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Mành",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Mành! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Tim coffee",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Tim coffee! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Cà Phê Sạch",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Cà Phê Sạch! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Cà Phê Alo",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Cà Phê Alo! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Coffee A",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Coffee A! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Trà Chanh Phô cô",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Trà Chanh Phô cô! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Cà Phê Hiến",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Cà Phê Hiến! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Cà Phê Kim Lài",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Cà Phê Kim Lài! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Cà Phê 67 Phùng Hưng",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Cà Phê 67 Phùng Hưng! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Xofa",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Xofa! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Cà Phê 81",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Cà Phê 81! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Cà Phê No.1",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Cà Phê No.1! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Cộng Cà Phê",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Cộng Cà Phê! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Mira Coffee",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Mira Coffee! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Cà Phê Nắng",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Cà Phê Nắng! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "IVegan Supershop",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại IVegan Supershop! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "O dây có bán càphê",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại O dây có bán càphê! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Cà Phê AnAn",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Cà Phê AnAn! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Cà Phê Cô Hoa Cơm",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Cà Phê Cô Hoa Cơm! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Trung Nguyên Coffee",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Trung Nguyên Coffee! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Cà Phê Lutulata Desserts and Drinks",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Cà Phê Lutulata Desserts and Drinks! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Cà Phê Zone",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Cà Phê Zone! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Cafè Phố Cổ",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Cafè Phố Cổ! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Cà Phê Bar Barista Frank",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Cà Phê Bar Barista Frank! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Trung Nguyên Coffee",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Trung Nguyên Coffee! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Cộng Cà Phê",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Cộng Cà Phê! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Cộng Cà Phê",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Cộng Cà Phê! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Cà Phê Aha",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Cà Phê Aha! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Cà Phê 34",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Cà Phê 34! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Little bowl",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Little bowl! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Cà Phê & Bar Circle",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Cà Phê & Bar Circle! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Cà Phê Align",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Cà Phê Align! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Cà Phê Shop",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Cà Phê Shop! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Cà Phê Phương Linh",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Cà Phê Phương Linh! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Cà Phê AG",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Cà Phê AG! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Reng Reng Café",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Reng Reng Café! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Cà Phê Vui",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Cà Phê Vui! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Cà Phê Mystic",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Cà Phê Mystic! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Cà Phê Trung",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Cà Phê Trung! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Cà Phê 39 Tạ Hiển",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Cà Phê 39 Tạ Hiển! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Cà Phê Cu Bảo",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Cà Phê Cu Bảo! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Paris Deli",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Paris Deli! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Tâm Quán Trà",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Tâm Quán Trà! Không gian yên tĩnh, wifi khỏe."
+  },
+  {
+    "user_name": "Antigravity Reviewer",
+    "shop_name": "Vietnam Speciality Coffee",
+    "ratings": {
+      "drink": 5,
+      "service": 4,
+      "ambiance": 5
+    },
+    "comment": "Trải nghiệm tuyệt vời tại Vietnam Speciality Coffee! Không gian yên tĩnh, wifi khỏe."
+  }
+]

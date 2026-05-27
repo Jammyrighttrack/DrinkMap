@@ -26,6 +26,17 @@ class SaveShopRequest(BaseModel):
     shop_id: str
 
 
+class GoogleMockPayload(BaseModel):
+    """
+    Contract nhận vào tại POST /auth/google-mock.
+    Giả lập dữ liệu trả về từ Google OAuth để tạo / tìm User.
+    """
+    full_name: str
+    email: EmailStr
+    avatar: Optional[str] = None
+    auth_provider: str = "google"
+
+
 class UserResponse(BaseModel):
     """
     Contract trả về thông tin User. 

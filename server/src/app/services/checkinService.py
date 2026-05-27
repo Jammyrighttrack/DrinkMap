@@ -11,10 +11,11 @@ class CheckinService:
         checkin_dicts = await CheckinRepository.get_by_shop(shop_id, limit)
         
         formatted_checkins = []
+        for c in checkin_dicts:
             c.pop("_id", None)
             dto = CheckinResponse(**c)
             # Nếu có logic join tên User thì gán thêm, ví dụ:
             # dto.user_name = "Tên user lấy từ DB"
             formatted_checkins.append(dto)
-            
+
         return formatted_checkins

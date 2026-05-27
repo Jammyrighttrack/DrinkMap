@@ -33,4 +33,4 @@ class ReviewResponse(BaseModel):
     photos: List[str] = []
     taste_tags: List[str] = []
     
-    created_at: datetime
+    created_at: Optional[datetime] = None

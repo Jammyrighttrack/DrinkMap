@@ -2,10 +2,10 @@ import uuid
 from datetime import datetime, timezone
 from fastapi import HTTPException, status
 
-from app.repositories.favourite_repo import FavouriteRepository
+from app.crud.favouriteRepository import FavouriteRepository
 # Import thêm các Repository khác để Service làm nhạc trưởng điều phối
-from app.repositories.shop_repo import ShopRepository
-from app.repositories.user_repo import UserRepository
+from app.crud.shopRepository import ShopRepository
+from app.crud.userRepository import UserRepository
 from app.dtos.shopDTO import ShopSummaryResponse
 from typing import List
 

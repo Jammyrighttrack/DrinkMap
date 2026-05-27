@@ -8,7 +8,8 @@ from app.api.routes import (
     drinksAPI,
     recommendAPI,
     health,
-    uploadAPI
+    uploadAPI,
+    chatAPI
 )
 
 api_router = APIRouter()
@@ -22,3 +23,4 @@ api_router.include_router(drinksAPI.router, prefix="/drinks", tags=["drinks"])
 api_router.include_router(reviewsAPI.router, prefix="/reviews", tags=["reviews"])
 api_router.include_router(recommendAPI.router, prefix="/recommendations", tags=["recommendations"])
 api_router.include_router(uploadAPI.router, prefix="/upload", tags=["upload"])
+api_router.include_router(chatAPI.router, prefix="/chat", tags=["Chatbot AI"])

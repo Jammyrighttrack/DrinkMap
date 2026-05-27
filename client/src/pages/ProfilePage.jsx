@@ -61,7 +61,7 @@ const TABS = [
 export default function ProfilePage() {
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState('favorites');
-  const { currentUser } = useSelector((state) => state.auth || state.user || {});
+  const { currentUser } = useSelector((state) => state.auth);
   
   // Trộn dữ liệu user thật từ Redux với các trường giả (MOCK) cho đủ UI
   const user = {

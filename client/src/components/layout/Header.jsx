@@ -1,6 +1,9 @@
 import React from 'react';
+import useChatStore from '../../features/ai_chat/store/useChatStore';
 
 const Header = ({ onLoginClick, user }) => {
+  const toggleChat = useChatStore(s => s.toggleChat);
+
   return (
     <header className="sticky top-0 z-50 w-full border-b border-gray-200 bg-white/80 backdrop-blur-md shadow-sm">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 md:px-6">
@@ -49,7 +52,28 @@ const Header = ({ onLoginClick, user }) => {
           />
         </div>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3">
+          {/* ── Nút mở AI Chat ── */}
+          <button
+            id="open-ai-chat-btn"
+            onClick={(e) => { e.preventDefault(); toggleChat(); }}
+            title="Mở DrinkMap AI"
+            className="
+              flex items-center gap-1.5 rounded-full
+              bg-gradient-to-r from-teal-600 to-emerald-500
+              px-3 py-1.5 text-xs font-semibold text-white
+              shadow-sm hover:shadow-md hover:from-teal-700 hover:to-emerald-600
+              active:scale-95 transition-all duration-200
+              focus:outline-none focus:ring-2 focus:ring-teal-400 focus:ring-offset-1
+            "
+          >
+            {/* Sparkle / AI icon */}
+            <svg viewBox="0 0 24 24" className="h-3.5 w-3.5 fill-current" aria-hidden>
+              <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z" />
+            </svg>
+            <span className="hidden sm:inline">AI Chat</span>
+          </button>
+
           {user ? (
             <div className="flex cursor-pointer items-center gap-3 rounded-full p-1.5 transition-colors hover:bg-gray-50">
               <div className="hidden text-right sm:block">
@@ -77,3 +101,4 @@ const Header = ({ onLoginClick, user }) => {
 };
 
 export default Header;
+

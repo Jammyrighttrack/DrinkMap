@@ -17,21 +17,40 @@ class ShopService:
     async def get_shop_with_reviews(shop_id: str) -> Optional[ShopWithReviewsDTO]:
         """
         Lấy thông tin Shop kèm theo một số review (trả về DTO type-safe).
-        """
-        shop_dict = await ShopRepository.get_by_id(shop_id)
-        if not shop_dict:   
-            return None    
-                   
-        reviews_dicts = await ReviewRepository.get_by_shop(shop_id, limit=5)
         
+        NOTE: shop_id có thể là UUID hoặc slug. Sau khi tìm được shop,
+        luôn dùng canonical UUID (shop_dict["id"]) để query reviews — 
+        tránh lỗi khi frontend gửi slug nhưng DB lưu reviews theo UUID.
+        """
+        shop_dict = await ShopRepository.get_by_id_or_slug(shop_id)
+        if not shop_dict:
+            return None
+
+        # ✅ Dùng canonical UUID của shop, không dùng tham số slug gốc
+        canonical_id = shop_dict.get("id", shop_id)
+        reviews_dicts = await ReviewRepository.get_by_shop(canonical_id, limit=5)
+
         # Cast data sang DTO (Pydantic objects)
         recent_reviews = []
         for r in reviews_dicts:
             r.pop("_id", None)
-            recent_reviews.append(ReviewResponse(**r))
-        
+            try:
+                recent_reviews.append(ReviewResponse(**r))
+            except Exception as review_err:
+                # Log but don't crash — a bad review doc shouldn't kill the shop detail page
+                print(f"[ShopService] Skipping malformed review: {review_err}", flush=True)
+
         shop_dict.pop("_id", None)
-        shop_dto = ShopWithReviewsDTO(**shop_dict)
+        try:
+            shop_dto = ShopWithReviewsDTO(**shop_dict)
+        except Exception as validation_err:
+            # Surface Pydantic validation errors clearly instead of a bare 500
+            print(f"[ShopService] ShopWithReviewsDTO validation failed for id={canonical_id}: {validation_err}", flush=True)
+            raise HTTPException(
+                status_code=422,
+                detail=f"Dữ liệu quán trong DB không hợp lệ: {str(validation_err)}"
+            )
+
         shop_dto.recent_reviews = recent_reviews
         return shop_dto
 

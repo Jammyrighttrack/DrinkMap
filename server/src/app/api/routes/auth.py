@@ -1,19 +1,6 @@
-from fastapi import APIRouter, Depends, Response, HTTPException, status
-import uuid
-from datetime import datetime, timezone
-
-from app.dtos.userDTO import UserResponse
-from pydantic import BaseModel, EmailStr
-from typing import Optional
-
-class GoogleMockPayload(BaseModel):
-    full_name: str
-    email: EmailStr
-    avatar: Optional[str] = None
-    auth_provider: str = "google"
-from app.core.database import Database
-# Import các hàm logic từ core
+from fastapi import APIRouter, Depends, Response
 from app.core.auth import create_access_token, get_current_user
+from app.dtos.userDTO import GoogleMockPayload, UserResponse
 from app.services.userService import UserService
 
 router = APIRouter()
@@ -31,20 +18,20 @@ async def google_auth_mock(user_data: GoogleMockPayload, response: Response):
         avatar=user_data.avatar,
         auth_provider=user_data.auth_provider
     )
-        
+
     # 2. Tạo JWT Token
     access_token = create_access_token(data={"sub": user_dto.id})
-    
-    # 4. Gắn thẻ vào Cookie (Bảo mật cao)
+
+    # 3. Gắn thẻ vào Cookie (Bảo mật cao)
     response.set_cookie(
         key="access_token",
         value=access_token,
         httponly=True,
         max_age=30 * 24 * 60 * 60,  # 30 ngày
-        samesite="lax",   
+        samesite="lax",
         secure=False  # Đổi thành True khi chạy HTTPS thực tế
     )
-    
+
     return user_dto
 
 @router.get("/me", response_model=UserResponse)

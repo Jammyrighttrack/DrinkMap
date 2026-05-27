@@ -1,6 +1,5 @@
 from fastapi import APIRouter, Depends, Query, HTTPException, status
 from typing import List, Optional
-import uuid
 from datetime import datetime, timezone
 
 from app.dtos.shopDTO import ShopResponse, ShopSummaryResponse, ShopCreateRequest, ShopUpdateRequest

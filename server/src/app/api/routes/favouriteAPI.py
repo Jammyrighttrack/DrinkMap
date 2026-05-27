@@ -1,18 +1,12 @@
 from fastapi import APIRouter, Depends, status
 from typing import List
 
-from app.models import Shop
-from pydantic import BaseModel
-
-class FavouritePayload(BaseModel):
-    shop_id: str
 from app.core.auth import get_current_user
-# Import Service mà chúng ta vừa tạo
-from app.services.favourite_service import FavouriteService
+from app.dtos.favouriteDTO import FavouriteCreateRequest
+from app.dtos.shopDTO import ShopSummaryResponse
+from app.services.favouriteService import FavouriteService
 
 router = APIRouter()
-
-from app.dtos.shopDTO import ShopSummaryResponse
 
 @router.get("/", response_model=List[ShopSummaryResponse])
 async def get_favourite_shops(current_user: dict = Depends(get_current_user)):
@@ -23,7 +17,7 @@ async def get_favourite_shops(current_user: dict = Depends(get_current_user)):
     return await FavouriteService.get_user_favourites(current_user["id"])
 
 @router.post("/", status_code=status.HTTP_201_CREATED)
-async def add_favourite_shop(request: FavouritePayload, current_user: dict = Depends(get_current_user)):
+async def add_favourite_shop(request: FavouriteCreateRequest, current_user: dict = Depends(get_current_user)):
     """
     Thêm một quán vào danh sách yêu thích
     """

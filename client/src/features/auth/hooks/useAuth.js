@@ -11,14 +11,8 @@ import { useSelector, useDispatch } from 'react-redux';
 export function useAuth() {
   const dispatch = useDispatch();
   
-  // Lấy state từ Redux Store (giả định tên slice là 'user' hoặc 'auth')
-  const authState = useSelector((state) => state.user || state.auth || {
-    isAuthenticated: false,
-    currentUser: null,
-    isLoading: false,
-    error: null,
-    isInitializing: false,
-  });
+  // Lấy state từ Redux Store (slice 'auth')
+  const authState = useSelector((state) => state.auth);
 
   const { isAuthenticated, currentUser, isLoading, error, isInitializing } = authState;
 

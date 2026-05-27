@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends, HTTPException, Query, status
+from fastapi import APIRouter, Depends, Query, status
 from typing import List, Optional
 import uuid
 
@@ -19,14 +19,9 @@ async def add_drink_to_menu(
     current_user: dict = Depends(get_current_user)
 ):
     """
-    Thêm món mới vào menu của quán. 
+    Thêm món mới vào menu của quán.
     Chỉ chủ quán hoặc người có quyền mới nên làm việc này (tạm thời để login là được).
     """
-    from app.crud.shopRepository import ShopRepository
-    shop = await ShopRepository.get_by_id(drink_data.shop_id)
-    if not shop:
-        raise HTTPException(status_code=404, detail="Không tìm thấy quán để thêm menu")
-   
     return await DrinkService.add_drink(drink_data)
 
 @router.get("/search", response_model=List[DrinkResponse])

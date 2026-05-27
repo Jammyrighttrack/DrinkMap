@@ -20,7 +20,7 @@ export function RequireAuth({
 }) {
   // Lấy state từ userSlice (Giả định path file slice nằm ở ../../user/userSlice hoặc tương tự)
   // Lưu ý: Nếu userSlice chưa setup isInitializing, có thể gỡ thẻ if(isInitializing)
-  const { isAuthenticated, isInitializing } = useSelector((state) => state.user);
+  const { isAuthenticated, isInitializing } = useSelector((state) => state.auth);
   const location = useLocation();
   const [showModal, setShowModal] = useState(false);
 

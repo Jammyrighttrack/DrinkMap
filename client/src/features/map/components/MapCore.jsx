@@ -2,6 +2,7 @@ import React, { useEffect, useMemo } from 'react';
 import { MapContainer, Marker, Popup, TileLayer, useMap, ZoomControl } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
+import { useMapStore } from '../../../store/useMapStore';
 
 delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({
@@ -23,19 +24,34 @@ const UserLocationIcon = new L.DivIcon({
 });
 
 const getShopPosition = (shop) => {
-  const coordinates = shop?.location?.coordinates;
+  const loc = shop?.location;
 
-  if (!Array.isArray(coordinates) || coordinates.length < 2) {
-    return null;
+  if (loc) {
+    const { type, coordinates } = loc;
+
+    // Point: coordinates = [lng, lat]
+    if (type === 'Point' && Array.isArray(coordinates) && coordinates.length >= 2) {
+      const [lng, lat] = coordinates;
+      if (Number.isFinite(lat) && Number.isFinite(lng)) return [lat, lng];
+    }
+
+    // Polygon / MultiPolygon: tính centroid của ring ngoài
+    if ((type === 'Polygon' || type === 'MultiPolygon') && Array.isArray(coordinates)) {
+      const ring = type === 'Polygon' ? coordinates[0] : coordinates[0]?.[0];
+      if (Array.isArray(ring) && ring.length > 0) {
+        const avgLng = ring.reduce((s, c) => s + c[0], 0) / ring.length;
+        const avgLat = ring.reduce((s, c) => s + c[1], 0) / ring.length;
+        if (Number.isFinite(avgLat) && Number.isFinite(avgLng)) return [avgLat, avgLng];
+      }
+    }
   }
 
-  const [lng, lat] = coordinates;
-
-  if (!Number.isFinite(lat) || !Number.isFinite(lng)) {
-    return null;
+  // Flat lat/lng fields (từ AI response)
+  if (shop?.lat && shop?.lng && Number.isFinite(shop.lat) && Number.isFinite(shop.lng)) {
+    return [shop.lat, shop.lng];
   }
 
-  return [lat, lng];
+  return null;
 };
 
 function MapController({ center, zoom }) {
@@ -68,6 +84,32 @@ function MapController({ center, zoom }) {
   return null;
 }
 
+function FocusedShopController({ mapShops }) {
+  const map = useMap();
+  const focusedShop = useMapStore((state) => state.focusedShop);
+
+  useEffect(() => {
+    if (!focusedShop) return;
+
+    let targetPos = getShopPosition(focusedShop);
+    
+    // If AI parsed shop doesn't have exact coordinates, match with DB shops
+    if (!targetPos) {
+      const match = mapShops.find(s => s.slug === focusedShop.slug || s.name === focusedShop.name);
+      if (match) targetPos = getShopPosition(match);
+    }
+
+    if (targetPos) {
+      map.flyTo(targetPos, 17, {
+        animate: true,
+        duration: 1.5,
+      });
+    }
+  }, [focusedShop, map, mapShops]);
+
+  return null;
+}
+
 const MapCore = ({
   center = [10.762622, 106.660172],
   zoom = 14,
@@ -77,9 +119,12 @@ const MapCore = ({
   onMapDragEnd,
   className = '',
 }) => {
+  const { activeShops } = useMapStore();
+  const displayShops = activeShops.length > 0 ? activeShops : shops;
+
   const mapShops = useMemo(
-    () => shops.filter((shop) => getShopPosition(shop)),
-    [shops]
+    () => displayShops.filter((shop) => getShopPosition(shop)),
+    [displayShops]
   );
 
   return (
@@ -106,6 +151,7 @@ const MapCore = ({
 
         <ZoomControl position="bottomright" />
         <MapController center={center} zoom={zoom} />
+        <FocusedShopController mapShops={mapShops} />
 
         {userLocation && Number.isFinite(userLocation.lat) && Number.isFinite(userLocation.lng) && (
           <Marker

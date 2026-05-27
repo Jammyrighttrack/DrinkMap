@@ -1,0 +1,2162 @@
+[
+  {
+    "name": "The Coffee House",
+    "slug": "the-coffee-house-8b50f3",
+    "address": "56 Phố Bà Triệu",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [
+            105.8503198,
+            21.0224108
+          ],
+          [
+            105.8502906,
+            21.0223366
+          ],
+          [
+            105.8503764,
+            21.0223072
+          ],
+          [
+            105.8504056,
+            21.0223814
+          ],
+          [
+            105.8503198,
+            21.0224108
+          ]
+        ]
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Conifer Bốn Mùa – Four Seasons",
+    "slug": "conifer-bon-mua-four-seasons-bac09b",
+    "address": "50 Phố Lê Thái Tổ",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [
+            105.8517964,
+            21.0264215
+          ],
+          [
+            105.8518054,
+            21.0264213
+          ],
+          [
+            105.851814,
+            21.0264238
+          ],
+          [
+            105.8518214,
+            21.0264287
+          ],
+          [
+            105.8518267,
+            21.0264355
+          ],
+          [
+            105.8518294,
+            21.0264435
+          ],
+          [
+            105.8518292,
+            21.0264519
+          ],
+          [
+            105.8518261,
+            21.0264599
+          ],
+          [
+            105.8518202,
+            21.0264668
+          ],
+          [
+            105.8518121,
+            21.0264715
+          ],
+          [
+            105.8518028,
+            21.0264734
+          ],
+          [
+            105.8517934,
+            21.0264722
+          ],
+          [
+            105.8517849,
+            21.0264682
+          ],
+          [
+            105.8517783,
+            21.0264618
+          ],
+          [
+            105.8517744,
+            21.0264537
+          ],
+          [
+            105.8517737,
+            21.0264448
+          ],
+          [
+            105.8517759,
+            21.0264367
+          ],
+          [
+            105.8517808,
+            21.0264296
+          ],
+          [
+            105.8517879,
+            21.0264244
+          ],
+          [
+            105.8517964,
+            21.0264215
+          ]
+        ]
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Cafe Muối",
+    "slug": "cafe-muoi-326486",
+    "address": "12 Phố Tông Đản",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [
+            105.8572368,
+            21.0274917
+          ],
+          [
+            105.8572737,
+            21.0273648
+          ],
+          [
+            105.8573665,
+            21.0273884
+          ],
+          [
+            105.8573297,
+            21.0275152
+          ],
+          [
+            105.8572368,
+            21.0274917
+          ]
+        ]
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Café Mai Hương",
+    "slug": "cafe-mai-huong-2ca7c6",
+    "address": "Địa chỉ chưa cập nhật",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [
+            105.8561461,
+            21.0289536
+          ],
+          [
+            105.856152,
+            21.0288737
+          ],
+          [
+            105.8562116,
+            21.0288769
+          ],
+          [
+            105.856205,
+            21.0289586
+          ],
+          [
+            105.8561461,
+            21.0289536
+          ]
+        ]
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Kafebean",
+    "slug": "kafebean-a3397e",
+    "address": "7 Phố Trần Nguyên Hãn",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [
+            105.856265,
+            21.0289646
+          ],
+          [
+            105.8562718,
+            21.0288797
+          ],
+          [
+            105.856314,
+            21.0288816
+          ],
+          [
+            105.8563083,
+            21.0289685
+          ],
+          [
+            105.856265,
+            21.0289646
+          ]
+        ]
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Cà Phê Nola",
+    "slug": "ca-phe-nola-e33a9c",
+    "address": "Địa chỉ chưa cập nhật",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.8535859,
+        21.0340721
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Trang Anh",
+    "slug": "trang-anh-f812d2",
+    "address": "Địa chỉ chưa cập nhật",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.8528307,
+        21.0329897
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Orick Coffee",
+    "slug": "orick-coffee-fda7c9",
+    "address": "46 Phố Lý Thường Kiệt",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.8476001,
+        21.0242859
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Van Viet Cafe",
+    "slug": "van-viet-cafe-7524c9",
+    "address": "36 Lý Thường Kiệt",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.8516744,
+        21.0231794
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Cà Phê Cosa Nostra",
+    "slug": "ca-phe-cosa-nostra-d860ec",
+    "address": "24 Phố Tông Đản",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.8579872,
+        21.0255087
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Cà Phê HAN",
+    "slug": "ca-phe-han-4232d8",
+    "address": "4 Phố Hàng Bạc",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.8543107,
+        21.0338728
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Cà Phê MVTTS",
+    "slug": "ca-phe-mvtts-6c2e22",
+    "address": "5 Nhà Thờ",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.8484194,
+        21.0284992
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Cà Phê AnAn",
+    "slug": "ca-phe-anan-ea12af",
+    "address": "22 Phố Lý Quốc Sư",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.848958,
+        21.0301997
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Cà Phê Linh",
+    "slug": "ca-phe-linh-6d697f",
+    "address": "65 Hàng Buồm",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.8513898,
+        21.0356987
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Cà Phê Aha",
+    "slug": "ca-phe-aha-1b651d",
+    "address": "Địa chỉ chưa cập nhật",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.8471067,
+        21.0343276
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Cà Phê Aroi",
+    "slug": "ca-phe-aroi-674e9b",
+    "address": "79 Phố Hàng Gà",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.8471336,
+        21.0344932
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Cà Phê Mai",
+    "slug": "ca-phe-mai-92c685",
+    "address": "Địa chỉ chưa cập nhật",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.8482211,
+        21.0190238
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Trung Nguyên Coffee",
+    "slug": "trung-nguyen-coffee-03d393",
+    "address": "35Lu'o'ng Ngoc Quyen 26 Hang Trong",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.8523133,
+        21.0347133
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "The Hanoi Social Club",
+    "slug": "the-hanoi-social-club-5d257e",
+    "address": "6 Ngõ Hội Vũ",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.8461905,
+        21.0291515
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Cà Phê Canopee",
+    "slug": "ca-phe-canopee-9c95f2",
+    "address": "Địa chỉ chưa cập nhật",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.8496718,
+        21.0303946
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Cà Phê AnAn",
+    "slug": "ca-phe-anan-d9e96a",
+    "address": "39 Phố Tràng Tiền",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.8545563,
+        21.0250058
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Cà Phê AnAn",
+    "slug": "ca-phe-anan-da7510",
+    "address": "10 Phố Nhà Chung",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.8496623,
+        21.0283707
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Cà Phê Apple Tart",
+    "slug": "ca-phe-apple-tart-1ed40c",
+    "address": "Hàng Hành",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.8501553,
+        21.0311596
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Wanna Waffle?",
+    "slug": "wanna-waffle-7ec873",
+    "address": "Phố Đinh Tiên Hoàng",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.8524977,
+        21.0319807
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Cà Phê 26",
+    "slug": "ca-phe-26-9b1e78",
+    "address": "Địa chỉ chưa cập nhật",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.8469348,
+        21.0312752
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Cà Phê Hanoi House",
+    "slug": "ca-phe-hanoi-house-29a34c",
+    "address": "2/F 47a Phố Lý Quốc Sư",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.8495211,
+        21.0291546
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Cà Phê Giang",
+    "slug": "ca-phe-giang-4adb4c",
+    "address": "39 Phố Nguyễn Hữu Huân",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.8544991,
+        21.0342713
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Cà Phê Giảng - Cà Phê Trứng",
+    "slug": "ca-phe-giang-ca-phe-trung-bf4ef0",
+    "address": "39 Phố Nguyễn Hữu Huân",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.8546223,
+        21.033606
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Cà Phê La Studio",
+    "slug": "ca-phe-la-studio-1e4fe4",
+    "address": "P-210, số 15 Ngo Đào Duy Từ",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.852714,
+        21.035318
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Raw Juicery",
+    "slug": "raw-juicery-a1f87d",
+    "address": "Địa chỉ chưa cập nhật",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.8496455,
+        21.0290366
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Cà Phê Glamour",
+    "slug": "ca-phe-glamour-bd332d",
+    "address": "Địa chỉ chưa cập nhật",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.8520713,
+        21.0359291
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Highlands Coffee",
+    "slug": "highlands-coffee-92f91f",
+    "address": "Địa chỉ chưa cập nhật",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.8543477,
+        21.0252139
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Timeline",
+    "slug": "timeline-cad5ce",
+    "address": "Địa chỉ chưa cập nhật",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.8520208,
+        21.0330123
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Cà Phê Loading T",
+    "slug": "ca-phe-loading-t-dd5dca",
+    "address": "8 Phố Chân Cầm",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.8485873,
+        21.0305248
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Cà Phê Aha",
+    "slug": "ca-phe-aha-a9ef59",
+    "address": "Địa chỉ chưa cập nhật",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.852693,
+        21.0361437
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Cà Phê Hà Nội Deli",
+    "slug": "ca-phe-ha-noi-deli-1a983e",
+    "address": "51 Phố Lý Thường Kiệt",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.84892,
+        21.0238242
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Cà Phê Loft Stop",
+    "slug": "ca-phe-loft-stop-6512a1",
+    "address": "Địa chỉ chưa cập nhật",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.850132,
+        21.0311848
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Doong Tea & Coffee Express",
+    "slug": "doong-tea-coffee-express-4595e5",
+    "address": "19 Mã Mây",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.8533683,
+        21.035874
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Cà Phê Countryside",
+    "slug": "ca-phe-countryside-01c584",
+    "address": "Bát Đàn",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.8472901,
+        21.0336877
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Cà Phê J'Adore",
+    "slug": "ca-phe-jadore-794356",
+    "address": "Địa chỉ chưa cập nhật",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.8539069,
+        21.0311655
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Stamp Coffee",
+    "slug": "stamp-coffee-d6a6d9",
+    "address": "75 Phố Đinh Tiên Hoàng",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.8537452,
+        21.0271754
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Cà Phê L'étage",
+    "slug": "ca-phe-letage-80c6f2",
+    "address": "Địa chỉ chưa cập nhật",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.8528192,
+        21.0254814
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "The Balcony",
+    "slug": "the-balcony-2106c5",
+    "address": "4 Phố Lê Thái Tổ",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.8509219,
+        21.0313847
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "The Note Coffee",
+    "slug": "the-note-coffee-34086f",
+    "address": "64 Phố Lương Văn Can",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.8508446,
+        21.0316214
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Cà Phê Dinh 13",
+    "slug": "ca-phe-dinh-13-8e0156",
+    "address": "13 Phố Đinh Tiên Hoàng",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.8523858,
+        21.0319988
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Cà Phê Huế Organic",
+    "slug": "ca-phe-hue-organic-e57353",
+    "address": "26 Phố Hàng Giầy",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.8510383,
+        21.0353249
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Cà Phê La Place",
+    "slug": "ca-phe-la-place-2ef4c7",
+    "address": "Địa chỉ chưa cập nhật",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.849202,
+        21.0291276
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Highlands Coffee",
+    "slug": "highlands-coffee-209a69",
+    "address": "129 Lê Duẩn",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.8416115,
+        21.0242996
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Cà Phê Cabine",
+    "slug": "ca-phe-cabine-9ebf4d",
+    "address": "52 Hàng Bài",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.8519626,
+        21.0200783
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Cộng Cà Phê",
+    "slug": "cong-ca-phe-83881e",
+    "address": "Địa chỉ chưa cập nhật",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.854312,
+        21.0337205
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Tranquil Books & Coffee",
+    "slug": "tranquil-books-coffee-fa6095",
+    "address": "5 Phố Nguyễn Quang Bích",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.8454955,
+        21.0325038
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Cộng Cà Phê",
+    "slug": "cong-ca-phe-f27eb3",
+    "address": "Địa chỉ chưa cập nhật",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.8468531,
+        21.0327057
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Cà Phê Kufu",
+    "slug": "ca-phe-kufu-20ebdd",
+    "address": "107 Phố Hàng Bông",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.8463311,
+        21.0296106
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Cà Phê Runam",
+    "slug": "ca-phe-runam-d5b4b2",
+    "address": "Địa chỉ chưa cập nhật",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.8499469,
+        21.0291324
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Cà Phê Dose",
+    "slug": "ca-phe-dose-f248b4",
+    "address": "27 Phố Nguyễn Hữu Huân",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.8542746,
+        21.0341258
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Cà Phê Lộc",
+    "slug": "ca-phe-loc-242c63",
+    "address": "19 Nguyễn Gia Thiều",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.8458848,
+        21.0200827
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Mành",
+    "slug": "manh-336057",
+    "address": "Địa chỉ chưa cập nhật",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.8506047,
+        21.0355741
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Tim coffee",
+    "slug": "tim-coffee-ef54f8",
+    "address": "Địa chỉ chưa cập nhật",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.8515428,
+        21.0347527
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Cà Phê Sạch",
+    "slug": "ca-phe-sach-a386e5",
+    "address": "Địa chỉ chưa cập nhật",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.8420948,
+        21.0266653
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Cà Phê Alo",
+    "slug": "ca-phe-alo-0a0a5d",
+    "address": "8 Phố Ngô Quyền",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.8567995,
+        21.0289456
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Coffee A",
+    "slug": "coffee-a-c7993f",
+    "address": "2 Lãn Ông",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.8498589,
+        21.0353415
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Trà Chanh Phô cô",
+    "slug": "tra-chanh-pho-co-a3599a",
+    "address": "25 Đào Duy Từ",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.8532195,
+        21.0358831
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Cà Phê Hiến",
+    "slug": "ca-phe-hien-20217e",
+    "address": "93a Trần Hưng Đạo",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.8433114,
+        21.0237716
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Cà Phê Kim Lài",
+    "slug": "ca-phe-kim-lai-aa2088",
+    "address": "99 Hàng Buồm",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.8506882,
+        21.0354761
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Cà Phê 67 Phùng Hưng",
+    "slug": "ca-phe-67-phung-hung-23b03a",
+    "address": "67 Phố Phùng Hưng",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.8462306,
+        21.0365477
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Xofa",
+    "slug": "xofa-8b60d3",
+    "address": "Địa chỉ chưa cập nhật",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.8435679,
+        21.0293962
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Cà Phê 81",
+    "slug": "ca-phe-81-d6fab2",
+    "address": "81 Trần Quốc Toản",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.8457267,
+        21.0206823
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Cà Phê No.1",
+    "slug": "ca-phe-no1-2e349f",
+    "address": "1 Ngõ Gạch",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.8507399,
+        21.0362675
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Cộng Cà Phê",
+    "slug": "cong-ca-phe-6e1a03",
+    "address": "68 Phố Quán Sứ",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.845214,
+        21.0252823
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Mira Coffee",
+    "slug": "mira-coffee-0f3abf",
+    "address": "15 Đào Duy Từ",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.8527136,
+        21.0366953
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Cà Phê Nắng",
+    "slug": "ca-phe-nang-35b43c",
+    "address": "Địa chỉ chưa cập nhật",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.8544278,
+        21.0322313
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "IVegan Supershop",
+    "slug": "ivegan-supershop-0c2d39",
+    "address": "49 Phố Hàng Điếu",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.8468198,
+        21.0325749
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "O dây có bán càphê",
+    "slug": "o-day-co-ban-caphe-656e60",
+    "address": "116 Phố Cầu Gỗ",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.8514512,
+        21.032358
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Cà Phê AnAn",
+    "slug": "ca-phe-anan-3a18f1",
+    "address": "101 Hàng Buồm",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.8505051,
+        21.0354182
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Cà Phê Cô Hoa Cơm",
+    "slug": "ca-phe-co-hoa-com-e7d611",
+    "address": "1c Phố Tông Đản",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.8571216,
+        21.0289524
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Trung Nguyên Coffee",
+    "slug": "trung-nguyen-coffee-995066",
+    "address": "52 Phố Hai Bà Trưng",
+    "city": "Hanoi",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.8490481,
+        21.0257078
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Cà Phê Lutulata Desserts and Drinks",
+    "slug": "ca-phe-lutulata-desserts-and-drinks-910625",
+    "address": "39 Hàng Cót",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.8472356,
+        21.0374505
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Cà Phê Zone",
+    "slug": "ca-phe-zone-093c97",
+    "address": "92 Phố Nguyễn Hữu Huân",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.8544181,
+        21.032337
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Cafè Phố Cổ",
+    "slug": "cafe-pho-co-ff692b",
+    "address": "11 Phố Hàng Gai",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.8510679,
+        21.0322358
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Cà Phê Bar Barista Frank",
+    "slug": "ca-phe-bar-barista-frank-cb03c0",
+    "address": "Địa chỉ chưa cập nhật",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.8476015,
+        21.0295606
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Trung Nguyên Coffee",
+    "slug": "trung-nguyen-coffee-534cd9",
+    "address": "Địa chỉ chưa cập nhật",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.8495915,
+        21.0285356
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Cộng Cà Phê",
+    "slug": "cong-ca-phe-15d2c2",
+    "address": "Địa chỉ chưa cập nhật",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.8515057,
+        21.0323577
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Cộng Cà Phê",
+    "slug": "cong-ca-phe-c34d62",
+    "address": "Phố Nhà Thờ",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.8496468,
+        21.0288136
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Cà Phê Aha",
+    "slug": "ca-phe-aha-5901f0",
+    "address": "Địa chỉ chưa cập nhật",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.852762,
+        21.0255796
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Cà Phê 34",
+    "slug": "ca-phe-34-a02e80",
+    "address": "Lương Văn Can",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.850181,
+        21.0331017
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Little bowl",
+    "slug": "little-bowl-d42c03",
+    "address": "Phố Lãn Ông",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.8486456,
+        21.0353916
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Cà Phê & Bar Circle",
+    "slug": "ca-phe-bar-circle-40542b",
+    "address": "49;53 Phố Hàng Quạt",
+    "city": "Hanoi",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.8488533,
+        21.0323736
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Cà Phê Align",
+    "slug": "ca-phe-align-97ccfe",
+    "address": "Địa chỉ chưa cập nhật",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.853736,
+        21.0341874
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Cà Phê Shop",
+    "slug": "ca-phe-shop-c6741a",
+    "address": "Địa chỉ chưa cập nhật",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.8448813,
+        21.0209328
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Cà Phê Phương Linh",
+    "slug": "ca-phe-phuong-linh-318385",
+    "address": "94 Phố Nguyễn Hữu Huân",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.8544699,
+        21.0321017
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Cà Phê AG",
+    "slug": "ca-phe-ag-507a81",
+    "address": "Địa chỉ chưa cập nhật",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.8510418,
+        21.0341656
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Reng Reng Café",
+    "slug": "reng-reng-cafe-718487",
+    "address": "Địa chỉ chưa cập nhật",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.8449795,
+        21.0384778
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Cà Phê Vui",
+    "slug": "ca-phe-vui-fa1e9e",
+    "address": "Địa chỉ chưa cập nhật",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.8535191,
+        21.0354746
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Cà Phê Mystic",
+    "slug": "ca-phe-mystic-72c42c",
+    "address": "Địa chỉ chưa cập nhật",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.8538647,
+        21.0356431
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Cà Phê Trung",
+    "slug": "ca-phe-trung-cbfe09",
+    "address": "50 Phố Quán Sứ",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.846086,
+        21.0280926
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Cà Phê 39 Tạ Hiển",
+    "slug": "ca-phe-39-ta-hien-b47b38",
+    "address": "39 Tạ Hiện",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.8521721,
+        21.0342183
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Cà Phê Cu Bảo",
+    "slug": "ca-phe-cu-bao-32ffe5",
+    "address": "Phố Lý Nam Đế",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.844232,
+        21.0315945
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Paris Deli",
+    "slug": "paris-deli-a0b39f",
+    "address": "Phan Chu Trinh",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.8565841,
+        21.0235569
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Tâm Quán Trà",
+    "slug": "tam-quan-tra-2470b4",
+    "address": "Địa chỉ chưa cập nhật",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.8556663,
+        21.0194251
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  },
+  {
+    "name": "Vietnam Speciality Coffee",
+    "slug": "vietnam-speciality-coffee-245bf5",
+    "address": "Địa chỉ chưa cập nhật",
+    "city": "Hà Nội",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        105.8505169,
+        21.0216856
+      ]
+    },
+    "category": [
+      "Cà phê"
+    ],
+    "rating": 5.0,
+    "is_active": true,
+    "description": "Quán có không gian thư giãn, thích hợp để học tập và làm việc.",
+    "cover_image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24"
+  }
+]

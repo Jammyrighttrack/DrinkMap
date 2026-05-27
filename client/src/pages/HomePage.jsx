@@ -116,27 +116,34 @@ const matchesPriceRange = (shop, priceRange) => {
   return (shop?.price_range || shop?.priceRange || '') === normalizedTarget;
 };
 
-const hasValidCoordinates = (shop) => {
-  const coordinates = shop?.location?.coordinates;
-  
-  return (
-    Array.isArray(coordinates) &&
-    coordinates.length >= 2 &&
-    Number.isFinite(coordinates[0]) &&
-    Number.isFinite(coordinates[1])
-  );
-};
+const getCoordinatesFromLocation = (shop) => {
+  const loc = shop?.location;
+  if (!loc) return null;
 
-const toMapCenter = (shop) => {
-  if (!shop?.location?.coordinates || shop.location.coordinates.length < 2) {
-    return null;
+  const { type, coordinates } = loc;
+
+  // Point: coordinates = [lng, lat]
+  if (type === 'Point' && Array.isArray(coordinates) && coordinates.length >= 2) {
+    const [lng, lat] = coordinates;
+    if (Number.isFinite(lat) && Number.isFinite(lng)) return { lat, lng };
   }
 
-  return {
-    lat: shop.location.coordinates[1],
-    lng: shop.location.coordinates[0],
-  };
+  // Polygon: coordinates = [[[lng, lat], ...]] — lấy centroid của ring đầu tiên
+  if ((type === 'Polygon' || type === 'MultiPolygon') && Array.isArray(coordinates)) {
+    const ring = type === 'Polygon' ? coordinates[0] : coordinates[0]?.[0];
+    if (Array.isArray(ring) && ring.length > 0) {
+      const avgLng = ring.reduce((s, c) => s + c[0], 0) / ring.length;
+      const avgLat = ring.reduce((s, c) => s + c[1], 0) / ring.length;
+      if (Number.isFinite(avgLat) && Number.isFinite(avgLng)) return { lat: avgLat, lng: avgLng };
+    }
+  }
+
+  return null;
 };
+
+const hasValidCoordinates = (shop) => getCoordinatesFromLocation(shop) !== null;
+
+const toMapCenter = (shop) => getCoordinatesFromLocation(shop);
 
 const normalizeShopForUI = (shop) => {
   if (!shop) {
@@ -277,7 +284,7 @@ const SectionPanel = ({
 
 const HomePage = () => {
   const navigate = useNavigate();
-  const { currentUser } = useSelector((state) => state.auth || state.user || {});
+  const { currentUser } = useSelector((state) => state.auth);
 
   const [showFilters, setShowFilters] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);

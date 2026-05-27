@@ -4,10 +4,10 @@ from datetime import datetime
 
 class LocationDTO(BaseModel):
     """
-    Đại diện cho tọa độ địa lý chuẩn GeoJSON
+    Đại diện cho tọa độ địa lý GeoJSON (hỗ trợ Point và Polygon)
     """
-    type: Literal["Point"] = "Point"
-    coordinates: List[float]  # [lng, lat]
+    type: str = "Point"       # "Point", "Polygon", "MultiPolygon"
+    coordinates: list         # [lng, lat] cho Point, [[[lng, lat], ...]] cho Polygon
 
 
 class ShopCreateRequest(BaseModel):
@@ -51,6 +51,7 @@ class ShopResponse(BaseModel):
     Đã lược bỏ/ẩn các field nhạy cảm nội bộ như: created_by (ID người tạo), is_active (thường list ra là đã active), updated_at.
     """
     id: str
+    slug: Optional[str] = None      # Được trả về để frontend dùng cho deep-link /shop/:slug
     name: str
     description: Optional[str] = None
     address: str
@@ -67,7 +68,7 @@ class ShopResponse(BaseModel):
     opening_hours: Optional[str] = None
     tags: List[str] = []
     
-    created_at: datetime
+    created_at: Optional[datetime] = None
 
 
 class ShopSummaryResponse(BaseModel):

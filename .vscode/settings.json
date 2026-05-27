@@ -1,0 +1,15 @@
+{
+    // Trỏ đến môi trường ảo của dự án
+    "python.defaultInterpreterPath": "server/.venv/Scripts/python.exe",
+
+    // Pylance sẽ coi "server/src" là root → import "app.xxx" sẽ được giải quyết đúng
+    "python.analysis.extraPaths": [
+        "server/src"
+    ],
+
+    // Dùng Pylance làm Language Server (cần extension ms-python.vscode-pylance)
+    "python.languageServer": "Pylance",
+
+    // Chế độ kiểm tra type cơ bản (đổi thành "strict" nếu muốn chặt hơn)
+    "python.analysis.typeCheckingMode": "basic"
+}

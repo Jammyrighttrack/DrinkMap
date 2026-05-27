@@ -1,0 +1,96 @@
+/**
+ * parseAIResponse.js – v3 (JSON Mode)
+ *
+ * Strategy:
+ *  - Expected input is a JSON string (either complete or partial during streaming).
+ *  - Extract 'message' field for the markdown chat bubble.
+ *  - Construct custom tokens for 'shop', 'drink', 'suggest' only when the full JSON is successfully parsed.
+ *
+ * Token types:
+ *   { type: 'shop',     name, info, location, cover_image }
+ *   { type: 'drink',    name, price, location, image_url }
+ *   { type: 'suggest',  chips: string[] }
+ *   { type: 'markdown', content: string }   ← normal chat text
+ */
+
+export function parseAITokens(text) {
+  if (!text) return [];
+
+  let data;
+  try {
+    // Attempt full JSON parse (will succeed on final chunk or if beautifully chunked)
+    data = JSON.parse(text);
+  } catch {
+    // Fallback for partial JSON while streaming
+    return extractPartialJSON(text);
+  }
+
+  const tokens = [];
+
+  // 1. Markdown Message Bubble
+  if (data.message) {
+    tokens.push({ type: 'markdown', content: data.message });
+  }
+
+  // 2. Shop Cards
+  if (Array.isArray(data.shops)) {
+    data.shops.forEach(s => {
+      tokens.push({
+        type: 'shop',
+        name: s.name || 'Unknown',
+        info: s.price_range_vnd || 'N/A',
+        location: s.address || 'N/A',
+        cover_image: s.cover_image,
+        slug: s.slug || ''
+      });
+    });
+  }
+
+  // 3. Drink Cards
+  if (Array.isArray(data.drinks)) {
+    data.drinks.forEach(d => {
+      // Use Intl.NumberFormat for premium look (thousand separators)
+      const formattedPrice = d.price_vnd
+        ? new Intl.NumberFormat('vi-VN').format(d.price_vnd) + ' VND'
+        : 'N/A';
+
+      tokens.push({
+        type: 'drink',
+        name: d.name || 'Unknown',
+        price: formattedPrice,
+        location: d.shop_name || 'N/A',
+        image_url: d.image_url
+      });
+    });
+  }
+
+  // 4. Suggestion Chips
+  if (Array.isArray(data.suggested_actions) && data.suggested_actions.length > 0) {
+    tokens.push({ type: 'suggest', chips: data.suggested_actions });
+  }
+
+  return tokens;
+}
+
+function extractPartialJSON(text) {
+  const tokens = [];
+  // Use regex to look for the "message" value inside a partial JSON payload
+  // This maintains the smooth typing effect before the JSON is complete
+  const match = text.match(/"message"\s*:\s*"((?:[^"\\]|\\.)*)/);
+  if (match) {
+    // Resolve basic escape sequences
+    const msg = match[1]
+      .replace(/\\n/g, '\n')
+      .replace(/\\"/g, '"')
+      .replace(/\\\\/g, '\\');
+    tokens.push({ type: 'markdown', content: msg });
+  }
+  return tokens;
+}
+
+export function extractSuggestions(tokens) {
+  for (let i = tokens.length - 1; i >= 0; i--) {
+    if (tokens[i].type === 'suggest') return tokens[i].chips;
+  }
+  return null;
+}

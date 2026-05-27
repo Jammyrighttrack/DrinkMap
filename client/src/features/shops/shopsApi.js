@@ -14,8 +14,6 @@ const shopsClient = axios.create({
   },
 });
 
-import { MOCK_SHOPS } from './mockData';
-
 // Optionally auto-inject auth tokens from localStorage for protected endpoints
 shopsClient.interceptors.request.use(
   (config) => {
@@ -35,12 +33,8 @@ export const shopsApi = {
    * @returns {Promise<Array>} List of Shop objects
    */
   getNearbyShops: async (params) => {
-    // const response = await shopsClient.get('/nearby', { params });
-    // return extractListPayload(response.data);
-
-    // Simulate network delay
-    await new Promise(resolve => setTimeout(resolve, 600));
-    return MOCK_SHOPS;
+    const response = await shopsClient.get('/nearby', { params });
+    return extractListPayload(response.data);
   },
 
   /**
@@ -49,12 +43,8 @@ export const shopsApi = {
    * @returns {Promise<Object>} The Shop object
    */
   getShopDetail: async (shopId) => {
-    // const response = await shopsClient.get(`/${shopId}`);
-    // return extractObjectPayload(response.data);
-    await new Promise(resolve => setTimeout(resolve, 300));
-    const shop = MOCK_SHOPS.find(s => s.id === shopId);
-    if (!shop) throw new Error("Shop not found");
-    return shop;
+    const response = await shopsClient.get(`/${shopId}`);
+    return extractObjectPayload(response.data);
   },
 
   /**
@@ -63,15 +53,8 @@ export const shopsApi = {
    * @returns {Promise<Array>} List of Shop objects
    */
   searchShops: async (params) => {
-    // const response = await shopsClient.get('/search', { params });
-    // return extractListPayload(response.data);
-    await new Promise(resolve => setTimeout(resolve, 500));
-    const q = (params?.q || "").toLowerCase();
-    const results = MOCK_SHOPS.filter(s =>
-      s.name.toLowerCase().includes(q) ||
-      (s.address && s.address.toLowerCase().includes(q))
-    );
-    return results;
+    const response = await shopsClient.get('/search', { params });
+    return extractListPayload(response.data);
   },
 
   /**
@@ -80,10 +63,8 @@ export const shopsApi = {
    * @returns {Promise<Array>} List of Shop objects
    */
   getAllShops: async (params = { limit: 50, skip: 0 }) => {
-    // const response = await shopsClient.get('/', { params });
-    // return extractListPayload(response.data);
-    await new Promise(resolve => setTimeout(resolve, 500));
-    return MOCK_SHOPS.slice(params.skip || 0, (params.skip || 0) + (params.limit || 50));
+    const response = await shopsClient.get('/', { params });
+    return extractListPayload(response.data);
   },
 
   /**
@@ -92,13 +73,8 @@ export const shopsApi = {
    * @returns {Promise<Object>} Created Shop object
    */
   createShop: async (shopData) => {
-    // const response = await shopsClient.post('/', shopData);
-    // return extractObjectPayload(response.data);
-    await new Promise(resolve => setTimeout(resolve, 500));
-    return {
-      id: `shop-new-${Date.now()}`,
-      ...shopData
-    };
+    const response = await shopsClient.post('/', shopData);
+    return extractObjectPayload(response.data);
   },
 
   /**
@@ -108,12 +84,8 @@ export const shopsApi = {
    * @returns {Promise<Object>} Updated Shop object
    */
   updateShop: async (shopId, updateData) => {
-    // const response = await shopsClient.put(`/${shopId}`, updateData);
-    // return extractObjectPayload(response.data);
-    await new Promise(resolve => setTimeout(resolve, 500));
-    const shop = MOCK_SHOPS.find(s => s.id === shopId);
-    if (!shop) throw new Error("Shop not found");
-    return { ...shop, ...updateData };
+    const response = await shopsClient.put(`/${shopId}`, updateData);
+    return extractObjectPayload(response.data);
   },
 
   /**
@@ -122,9 +94,7 @@ export const shopsApi = {
    * @returns {Promise<Object>} Message showing success
    */
   deleteShop: async (shopId) => {
-    // const response = await shopsClient.delete(`/${shopId}`);
-    // return response.data;
-    await new Promise(resolve => setTimeout(resolve, 500));
-    return { message: "Shop deleted successfully" };
+    const response = await shopsClient.delete(`/${shopId}`);
+    return response.data;
   }
 };
