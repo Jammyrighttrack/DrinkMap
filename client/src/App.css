@@ -33,12 +33,11 @@
     @apply bg-[var(--background)] text-[var(--foreground)] antialiased;
     font-family: 'Be Vietnam Pro', system-ui, sans-serif;
     /* Custom Selection Styling cho xịn xò */
-    @apply selection:bg-blue-500/30 selection:text-blue-900 dark:selection:text-blue-100;
+    @apply selection:bg-emerald-500/30 selection:text-emerald-900 dark:selection:text-emerald-100;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    /* Playfair Display chuyên trị tiêu đề tạo cảm giác Premium/Classic */
-    font-family: 'Playfair Display', serif;
+    font-family: inherit;
     text-wrap: balance; /* Tránh tình trạng 1 chữ đơn độc rớt xuống dòng cuối */
   }
 

@@ -18,7 +18,7 @@ export default function MessageBubble({ message }) {
         py-3 px-5
         rounded-[22px] rounded-br-[6px]
         shadow-[0_2px_8px_rgba(16,112,90,0.25)]
-        max-w-[85%]
+        max-w-[85%]   
         text-[14px] leading-relaxed font-medium
         break-words
       ">

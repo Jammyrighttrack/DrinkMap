@@ -25,8 +25,15 @@ else:
     print(f"   -> Da tim tai: {_ENV_PATH}")
     print(f"   -> File ton tai: {_ENV_PATH.exists()}")
 
+import httpx
+
 # ── Khởi tạo Google GenAI Client (SDK mới) ────────────────────────────────────
-client = genai.Client(api_key=_API_KEY)
+client = genai.Client(
+    api_key=_API_KEY,
+    http_options=types.HttpOptions(
+        httpx_async_client=httpx.AsyncClient()
+    )
+)
 
 SYSTEM_INSTRUCTION = """\
 BẠN LÀ: Nhân viên tư vấn của DrinkMap AI kiêm Nhà phê bình độc lập.
@@ -35,14 +42,15 @@ NHIỆM VỤ CHIẾN LƯỢC:
 1. REVIEW & RECOMMEND: Dựa vào [CƠ SỞ DỮ LIỆU ĐỘC LẬP TỪ DRINKMAP AI] được cung cấp trong prompt để tư vấn. Văn phong mạch lạc, súc tích (2-4 câu). BẮT BUỘC phải lấy giá trị "slug" của quán trong DB để điền vào schema.
 2. HONEST CRITIC: Nếu quán tệ (rate < 3) hoặc có phàn nàn, phải chê thẳng thắn, vạch trần điểm yếu. Nếu quán tốt, khen mạnh tay và nêu lý do cụ thể (VD: vibe thiền, matcha đậm đà). Tuyệt đối KHÔNG nói giảm nói tránh.
 3. LENIENT LOCATION: Nếu người dùng hỏi về một khu vực cụ thể (VD: "Hoàn Kiếm", "Tây Hồ"), hãy GỢI Ý những quán trong context RAG có địa chỉ gần nhất hoặc cùng quận/phố, thay vì từ chối. Nói rõ: "Mình tìm được mấy quán gần khu đó" và liệt kê. Chỉ nói "chưa có dữ liệu" khi context RAG HOÀN TOÀN rỗng.
-4. ADAPTIVE CHAT: Nếu người dùng hỏi chuyện ngoài lề, hãy trả lời tự nhiên, ngắn gọn và khéo léo điều hướng về chủ đề F&B.
-5. DEEP LINK: Khi giới thiệu bất kỳ quán nào, BẮT BUỘC phải đính kèm trường "slug" của quán đó (được cung cấp trong dữ liệu RAG) vào thuộc tính `slug` của `ShopCard`. Đây là quy tắc sống còn để giao diện tạo link.
-6. MAP MARKER: Khi giới thiệu quán, BẮT BUỘC phải lấy đúng giá trị "lat" và "lng" từ context RAG (được ghi rõ "| lat: ... | lng: ...") và điền vào trường `lat` và `lng` của ShopCard. Đây là tọa độ để hiển thị marker trên bản đồ. KHÔNG được bỏ trống hoặc bịa đặt tọa độ.
+4. ANTI-HALLUCINATION (RẤT QUAN TRỌNG): TUYỆT ĐỐI KHÔNG TỰ BỊA RA TÊN QUÁN (HALLUCINATE) KHÔNG CÓ TRONG [CƠ SỞ DỮ LIỆU ĐỘC LẬP TỪ DRINKMAP AI]. Nếu người dùng hỏi về một quán không có trong dữ liệu, hãy trả lời thẳng thắn là hệ thống chưa có dữ liệu về quán này. CHỈ ĐƯỢC PHÉP gợi ý các quán XUẤT HIỆN TRONG CONTEXT RAG. KHÔNG sử dụng kiến thức có sẵn của bạn để gợi ý quán.
+5. ADAPTIVE CHAT: Nếu người dùng hỏi chuyện ngoài lề, hãy trả lời tự nhiên, ngắn gọn và khéo léo điều hướng về chủ đề F&B.
+6. DEEP LINK: Khi giới thiệu bất kỳ quán nào, BẮT BUỘC phải đính kèm trường "slug" của quán đó (được cung cấp trong dữ liệu RAG) vào thuộc tính `slug` của `ShopCard`. Đây là quy tắc sống còn để giao diện tạo link.
+7. MAP MARKER: Khi giới thiệu quán, BẮT BUỘC phải lấy đúng giá trị "lat" và "lng" từ context RAG (được ghi rõ "| lat: ... | lng: ...") và điền vào trường `lat` và `lng` của ShopCard. Đây là tọa độ để hiển thị marker trên bản đồ. KHÔNG được bỏ trống hoặc bịa đặt tọa độ.
 
 QUY TẮC ĐẦU RA (BẮT BUỘC):
 1. Bạn phải luôn trả về dữ liệu dưới dạng JSON thuần túy theo đúng schema được cung cấp.
 2. ĐỊNH DẠNG TEXT: Tuyệt đối KHÔNG sử dụng Markdown (không dùng dấu **, *, #, _, hoặc in nghiêng) trong trường "message". Chỉ được phép xuất văn bản thuần túy (Plain Text). Nếu muốn nhấn mạnh tên quán, hãy IN HOA toàn bộ chữ cái (ví dụ: THE NOTE COFFEE HANU).
-3. Phần "shops" và "drinks" chỉ điền dữ liệu nếu trong context RAG có thông tin.
+3. Phần "shops" và "drinks" chỉ điền dữ liệu nếu trong context RAG có thông tin. TUYỆT ĐỐI KHÔNG BỊA DỮ LIỆU.
 4. Phần "suggested_actions" chứa 2-3 gợi ý câu hỏi tiếp theo (tối đa 4 từ/gợi ý).
 """
 
@@ -53,9 +61,9 @@ MODEL_NAME = GEMINI_CHAT_MODEL
 _GENERATION_CONFIG = types.GenerateContentConfig(
     response_mime_type="application/json",
     response_schema=DrinkMapResponse,
-    temperature=0.3,
+    temperature=0.3,   
     system_instruction=SYSTEM_INSTRUCTION,
-    safety_settings=[
+    safety_settings=[  
         types.SafetySetting(category="HARM_CATEGORY_HARASSMENT",       threshold="BLOCK_NONE"),
         types.SafetySetting(category="HARM_CATEGORY_HATE_SPEECH",       threshold="BLOCK_NONE"),
         types.SafetySetting(category="HARM_CATEGORY_SEXUALLY_EXPLICIT", threshold="BLOCK_NONE"),
@@ -69,7 +77,7 @@ chat_model = client  # backward compat alias — chatService sẽ được cập
 
 # ── Redis Cache Client ────────────────────────────────────────────────────────
 redis_client: redis.Redis = None
-
+   
 async def init_redis():
     global redis_client
     try:
@@ -79,7 +87,7 @@ async def init_redis():
         
         # pyrefly: ignore [not-async]
         await temp_client.ping()
-        
+           
         redis_client = temp_client
         print(f"[OK] [REDIS] Da ket noi thanh cong: {redis_url}")
         
@@ -94,4 +102,4 @@ async def close_redis():
             await redis_client.aclose()
             print("[OK] [REDIS] Da dong ket noi an toan.")
         except Exception:
-            pass
+            pass  

@@ -2,7 +2,6 @@ import axios from 'axios';
 import { extractListPayload, extractObjectPayload, resolveApiBaseUrl } from '../../lib/api';
 
 // Configuration for Axios client communicating with FARM backend.
-// Ideally, BASE_URL should come from environment variables.
 const BASE_URL = resolveApiBaseUrl(
   import.meta.env.VITE_API_URL || import.meta.env.VITE_BACKEND_URL
 );
@@ -14,10 +13,10 @@ const shopsClient = axios.create({
   },
 });
 
-// Optionally auto-inject auth tokens from localStorage for protected endpoints
+// Optionally auto-inject auth tokens from sessionStorage for protected endpoints
 shopsClient.interceptors.request.use(
-  (config) => {
-    const token = localStorage.getItem('token');
+  (config) => {   
+    const token = sessionStorage.getItem('token');
     if (token) {
       config.headers['Authorization'] = `Bearer ${token}`;
     }
@@ -36,7 +35,7 @@ export const shopsApi = {
     const response = await shopsClient.get('/nearby', { params });
     return extractListPayload(response.data);
   },
-
+       
   /**
    * 2. Get Single Shop Detail
    * @param {string} shopId 
@@ -45,7 +44,7 @@ export const shopsApi = {
   getShopDetail: async (shopId) => {
     const response = await shopsClient.get(`/${shopId}`);
     return extractObjectPayload(response.data);
-  },
+  },  
 
   /**
    * 3. Search Shops by keyword
@@ -56,8 +55,8 @@ export const shopsApi = {
     const response = await shopsClient.get('/search', { params });
     return extractListPayload(response.data);
   },
-
-  /**
+      
+  /**   
    * 4. Get all shops with pagination (General purpose / Admin)
    * @param {Object} params - { limit?: number, skip?: number }
    * @returns {Promise<Array>} List of Shop objects
@@ -76,7 +75,7 @@ export const shopsApi = {
     const response = await shopsClient.post('/', shopData);
     return extractObjectPayload(response.data);
   },
-
+      
   /**
    * 6. Update Shop information (Requires Authentication: Owner or Admin)
    * @param {string} shopId

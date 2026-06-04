@@ -39,4 +39,4 @@ class DrinkResponse(BaseModel):
     image: Optional[str] = None
     category: str
     is_available: bool
-    created_at: datetime
+    created_at: Optional[datetime] = None

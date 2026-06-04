@@ -8,37 +8,46 @@ import { shopsApi } from './shopsApi';
 export const fetchNearbyShops = createAsyncThunk(
   'shops/fetchNearbyShops',
   async (params, { rejectWithValue }) => {
-    try {   
+    try {
       return await shopsApi.getNearbyShops(params);
     } catch (error) {
       return rejectWithValue(error.response?.data || error.message);
     }
   }
 );
-   
+
 export const fetchShopDetail = createAsyncThunk(
   'shops/fetchShopDetail',
   async (shopId, { rejectWithValue }) => {
-    try {   
+    try {
       return await shopsApi.getShopDetail(shopId);
-    } catch (error) {  
+    } catch (error) {
       return rejectWithValue(error.response?.data || error.message);
     }
   }
 );
 
 export const searchShops = createAsyncThunk(
-  'shops/searchShops',   
+  'shops/searchShops',
   async (params, { rejectWithValue }) => {
     try {
       return await shopsApi.searchShops(params);
-    } catch (error) {   
+    } catch (error) {
       return rejectWithValue(error.response?.data || error.message);
     }
   }
-);   
+);
 
-
+export const fetchAllShops = createAsyncThunk(
+  'shops/fetchAllShops',
+  async (params, { rejectWithValue }) => {
+    try {
+      return await shopsApi.getAllShops(params);
+    } catch (error) {
+      return rejectWithValue(error.response?.data || error.message);
+    }
+  }
+);
 
 export const createNewShop = createAsyncThunk(
   'shops/createNewShop',
@@ -54,7 +63,7 @@ export const createNewShop = createAsyncThunk(
 export const updateExistingShop = createAsyncThunk(
   'shops/updateExistingShop',
   async ({ shopId, updateData }, { rejectWithValue }) => {
-    try {  
+    try {
       return await shopsApi.updateShop(shopId, updateData);
     } catch (error) {
       return rejectWithValue(error.response?.data || error.message);
@@ -81,26 +90,25 @@ const initialState = {
   // Lists
   nearbyShops: [],       // Shops shown on map bounding box
   searchResults: [],     // Text-based search results
-  
+  allShops: [],          // Admin / Pagination view list
+
   // Single Entity View
   selectedShop: null,    // The shop currently clicked / viewed
-  
+
   // App filters / query parameters
   filters: {
     q: '',
-    category: '',
-    max_distance: 50000,  // Default 50km radius - bao phủ toàn bộ Hà Nội
-    minRating: 0,
-    priceRange: 'all',
+    beverage_types: '',   // Đổi từ category thành beverage_types để gửi chuỗi "chill,view đẹp"
+    radius_km: 5.0,       // Đổi từ max_distance (mét) thành radius_km (số thực từ 1.0 tới 20.0) cho giống UI
+    price_range: null,    // Đổi từ priceRange: 'all' thành price_range: null (khi chọn sẽ gán 1, 2, hoặc 3)
     lng: null,
     lat: null,
   },
-  
   // Loading Statuses
   status: 'idle',           // List fetching status: 'idle' | 'loading' | 'succeeded' | 'failed'
   detailStatus: 'idle',     // Single shop fetching status
   mutationStatus: 'idle',   // Create/Update/Delete status
-  
+
   // Potential Error Response
   error: null,
 };
@@ -115,28 +123,28 @@ const shopsSlice = createSlice({
   initialState,
   reducers: {
     // ---- Synchronous Actions ---- //
-    
+
     // Select a shop for map popup or detail page
     setSelectedShop: (state, action) => {
       state.selectedShop = action.payload;
     },
-    
+
     // Close shop detail popup
     clearSelectedShop: (state) => {
       state.selectedShop = null;
       state.detailStatus = 'idle'; // Reset status back so it refetches cleanly next time
     },
-    
+
     // Update active filters (category, query, location)
     updateFilters: (state, action) => {
       state.filters = { ...state.filters, ...action.payload };
     },
-      
+
     // Reset filters
     clearFilters: (state) => {
       state.filters = initialState.filters;
     },
-    
+
     // Manual reset of status/errors (useful when unmounting components)
     resetShopsState: (state) => {
       state.status = 'idle';
@@ -154,7 +162,7 @@ const shopsSlice = createSlice({
       .addCase(fetchNearbyShops.fulfilled, (state, action) => {
         state.status = 'succeeded';
         state.nearbyShops = ensureArray(action.payload);
-      })   
+      })
       .addCase(fetchNearbyShops.rejected, (state, action) => {
         state.status = 'failed';
         state.error = action.payload;
@@ -173,7 +181,7 @@ const shopsSlice = createSlice({
         state.detailStatus = 'failed';
         state.error = action.payload;
       })
-         
+
       // --- Search Shops --- //
       .addCase(searchShops.pending, (state) => {
         state.status = 'loading';
@@ -200,7 +208,7 @@ const shopsSlice = createSlice({
         state.mutationStatus = 'failed';
         state.error = action.payload;
       })
-      
+
       .addCase(updateExistingShop.pending, (state) => {
         state.mutationStatus = 'loading';
       })

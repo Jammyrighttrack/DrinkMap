@@ -8,16 +8,16 @@ const createUserIcon = () => {
   const iconMarkup = renderToStaticMarkup(
     <div className="relative flex items-center justify-center w-8 h-8">
       {/* Vòng ngoài lan tỏa (Pulse effect) */}
-      <div className="absolute w-full h-full bg-blue-500 rounded-full animate-ping opacity-40"></div>
+      <div className="absolute w-full h-full bg-emerald-500 rounded-full animate-ping opacity-40"></div>
       
       {/* Vòng nhỏ lan tỏa nhẹ bên trong giúp hiệu ứng smooth hơn */}
-      <div className="absolute w-6 h-6 bg-blue-400 rounded-full animate-pulse opacity-50"></div>
+      <div className="absolute w-6 h-6 bg-emerald-400 rounded-full animate-pulse opacity-50"></div>
       
       {/* Lõi Cứng ở giữa */}
-      <div className="w-3.5 h-3.5 bg-white border-[3px] border-blue-600 rounded-full shadow-[0_2px_8px_rgba(37,99,235,0.6)] z-10"></div>
+      <div className="w-3.5 h-3.5 bg-white border-[3px] border-emerald-600 rounded-full shadow-[0_2px_8px_rgba(37,99,235,0.6)] z-10"></div>
       
       {/* Hình nón định hướng nhỏ (Mô phỏng la bàn - optional) */}
-      <div className="absolute -top-1 w-0 h-0 border-l-4 border-r-4 border-b-[6px] border-transparent border-b-blue-600 rotate-0 z-0"></div>
+      <div className="absolute -top-1 w-0 h-0 border-l-4 border-r-4 border-b-[6px] border-transparent border-b-emerald-600 rotate-0 z-0"></div>
     </div>
   );
 
@@ -44,7 +44,7 @@ const UserLocationMarker = ({ position, accuracy }) => {
           center={position} 
           radius={accuracy} 
           pathOptions={{ 
-            fillColor: '#3b82f6', // blue-500
+            fillColor: '#3b82f6', // emerald-500
             fillOpacity: 0.15, 
             color: '#3b82f6', 
             weight: 1,
@@ -60,7 +60,7 @@ const UserLocationMarker = ({ position, accuracy }) => {
       >
         <Popup className="rounded-xl font-sans" closeButton={false}>
           <div className="text-center w-28 py-1">
-            <p className="font-bold text-[13px] text-blue-700">Vị trí của bạn</p>
+            <p className="font-bold text-[13px] text-emerald-700">Vị trí của bạn</p>
             {accuracy && (
               <p className="text-[10px] text-gray-500 font-medium mt-0.5">
                 Chính xác đến {Math.round(accuracy)}m

@@ -17,7 +17,7 @@ async def get_shop_menu(shop_id: str):
 async def add_drink_to_menu(
     drink_data: DrinkCreateRequest,
     current_user: dict = Depends(get_current_user)
-):
+):     
     """
     Thêm món mới vào menu của quán.
     Chỉ chủ quán hoặc người có quyền mới nên làm việc này (tạm thời để login là được).

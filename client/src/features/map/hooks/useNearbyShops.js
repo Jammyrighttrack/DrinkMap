@@ -33,8 +33,20 @@ const useNearbyShops = () => {
     const apiParams = {
       lng: params.lng,
       lat: params.lat,
-      max_distance: params.max_distance ?? 5000,
+      radius_km: params.radius_km ?? 5.0,
     };
+
+    if (params.beverage_types) {
+      apiParams.beverage_types = params.beverage_types;
+    }
+
+    if (params.price_range !== null && params.price_range !== undefined && params.price_range !== '') {
+      apiParams.price_range = Number(params.price_range);
+    }
+    
+    if (params.q) {
+      apiParams.q = params.q;
+    }
 
     dispatch(updateFilters(params));
     dispatch(fetchNearbyShops(apiParams));

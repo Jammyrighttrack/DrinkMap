@@ -57,7 +57,7 @@ const Navbar = ({ activeTab, onTabChange }) => {
               key={tab.id}
               onClick={() => onTabChange && onTabChange(tab.id)}
               className={`inline-flex flex-col items-center justify-center px-5 transition-colors ${
-                isActive ? 'text-orange-600' : 'text-gray-500 hover:bg-gray-50 hover:text-gray-900'
+                isActive ? 'text-emerald-600' : 'text-gray-500 hover:bg-gray-50 hover:text-gray-900'
               }`}
             >
               {tab.icon}

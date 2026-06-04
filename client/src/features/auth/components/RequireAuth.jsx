@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Navigate, useLocation } from 'react-router-dom';
-import { Lock } from 'lucide-react';
+import { LockClosedIcon } from '@heroicons/react/24/outline';
 import AuthModal from './AuthModal';
 
 /**
@@ -28,7 +28,7 @@ export function RequireAuth({
   if (isInitializing) {
     return (
       <div className="flex items-center justify-center p-4 min-h-[50px]">
-        <div className="w-5 h-5 border-2 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
+        <div className="w-5 h-5 border-2 border-emerald-600 border-t-transparent rounded-full animate-spin"></div>
       </div>
     );
   }
@@ -75,7 +75,7 @@ export function RequireAuth({
             
             {visuallyLocked && (
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-zinc-900/80 rounded-full flex items-center justify-center backdrop-blur-sm border border-white/20 shadow-lg opacity-0 group-hover:opacity-100 transition-opacity">
-                <Lock className="w-4 h-4 text-white" />
+                <LockClosedIcon className="w-4 h-4 text-white" />
               </div>
             )}
           </div>

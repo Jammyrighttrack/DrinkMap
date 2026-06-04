@@ -35,7 +35,7 @@ const Input = forwardRef(({
           type={type}
           className={`
             block w-full rounded-lg border text-gray-900 
-            focus:ring-2 focus:ring-orange-500 focus:border-orange-500 sm:text-sm transition-colors py-2.5
+            focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm transition-colors py-2.5
             ${icon ? 'pl-10' : 'pl-3'}
             ${error 
               ? 'border-red-500 focus:ring-red-500 focus:border-red-500' 

@@ -1,0 +1,206 @@
+[
+  {
+    "name": "Cà Phê Sữa Đá Truyền Thống",
+    "price": 35000,
+    "category": "coffee",
+    "image_url": "https://images.unsplash.com/photo-1578314675249-a6910f80cc4e?w=800&auto=format&fit=crop&q=80"
+  },
+  {
+    "name": "Bạc Xỉu Lắc",
+    "price": 39000,
+    "category": "coffee",
+    "image_url": "https://images.unsplash.com/photo-1541167760496-1628856ab772?w=800&auto=format&fit=crop&q=80"
+  },
+  {
+    "name": "Cà Phê Trứng Hà Nội",
+    "price": 45000,
+    "category": "coffee",
+    "image_url": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=800&auto=format&fit=crop&q=80"
+  },
+  {
+    "name": "Americano Đá",
+    "price": 40000,
+    "category": "coffee",
+    "image_url": "https://images.unsplash.com/photo-1551030173-122aabc4489c?w=800&auto=format&fit=crop&q=80"
+  },
+  {
+    "name": "Latte Nóng",
+    "price": 50000,
+    "category": "coffee",
+    "image_url": "https://images.unsplash.com/photo-1570968915860-54d5c301fa9f?w=800&auto=format&fit=crop&q=80"
+  },
+  {
+    "name": "Cappuccino",
+    "price": 50000,
+    "category": "coffee",
+    "image_url": "https://images.unsplash.com/photo-1534778101976-62847782c213?w=800&auto=format&fit=crop&q=80"
+  },
+  {
+    "name": "Cold Brew Cam Vàng",
+    "price": 55000,
+    "category": "coffee",
+    "image_url": "https://images.unsplash.com/photo-1499638673689-79a0b5115d87?w=800&auto=format&fit=crop&q=80"
+  },
+  {
+    "name": "Caramel Macchiato",
+    "price": 55000,
+    "category": "coffee",
+    "image_url": "https://images.unsplash.com/photo-1485808191679-5f86510681a2?w=800&auto=format&fit=crop&q=80"
+  },
+  {
+    "name": "Espresso",
+    "price": 35000,
+    "category": "coffee",
+    "image_url": "https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?w=800&auto=format&fit=crop&q=80"
+  },
+  {
+    "name": "Cà Phê Muối",
+    "price": 45000,
+    "category": "coffee",
+    "image_url": "https://images.unsplash.com/photo-1570968915860-54d5c301fa9f?w=800&auto=format&fit=crop&q=80"
+  },
+  {
+    "name": "Trà Đào Cam Sả",
+    "price": 45000,
+    "category": "tea",
+    "image_url": "https://images.unsplash.com/photo-1558857563-b371033873b8?w=800&auto=format&fit=crop&q=80"
+  },
+  {
+    "name": "Trà Vải Nhiệt Đới",
+    "price": 45000,
+    "category": "tea",
+    "image_url": "https://images.unsplash.com/photo-1499638673689-79a0b5115d87?w=800&auto=format&fit=crop&q=80"
+  },
+  {
+    "name": "Trà Oolong Hạt Sen",
+    "price": 50000,
+    "category": "tea",
+    "image_url": "https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=800&auto=format&fit=crop&q=80"
+  },
+  {
+    "name": "Trà Xanh Macchiato",
+    "price": 49000,
+    "category": "tea",
+    "image_url": "https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=800&auto=format&fit=crop&q=80"
+  },
+  {
+    "name": "Trà Táo Bạc Hà",
+    "price": 45000,
+    "category": "tea",
+    "image_url": "https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?w=800&auto=format&fit=crop&q=80"
+  },
+  {
+    "name": "Trà Đen Cổ Điển",
+    "price": 35000,
+    "category": "tea",
+    "image_url": "https://images.unsplash.com/photo-1563822249548-9a72b6353cd1?w=800&auto=format&fit=crop&q=80"
+  },
+  {
+    "name": "Hồng Trà Sữa",
+    "price": 40000,
+    "category": "tea",
+    "image_url": "https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=800&auto=format&fit=crop&q=80"
+  },
+  {
+    "name": "Trà Hoa Cúc Mật Ong",
+    "price": 45000,
+    "category": "tea",
+    "image_url": "https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?w=800&auto=format&fit=crop&q=80"
+  },
+  {
+    "name": "Matcha Latte Nóng",
+    "price": 55000,
+    "category": "matcha",
+    "image_url": "https://images.unsplash.com/photo-1515823662972-da6a2e4d3002?w=800&auto=format&fit=crop&q=80"
+  },
+  {
+    "name": "Matcha Đá Xay",
+    "price": 59000,
+    "category": "matcha",
+    "image_url": "https://images.unsplash.com/photo-1499638673689-79a0b5115d87?w=800&auto=format&fit=crop&q=80"
+  },
+  {
+    "name": "Trà Xanh Matcha Nhật",
+    "price": 50000,
+    "category": "matcha",
+    "image_url": "https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=800&auto=format&fit=crop&q=80"
+  },
+  {
+    "name": "Matcha Espresso",
+    "price": 60000,
+    "category": "matcha",
+    "image_url": "https://images.unsplash.com/photo-1553530666-ba11a7da3888?w=800&auto=format&fit=crop&q=80"
+  },
+  {
+    "name": "Nước Ép Dưa Hấu",
+    "price": 40000,
+    "category": "juice",
+    "image_url": "https://images.unsplash.com/photo-1589733955941-5eeaf752f6dd?w=800&auto=format&fit=crop&q=80"
+  },
+  {
+    "name": "Nước Ép Cam Tươi",
+    "price": 45000,
+    "category": "juice",
+    "image_url": "https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=800&auto=format&fit=crop&q=80"
+  },
+  {
+    "name": "Sinh Tố Bơ Cốt Dừa",
+    "price": 50000,
+    "category": "smoothie",
+    "image_url": "https://images.unsplash.com/photo-1553530666-ba11a7da3888?w=800&auto=format&fit=crop&q=80"
+  },
+  {
+    "name": "Sinh Tố Xoài Chuối",
+    "price": 45000,
+    "category": "smoothie",
+    "image_url": "https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?w=800&auto=format&fit=crop&q=80"
+  },
+  {
+    "name": "Nước Ép Cà Rốt Táo",
+    "price": 45000,
+    "category": "juice",
+    "image_url": "https://images.unsplash.com/photo-1616541823729-00fe0aacd32c?w=800&auto=format&fit=crop&q=80"
+  },
+  {
+    "name": "Nước Ép Dứa",
+    "price": 40000,
+    "category": "juice",
+    "image_url": "https://images.unsplash.com/photo-1485808191679-5f86510681a2?w=800&auto=format&fit=crop&q=80"
+  },
+  {
+    "name": "Bánh Tiramisu",
+    "price": 55000,
+    "category": "sweet & cake",
+    "image_url": "https://images.unsplash.com/photo-1499638673689-79a0b5115d87?w=800&auto=format&fit=crop&q=80"
+  },
+  {
+    "name": "Cheesecake Trà Xanh",
+    "price": 60000,
+    "category": "sweet & cake",
+    "image_url": "https://images.unsplash.com/photo-1533134242443-d4fd215305ad?w=800&auto=format&fit=crop&q=80"
+  },
+  {
+    "name": "Bánh Sừng Bò (Croissant)",
+    "price": 35000,
+    "category": "sweet & cake",
+    "image_url": "https://images.unsplash.com/photo-1589733955941-5eeaf752f6dd?w=800&auto=format&fit=crop&q=80"
+  },
+  {
+    "name": "Bánh Mousse Chanh Dây",
+    "price": 50000,
+    "category": "sweet & cake",
+    "image_url": "https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=800&auto=format&fit=crop&q=80"
+  },
+  {
+    "name": "Red Velvet Cake",
+    "price": 65000,
+    "category": "sweet & cake",
+    "image_url": "https://images.unsplash.com/photo-1616541823729-00fe0aacd32c?w=800&auto=format&fit=crop&q=80"
+  },
+  {
+    "name": "Bánh Tart Trứng",
+    "price": 25000,
+    "category": "sweet & cake",
+    "image_url": "https://images.unsplash.com/photo-1519869325930-281384150729?w=800&auto=format&fit=crop&q=80"
+  }
+]

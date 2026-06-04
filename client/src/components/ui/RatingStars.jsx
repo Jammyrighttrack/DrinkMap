@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Star } from 'lucide-react';
+import { StarIcon } from '@heroicons/react/24/outline';
 
 const SIZE_MAP = {
   sm: 'w-3.5 h-3.5',
@@ -63,7 +63,7 @@ export function RatingStars({
               onClick={() => onChange && onChange(starValue)}
               className="cursor-pointer"
             >
-              <Star 
+              <StarIcon 
                 className={`${starSizeClass} transition-colors duration-300 ease-out ${
                   isActive 
                     ? 'text-amber-400 fill-amber-400 dark:text-amber-500 dark:fill-amber-500' // Sáng vàng
@@ -100,7 +100,7 @@ export function RatingStars({
         return (
           <div key={index} className="relative inline-block">
             {/* 1. Lớp Nền Xám (Empty Star) */}
-            <Star 
+            <StarIcon 
               className={`${starSizeClass} text-zinc-300 dark:text-zinc-700 flex-shrink-0`} 
               strokeWidth={2}
               fill="currentColor"
@@ -117,7 +117,7 @@ export function RatingStars({
                 {/* max-w-none cực kỳ quan trọng để đảm bảo icon lúc bị xén width 
                     không tự động ép bóp méo khung (squish) mà sẽ bị cắt lẹm đúng nghĩa 
                 */}
-                <Star 
+                <StarIcon 
                   className={`${starSizeClass} max-w-none text-amber-400 fill-amber-400 dark:text-amber-500 dark:fill-amber-500`} 
                   strokeWidth={2}
                 />

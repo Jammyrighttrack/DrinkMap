@@ -10,8 +10,8 @@ import { Link } from 'react-router-dom';
 const getImgUrl = (name) => {
   const idx = (name.length % 9) + 1;
   return `https://loremflickr.com/80/80/drink,latte,matcha?lock=${idx}`;
-};
-
+};  
+   
 export default function DrinkCard({ name, price, location, image_url, slug }) {
   const [imgLoaded, setImgLoaded] = useState(false);
 

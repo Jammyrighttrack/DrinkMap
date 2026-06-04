@@ -24,9 +24,9 @@ const Button = ({
   
   // Style variations
   const variantClasses = {
-    primary: 'bg-orange-600 hover:bg-orange-700 text-white focus:ring-orange-500 shadow-sm',
-    secondary: 'bg-orange-100 hover:bg-orange-200 text-orange-800 focus:ring-orange-500',
-    outline: 'border-2 border-orange-600 text-orange-600 hover:bg-orange-50 focus:ring-orange-500',
+    primary: 'bg-emerald-600 hover:bg-emerald-700 text-white focus:ring-emerald-500 shadow-sm',
+    secondary: 'bg-emerald-100 hover:bg-emerald-200 text-emerald-800 focus:ring-emerald-500',
+    outline: 'border-2 border-emerald-600 text-emerald-600 hover:bg-emerald-50 focus:ring-emerald-500',
     ghost: 'text-gray-700 hover:bg-gray-100 focus:ring-gray-500',
     danger: 'bg-red-600 hover:bg-red-700 text-white focus:ring-red-500 shadow-sm',
   };

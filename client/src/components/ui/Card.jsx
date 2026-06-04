@@ -11,7 +11,7 @@ const Card = ({ children, className = '', hoverable = false, ...props }) => {
       {...props}
     >
       {children}
-    </div>
+    </div>    
   );
 };
 
@@ -30,7 +30,7 @@ export const CardTitle = ({ children, className = '' }) => (
 export const CardContent = ({ children, className = '' }) => (
   <div className={`p-5 ${className}`}>
     {children}
-  </div>
+  </div>  
 );
 
 export const CardFooter = ({ children, className = '' }) => (

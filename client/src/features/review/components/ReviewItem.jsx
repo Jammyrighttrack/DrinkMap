@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MoreVertical, ThumbsUp, MessageSquare, Star, Image as ImageIcon } from 'lucide-react';
+import { EllipsisVerticalIcon, HandThumbUpIcon, ChatBubbleLeftIcon, StarIcon, PhotoIcon } from '@heroicons/react/24/outline';
 
 // Dùng đường dẫn tương đối để lên thẳng thư mục src/components
 import { RatingStars } from '../../../components/ui/RatingStars';
@@ -77,7 +77,7 @@ export function ReviewItem({ review, onImageClick }) {
             <h4 className="font-bold text-[15px] text-zinc-900 dark:text-zinc-100 truncate flex items-center gap-1.5">
               {user?.fullName}
               {user?.level && (
-                <span className="hidden sm:inline-block px-1.5 py-0.5 bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 text-[10px] uppercase font-bold tracking-widest rounded">
+                <span className="hidden sm:inline-block px-1.5 py-0.5 bg-emerald-50 dark:bg-emerald-900/20 text-emerald-600 dark:text-emerald-400 text-[10px] uppercase font-bold tracking-widest rounded">
                   {user.level}
                 </span>
               )}
@@ -87,7 +87,7 @@ export function ReviewItem({ review, onImageClick }) {
 
           {/* Nút tuỳ chọn (Báo cáo, Xoá...) */}
           <button className="p-2 -mr-2 text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800 rounded-full transition-colors focus:outline-none">
-            <MoreVertical className="w-4 h-4" />
+            <EllipsisVerticalIcon className="w-4 h-4" />
           </button>
         </div>
       </div>
@@ -111,7 +111,7 @@ export function ReviewItem({ review, onImageClick }) {
             {isContentLong && (
               <button 
                 onClick={() => setIsExpanded(!isExpanded)}
-                className="text-[14px] font-bold text-blue-600 hover:text-blue-700 dark:text-blue-400 mt-1 focus:outline-none"
+                className="text-[14px] font-bold text-emerald-600 hover:text-emerald-700 dark:text-emerald-400 mt-1 focus:outline-none"
               >
                 {isExpanded ? 'ẩn bớt' : '...Xem thêm'}
               </button>
@@ -152,17 +152,17 @@ export function ReviewItem({ review, onImageClick }) {
             onClick={handleToggleLike}
             className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[13px] font-bold border transition-colors ${
               liked 
-                ? 'bg-blue-50 border-blue-200 text-blue-700 dark:bg-blue-900/30 dark:border-blue-800/50 dark:text-blue-400' 
+                ? 'bg-emerald-50 border-emerald-200 text-emerald-700 dark:bg-emerald-900/30 dark:border-emerald-800/50 dark:text-emerald-400' 
                 : 'bg-white border-zinc-200 text-zinc-600 hover:bg-zinc-50 dark:bg-zinc-900 dark:border-zinc-800 dark:text-zinc-400 dark:hover:bg-zinc-800'
             }`}
           >
-            <ThumbsUp className={`w-3.5 h-3.5 ${liked ? 'fill-blue-600 dark:fill-blue-400' : ''}`} />
+            <HandThumbUpIcon className={`w-3.5 h-3.5 ${liked ? 'fill-emerald-600 dark:fill-emerald-400' : ''}`} />
             {likes > 0 ? (liked ? `Đã Hữu ích (${likes})` : `Hữu ích (${likes})`) : 'Hữu ích'}
           </button>
 
           {/* (Tuỳ chọn mở rộng: Rep comment) */}
           <button className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[13px] font-bold text-zinc-500 hover:text-zinc-800 hover:bg-zinc-50 dark:text-zinc-400 dark:hover:text-zinc-200 dark:hover:bg-zinc-800 border border-transparent transition-colors">
-            <MessageSquare className="w-3.5 h-3.5" />
+            <ChatBubbleLeftIcon className="w-3.5 h-3.5" />
             Thảo luận
           </button>
         </div>

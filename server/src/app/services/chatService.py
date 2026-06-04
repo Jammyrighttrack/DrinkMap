@@ -98,8 +98,14 @@ class ChatService:
                 f"Hãy trả lời yêu cầu của người dùng: {clean_message}"
             )
         else:
-            # GENERAL_CHAT mode: no shop context found — AI answers freely
-            enhanced_message = clean_message
+            # GENERAL_CHAT mode: no shop context found
+            enhanced_message = (
+                f"LƯU Ý HỆ THỐNG: Hiện tại CƠ SỞ DỮ LIỆU ĐỘC LẬP TỪ DRINKMAP AI không tìm thấy bất kỳ quán nào khớp với yêu cầu này. "
+                f"Bạn BẮT BUỘC phải phản hồi là chưa có dữ liệu hoặc không tìm thấy. "
+                f"TUYỆT ĐỐI KHÔNG TỰ BỊA RA QUÁN (HALLUCINATE) BẰNG KIẾN THỨC CÓ SẴN. "
+                f"Chỉ trả lời bình thường nếu người dùng hỏi chuyện ngoài lề.\n\n"
+                f"Yêu cầu của người dùng: {clean_message}"
+            )
 
         # ── Step 4: Build contents (history + current turn) ───────────────────
         contents = []

@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from typing import List
 
-from app.dtos.userDTO import UserResponse, UpdatePreferencesRequest, SaveShopRequest
+from app.dtos.userDTO import UserResponse, UpdatePreferencesRequest, SaveShopRequest, UpdateProfileRequest, UpdateSettingsRequest
 from app.dtos.shopDTO import ShopSummaryResponse
 from app.services.userService import UserService
 from app.core.auth import get_current_user
@@ -36,3 +36,31 @@ async def get_my_saved_shops(current_user: dict = Depends(get_current_user)):
     Lấy danh sách chi tiết các quán mà người dùng đã lưu.
     """
     return await UserService.get_saved_shops(current_user["id"])   
+
+@router.put("/profile", response_model=UserResponse)
+async def update_profile(
+    profile_data: UpdateProfileRequest,
+    current_user: dict = Depends(get_current_user)
+):
+    """
+    Cập nhật thông tin hồ sơ cá nhân (Họ tên, avatar).
+    """
+    return await UserService.update_profile(current_user["id"], profile_data)
+
+@router.put("/settings", response_model=UserResponse)
+async def update_settings(
+    settings_data: UpdateSettingsRequest,
+    current_user: dict = Depends(get_current_user)
+):
+    """
+    Cập nhật các thiết lập thông báo và quyền riêng tư.
+    """
+    return await UserService.update_settings(current_user["id"], settings_data)
+
+@router.delete("/me", status_code=status.HTTP_200_OK)
+async def delete_my_account(current_user: dict = Depends(get_current_user)):
+    """
+    Xóa vĩnh viễn tài khoản người dùng hiện tại khỏi hệ thống.
+    """
+    await UserService.delete_user(current_user["id"])
+    return {"message": "Tài khoản đã được xóa vĩnh viễn thành công"}

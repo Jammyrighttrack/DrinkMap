@@ -41,7 +41,7 @@ class RAGRepository:
                             "$geoNear": {
                                 "near": {"type": "Point", "coordinates": [float(lng), float(lat)]},
                                 "distanceField": "distance",
-                                "maxDistance": 15000,  # 15km
+                                "maxDistance": 20000,  # 20km
                                 "spherical": True
                             }
                         },
@@ -157,8 +157,8 @@ class RAGRepository:
                 shops = await db.shops.find(
                     {},
                     {"_id": 1, "name": 1, "address": 1, "description": 1,
-                     "cover_image": 1, "slug": 1, "location": 1, "rating": 1, "tags": 1}
-                ).sort("rating", -1).limit(5).to_list(None)
+                     "cover_image": 1, "slug": 1, "location": 1, "average_rating": 1, "tags": 1}
+                ).sort("average_rating", -1).limit(5).to_list(None)
                 print(f"DEBUG [RAG] Top-rating fallback → {len(shops)} shops", flush=True)
 
             if not shops:

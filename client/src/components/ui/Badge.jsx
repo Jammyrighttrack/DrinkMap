@@ -23,12 +23,12 @@ const Badge = ({
   // Style variations (Màu sắc)
   const variantClasses = {
     default: 'bg-gray-100 text-gray-800 border border-gray-200 hover:bg-gray-200',
-    primary: 'bg-orange-100 text-orange-800 border border-orange-200 hover:bg-orange-200',
-    solid: 'bg-orange-600 text-white hover:bg-orange-700',
+    primary: 'bg-emerald-100 text-emerald-800 border border-emerald-200 hover:bg-emerald-200',
+    solid: 'bg-emerald-600 text-white hover:bg-emerald-700',
     success: 'bg-emerald-100 text-emerald-800 border border-emerald-200 hover:bg-emerald-200',
     warning: 'bg-amber-100 text-amber-800 border border-amber-200 hover:bg-amber-200',
     danger: 'bg-rose-100 text-rose-800 border border-rose-200 hover:bg-rose-200',
-    match: 'bg-gradient-to-r from-orange-500 to-amber-400 text-white border-none shadow-md', // Dành riêng cho Điểm Match AI
+    match: 'bg-gradient-to-r from-emerald-500 to-amber-400 text-white border-none shadow-md', // Dành riêng cho Điểm Match AI
   };
 
   return (

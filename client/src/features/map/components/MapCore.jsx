@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo } from 'react';
-import { MapContainer, Marker, Popup, TileLayer, useMap, ZoomControl } from 'react-leaflet';
+import { MapContainer, Marker, Popup, TileLayer, useMap, ZoomControl, Polyline } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { useMapStore } from '../../../store/useMapStore';
@@ -15,8 +15,8 @@ const UserLocationIcon = new L.DivIcon({
   className: 'user-location-marker',
   html: `
     <div class="relative flex h-8 w-8 items-center justify-center">
-      <div class="absolute h-full w-full animate-ping rounded-full bg-blue-500 opacity-20"></div>
-      <div class="z-10 h-4 w-4 rounded-full border-4 border-blue-600 bg-white shadow-lg"></div>
+      <div class="absolute h-full w-full animate-ping rounded-full bg-emerald-500 opacity-20"></div>
+      <div class="z-10 h-4 w-4 rounded-full border-4 border-emerald-600 bg-white shadow-lg"></div>
     </div>
   `,
   iconSize: [32, 32],
@@ -56,8 +56,11 @@ const getShopPosition = (shop) => {
 
 function MapController({ center, zoom }) {
   const map = useMap();
+  const activeRoute = useMapStore((state) => state.activeRoute);
 
   useEffect(() => {
+    if (activeRoute) return;
+
     if (!Array.isArray(center) || center.length < 2) {
       return;
     }
@@ -79,7 +82,7 @@ function MapController({ center, zoom }) {
         duration: 1.5,
       });
     }
-  }, [center, map, zoom]);
+  }, [center, map, zoom, activeRoute]);
 
   return null;
 }
@@ -87,8 +90,10 @@ function MapController({ center, zoom }) {
 function FocusedShopController({ mapShops }) {
   const map = useMap();
   const focusedShop = useMapStore((state) => state.focusedShop);
+  const activeRoute = useMapStore((state) => state.activeRoute);
 
   useEffect(() => {
+    if (activeRoute) return;
     if (!focusedShop) return;
 
     let targetPos = getShopPosition(focusedShop);
@@ -105,7 +110,21 @@ function FocusedShopController({ mapShops }) {
         duration: 1.5,
       });
     }
-  }, [focusedShop, map, mapShops]);
+  }, [focusedShop, map, mapShops, activeRoute]);
+
+  return null;
+}
+
+function RouteController() {
+  const map = useMap();
+  const activeRoute = useMapStore((state) => state.activeRoute);
+
+  useEffect(() => {
+    if (activeRoute?.coordinates && activeRoute.coordinates.length > 0) {
+      const bounds = L.latLngBounds(activeRoute.coordinates);
+      map.fitBounds(bounds, { padding: [50, 50] });
+    }
+  }, [activeRoute, map]);
 
   return null;
 }
@@ -119,7 +138,7 @@ const MapCore = ({
   onMapDragEnd,
   className = '',
 }) => {
-  const { activeShops } = useMapStore();
+  const { activeShops, activeRoute } = useMapStore();
   const displayShops = activeShops.length > 0 ? activeShops : shops;
 
   const mapShops = useMemo(
@@ -152,6 +171,20 @@ const MapCore = ({
         <ZoomControl position="bottomright" />
         <MapController center={center} zoom={zoom} />
         <FocusedShopController mapShops={mapShops} />
+        <RouteController />
+
+        {activeRoute?.coordinates && activeRoute.coordinates.length > 0 && (
+          <Polyline
+            positions={activeRoute.coordinates}
+            pathOptions={{
+              color: '#3b82f6',
+              weight: 6,
+              opacity: 0.8,
+              lineJoin: 'round',
+              lineCap: 'round',
+            }}
+          />
+        )}
 
         {userLocation && Number.isFinite(userLocation.lat) && Number.isFinite(userLocation.lng) && (
           <Marker
@@ -160,7 +193,7 @@ const MapCore = ({
             zIndexOffset={1000}
           >
             <Popup className="rounded-xl">
-              <span className="font-bold text-blue-600">Vi tri cua ban</span>
+              <span className="font-bold text-emerald-600">Vi tri cua ban</span>
             </Popup>
           </Marker>
         )}
@@ -182,7 +215,7 @@ const MapCore = ({
                 <p className="line-clamp-2 text-[13px] font-bold leading-tight text-gray-900">
                   {shop.name}
                 </p>
-                <div className="mt-1 flex items-center justify-center gap-1 text-[11px] font-semibold text-orange-600">
+                <div className="mt-1 flex items-center justify-center gap-1 text-[11px] font-semibold text-emerald-600">
                   <span className="text-yellow-500">*</span>
                   {shop.average_rating || shop.rating || 'New'}
                 </div>

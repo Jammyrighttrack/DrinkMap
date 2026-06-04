@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { User, Mail, Lock, ArrowRight, Loader2, ShieldCheck } from 'lucide-react';
+import { UserIcon, EnvelopeIcon, LockClosedIcon, ArrowRightIcon, ArrowPathIcon, ShieldCheckIcon } from '@heroicons/react/24/outline';
 
 export function RegisterForm({ onSuccess }) {
   const [formData, setFormData] = useState({
@@ -66,7 +66,7 @@ export function RegisterForm({ onSuccess }) {
 
       {/* Tên hiển thị */}
       <div className="relative group">
-        <User className={`absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 transition-colors ${formData.fullName ? 'text-blue-600 dark:text-blue-400' : 'text-zinc-400 group-focus-within:text-blue-600 dark:group-focus-within:text-blue-400'}`} />
+        <UserIcon className={`absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 transition-colors ${formData.fullName ? 'text-emerald-600 dark:text-emerald-400' : 'text-zinc-400 group-focus-within:text-emerald-600 dark:group-focus-within:text-emerald-400'}`} />
         <input
           required
           name="fullName"
@@ -75,13 +75,13 @@ export function RegisterForm({ onSuccess }) {
           type="text"
           placeholder="Họ và tên"
           disabled={isLoading}
-          className="w-full pl-12 pr-4 py-3.5 bg-zinc-50 dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800 rounded-2xl text-[15px] text-zinc-900 dark:text-white placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-blue-500/40 focus:border-blue-500/40 focus:bg-white dark:focus:bg-zinc-900 hover:border-zinc-300 dark:hover:border-zinc-700 transition-all font-medium disabled:opacity-60"
+          className="w-full pl-12 pr-4 py-3.5 bg-zinc-50 dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800 rounded-2xl text-[15px] text-zinc-900 dark:text-white placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/40 focus:border-emerald-500/40 focus:bg-white dark:focus:bg-zinc-900 hover:border-zinc-300 dark:hover:border-zinc-700 transition-all font-medium disabled:opacity-60"
         />
       </div>
 
       {/* Email */}
       <div className="relative group">
-        <Mail className={`absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 transition-colors ${formData.email ? 'text-blue-600 dark:text-blue-400' : 'text-zinc-400 group-focus-within:text-blue-600 dark:group-focus-within:text-blue-400'}`} />
+        <EnvelopeIcon className={`absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 transition-colors ${formData.email ? 'text-emerald-600 dark:text-emerald-400' : 'text-zinc-400 group-focus-within:text-emerald-600 dark:group-focus-within:text-emerald-400'}`} />
         <input
           required
           name="email"
@@ -90,13 +90,13 @@ export function RegisterForm({ onSuccess }) {
           type="email"
           placeholder="Địa chỉ Email"
           disabled={isLoading}
-          className="w-full pl-12 pr-4 py-3.5 bg-zinc-50 dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800 rounded-2xl text-[15px] text-zinc-900 dark:text-white placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-blue-500/40 focus:border-blue-500/40 focus:bg-white dark:focus:bg-zinc-900 hover:border-zinc-300 dark:hover:border-zinc-700 transition-all font-medium disabled:opacity-60"
+          className="w-full pl-12 pr-4 py-3.5 bg-zinc-50 dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800 rounded-2xl text-[15px] text-zinc-900 dark:text-white placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/40 focus:border-emerald-500/40 focus:bg-white dark:focus:bg-zinc-900 hover:border-zinc-300 dark:hover:border-zinc-700 transition-all font-medium disabled:opacity-60"
         />
       </div>
 
       {/* Mật khẩu */}
       <div className="relative group">
-        <Lock className={`absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 transition-colors ${formData.password ? 'text-blue-600 dark:text-blue-400' : 'text-zinc-400 group-focus-within:text-blue-600 dark:group-focus-within:text-blue-400'}`} />
+        <LockClosedIcon className={`absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 transition-colors ${formData.password ? 'text-emerald-600 dark:text-emerald-400' : 'text-zinc-400 group-focus-within:text-emerald-600 dark:group-focus-within:text-emerald-400'}`} />
         <input
           required
           name="password"
@@ -105,13 +105,13 @@ export function RegisterForm({ onSuccess }) {
           type="password"
           placeholder="Mật khẩu (Tối thiểu 6 ký tự)"
           disabled={isLoading}
-          className="w-full pl-12 pr-4 py-3.5 bg-zinc-50 dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800 rounded-2xl text-[15px] text-zinc-900 dark:text-white placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-blue-500/40 focus:border-blue-500/40 focus:bg-white dark:focus:bg-zinc-900 hover:border-zinc-300 dark:hover:border-zinc-700 transition-all font-medium disabled:opacity-60"
+          className="w-full pl-12 pr-4 py-3.5 bg-zinc-50 dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800 rounded-2xl text-[15px] text-zinc-900 dark:text-white placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/40 focus:border-emerald-500/40 focus:bg-white dark:focus:bg-zinc-900 hover:border-zinc-300 dark:hover:border-zinc-700 transition-all font-medium disabled:opacity-60"
         />
       </div>
 
       {/* Xác nhận Mật khẩu */}
       <div className="relative group">
-        <ShieldCheck className={`absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 transition-colors ${formData.confirmPassword ? 'text-blue-600 dark:text-blue-400' : 'text-zinc-400 group-focus-within:text-blue-600 dark:group-focus-within:text-blue-400'}`} />
+        <ShieldCheckIcon className={`absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 transition-colors ${formData.confirmPassword ? 'text-emerald-600 dark:text-emerald-400' : 'text-zinc-400 group-focus-within:text-emerald-600 dark:group-focus-within:text-emerald-400'}`} />
         <input
           required
           name="confirmPassword"
@@ -120,7 +120,7 @@ export function RegisterForm({ onSuccess }) {
           type="password"
           placeholder="Xác nhận lại mật khẩu"
           disabled={isLoading}
-          className="w-full pl-12 pr-4 py-3.5 bg-zinc-50 dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800 rounded-2xl text-[15px] text-zinc-900 dark:text-white placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-blue-500/40 focus:border-blue-500/40 focus:bg-white dark:focus:bg-zinc-900 hover:border-zinc-300 dark:hover:border-zinc-700 transition-all font-medium disabled:opacity-60"
+          className="w-full pl-12 pr-4 py-3.5 bg-zinc-50 dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800 rounded-2xl text-[15px] text-zinc-900 dark:text-white placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/40 focus:border-emerald-500/40 focus:bg-white dark:focus:bg-zinc-900 hover:border-zinc-300 dark:hover:border-zinc-700 transition-all font-medium disabled:opacity-60"
         />
       </div>
 
@@ -132,21 +132,21 @@ export function RegisterForm({ onSuccess }) {
       >
         <span className={`flex items-center gap-2 transition-all ${isLoading ? 'opacity-0 translate-y-2' : 'opacity-100 translate-y-0'}`}>
           Đăng ký tài khoản
-          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 group-disabled:translate-x-0 transition-transform" />
+          <ArrowRightIcon className="w-4 h-4 group-hover:translate-x-1 group-disabled:translate-x-0 transition-transform" />
         </span>
 
         {/* Loading Spinner */}
         <div className={`absolute inset-0 flex items-center justify-center transition-all ${isLoading ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2'}`}>
-          <Loader2 className="w-5 h-5 animate-spin" />
+          <ArrowPathIcon className="w-5 h-5 animate-spin" />
         </div>
       </button>
 
       {/* Điều khoản */}
       <p className="text-center text-[12px] text-zinc-500 dark:text-zinc-400 mt-4 leading-relaxed px-4">
         Bằng việc đăng ký, bạn đồng ý với{' '}
-        <a href="#" className="font-bold text-zinc-700 dark:text-zinc-300 hover:text-blue-600 dark:hover:text-blue-400">Điều khoản dịch vụ</a>{' '}
+        <a href="#" className="font-bold text-zinc-700 dark:text-zinc-300 hover:text-emerald-600 dark:hover:text-emerald-400">Điều khoản dịch vụ</a>{' '}
         và{' '}
-        <a href="#" className="font-bold text-zinc-700 dark:text-zinc-300 hover:text-blue-600 dark:hover:text-blue-400">Chính sách bảo mật</a> của DrinkMap.
+        <a href="#" className="font-bold text-zinc-700 dark:text-zinc-300 hover:text-emerald-600 dark:hover:text-emerald-400">Chính sách bảo mật</a> của DrinkMap.
       </p>
     </form>
   );

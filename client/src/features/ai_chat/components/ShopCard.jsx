@@ -15,7 +15,7 @@ const getImgUrl = (name) => {
   const idx = (name.length % 9) + 1;
   return `https://loremflickr.com/80/80/cafe,coffee?lock=${idx}`;
 };
-
+     
 export default function ShopCard({ name, info, location, cover_image, slug }) {
   const [imgLoaded, setImgLoaded] = useState(false);
   const setFocusedShop = useMapStore(state => state.setFocusedShop);

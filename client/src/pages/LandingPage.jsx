@@ -2,24 +2,24 @@ import React, { useState } from 'react';
 import { Navigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { motion } from 'framer-motion';
-import { MapPin, Search, Coffee, Heart, ArrowRight } from 'lucide-react';
+import { MapPinIcon, MagnifyingGlassIcon, BuildingStorefrontIcon, HeartIcon, ArrowRightIcon } from '@heroicons/react/24/outline';
 import AuthModal from '../features/auth/components/AuthModal';
 
 const LandingPage = () => {
   const { isAuthenticated } = useSelector((state) => state.auth);
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
 
-  // If already authenticated, redirect to the app (HomePage)
+  // If already authenticated, redirect to the app (FilterSelectionPage)
   if (isAuthenticated) {
-    return <Navigate to="/" replace />;
+    return <Navigate to="/filters" replace />;
   }
 
   return (
     <div className="relative min-h-screen bg-zinc-50 dark:bg-zinc-950 overflow-hidden flex flex-col items-center justify-center font-sans text-zinc-900 dark:text-zinc-50">
 
       {/* Decorative Blob Background */}
-      <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-orange-300/30 dark:bg-orange-600/20 rounded-full blur-3xl" />
-      <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-blue-300/30 dark:bg-blue-600/20 rounded-full blur-3xl" />
+      <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-emerald-300/30 dark:bg-emerald-600/20 rounded-full blur-3xl" />
+      <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-emerald-300/30 dark:bg-emerald-600/20 rounded-full blur-3xl" />
 
       <main className="relative z-10 w-full max-w-6xl px-6 py-12 md:py-24 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
@@ -30,13 +30,13 @@ const LandingPage = () => {
           transition={{ duration: 0.8 }}
           className="flex flex-col items-start gap-6"
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-orange-100 dark:bg-orange-950/50 border border-orange-200 dark:border-orange-900 shadow-sm">
-            <span className="text-sm font-bold text-orange-600 dark:text-orange-400 uppercase tracking-wider">Hành trình khám phá</span>
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-100 dark:bg-emerald-950/50 border border-emerald-200 dark:border-emerald-900 shadow-sm">
+            <span className="text-sm font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">Hành trình khám phá</span>
           </div>
 
           <h1 className="text-5xl lg:text-7xl font-black leading-tight tracking-tight">
             Khám phá thế giới <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-500">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-red-500">
               Đồ uống quanh bạn
             </span>
           </h1>
@@ -51,7 +51,7 @@ const LandingPage = () => {
               className="flex items-center justify-center gap-3 px-8 py-4 bg-zinc-900 hover:bg-zinc-800 dark:bg-white dark:hover:bg-zinc-100 text-white dark:text-zinc-900 rounded-2xl font-bold transition-all shadow-xl shadow-zinc-900/20 dark:shadow-white/10 active:scale-95 group"
             >
               Bắt đầu ngay
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              <ArrowRightIcon className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
             <button
               onClick={() => setIsAuthModalOpen(true)}
@@ -81,8 +81,8 @@ const LandingPage = () => {
               transition={{ repeat: Infinity, duration: 4, ease: 'easeInOut' }}
               className="bg-white/90 dark:bg-zinc-950/90 backdrop-blur-xl p-5 rounded-3xl shadow-lg border border-white/20 dark:border-zinc-800 flex items-center gap-4"
             >
-              <div className="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center shrink-0">
-                <MapPin className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+              <div className="w-12 h-12 rounded-full bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center shrink-0">
+                <MapPinIcon className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
               </div>
               <div>
                 <p className="font-bold text-zinc-900 dark:text-white">Tìm kiếm theo vị trí</p>
@@ -95,8 +95,8 @@ const LandingPage = () => {
               transition={{ repeat: Infinity, duration: 5, ease: 'easeInOut', delay: 1 }}
               className="bg-white/90 dark:bg-zinc-950/90 backdrop-blur-xl p-5 rounded-3xl shadow-lg border border-white/20 dark:border-zinc-800 flex items-center gap-4 ml-8"
             >
-              <div className="w-12 h-12 rounded-full bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center shrink-0">
-                <Coffee className="w-6 h-6 text-orange-600 dark:text-orange-400" />
+              <div className="w-12 h-12 rounded-full bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center shrink-0">
+                <BuildingStorefrontIcon className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
               </div>
               <div>
                 <p className="font-bold text-zinc-900 dark:text-white">Profile đồ uống</p>
@@ -110,7 +110,7 @@ const LandingPage = () => {
               className="bg-white/90 dark:bg-zinc-950/90 backdrop-blur-xl p-5 rounded-3xl shadow-lg border border-white/20 dark:border-zinc-800 flex items-center gap-4"
             >
               <div className="w-12 h-12 rounded-full bg-rose-100 dark:bg-rose-900/30 flex items-center justify-center shrink-0">
-                <Heart className="w-6 h-6 text-rose-600 dark:text-rose-400" />
+                <HeartIcon className="w-6 h-6 text-rose-600 dark:text-rose-400" />
               </div>
               <div>
                 <p className="font-bold text-zinc-900 dark:text-white">Lưu quán yêu thích</p>

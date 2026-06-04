@@ -53,6 +53,15 @@ class ReviewService:
         return reviews
 
     @staticmethod
+    async def get_user_reviews(user_id: str, limit: int = 100) -> List[ReviewResponse]:
+        review_dicts = await ReviewRepository.get_by_user(user_id, limit)
+        reviews = []
+        for r in review_dicts:
+            r.pop("_id", None)
+            reviews.append(ReviewResponse(**r))
+        return reviews
+
+    @staticmethod
     async def delete_review(review_id: str, user_id: str) -> bool:
         review_dict = await ReviewRepository.get_by_id(review_id)
         if not review_dict:

@@ -1,7 +1,7 @@
 import React from 'react';
 import ChatBox from './ChatBox';
 import ChatInput from './ChatInput';
-import { X, Bot } from 'lucide-react';
+import { XMarkIcon, SparklesIcon } from '@heroicons/react/24/outline';
 import useChatStore from '../store/useChatStore';
 import { AnimatePresence, motion } from 'framer-motion';
 
@@ -38,7 +38,7 @@ export default function ChatOverlay() {
             <div className="shrink-0 bg-gradient-to-r from-[#10705a] to-[#1a9a7c] px-5 py-4 flex items-center justify-between text-white shadow-md">
               <div className="flex items-center gap-3">
                 <div className="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center">
-                  <Bot className="w-5 h-5" />
+                  <SparklesIcon className="w-5 h-5" />
                 </div>
                 <div>
                   <h3 className="font-bold text-[16px] tracking-wide leading-tight">DrinkMap AI</h3>
@@ -56,7 +56,7 @@ export default function ChatOverlay() {
                 className="p-2 rounded-full hover:bg-white/20 active:scale-90 transition-all duration-150"
                 aria-label="Đóng khung chat"
               >
-                <X className="w-5 h-5" />
+                <XMarkIcon className="w-5 h-5" />
               </button>
             </div>
 

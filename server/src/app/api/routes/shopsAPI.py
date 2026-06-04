@@ -12,16 +12,18 @@ router = APIRouter()
 async def get_nearby_shops(
     lng: float = Query(..., description="Kinh độ"),
     lat: float = Query(..., description="Vĩ độ"),
-    max_distance: int = Query(5000, description="Bán kính tìm kiếm (mét)"),
-    category: Optional[str] = Query(None, description="Lọc theo category"),
+    radius_km: float = Query(5.0, description="Bán kính tìm kiếm (km)"),
+    beverage_types: Optional[str] = Query(None, description="Lọc theo beverage_types"),
+    price_range: Optional[int] = Query(None, description="Lọc theo mức giá (1, 2, 3)"),
+    q: Optional[str] = Query(None, description="Từ khóa tìm kiếm"),
     current_user: Optional[dict] = Depends(get_optional_user)
 ):
     """
     TÌM QUÁN QUANH ĐÂY + AI SCORING (Nếu user đã login)
-    Sử dụng $geoNear kết hợp AI ranking.
+    Sử dụng Haversine kết hợp AI ranking.
     """
     user_prefs = current_user.get("preferences") if current_user else None
-    return await ShopService.get_nearby_shops(lng, lat, max_distance, category, user_prefs)
+    return await ShopService.get_nearby_shops(lng, lat, radius_km, beverage_types, price_range, q, user_prefs)
 
 @router.post("/", response_model=ShopResponse, status_code=status.HTTP_201_CREATED)
 async def create_shop(

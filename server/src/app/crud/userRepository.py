@@ -13,8 +13,8 @@ class UserRepository:
     @classmethod
     async def get_by_email(cls, email: str) -> Optional[dict]:
         return await cls.get_collection().find_one({"email": email}, {"_id": 0})
-        
-    @classmethod
+           
+    @classmethod   
     async def create(cls, user_data: dict) -> str:
         await cls.get_collection().insert_one(user_data)
         return user_data.get("id")
@@ -32,3 +32,26 @@ class UserRepository:
             operation = {"$addToSet": {"saved_shops": shop_id}}
         result = await cls.get_collection().update_one({"id": user_id}, operation)
         return result.modified_count
+
+    @classmethod
+    async def add_saved_shop(cls, user_id: str, shop_id: str) -> int:
+        """Thêm shop_id vào mảng saved_shops (idempotent nhờ $addToSet)."""
+        result = await cls.get_collection().update_one(
+            {"id": user_id},
+            {"$addToSet": {"saved_shops": shop_id}}
+        )
+        return result.modified_count
+
+    @classmethod
+    async def remove_saved_shop(cls, user_id: str, shop_id: str) -> int:
+        """Xóa shop_id khỏi mảng saved_shops (idempotent nhờ $pull)."""
+        result = await cls.get_collection().update_one(
+            {"id": user_id},
+            {"$pull": {"saved_shops": shop_id}}
+        )
+        return result.modified_count
+
+    @classmethod
+    async def delete(cls, user_id: str) -> int:
+        result = await cls.get_collection().delete_one({"id": user_id})
+        return result.deleted_count

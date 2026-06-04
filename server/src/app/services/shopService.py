@@ -1,7 +1,9 @@
 from app.crud.shopRepository import ShopRepository
 from app.crud.reviewRepository import ReviewRepository
+from app.crud.drinkRepository import DrinkRepository
 from app.dtos.shopDTO import ShopResponse, ShopSummaryResponse, ShopCreateRequest, ShopUpdateRequest
 from app.dtos.reviewDTO import ReviewResponse
+from app.dtos.drinkDTO import DrinkResponse
 from typing import Optional, List, Any
 from pydantic import BaseModel
 from fastapi import HTTPException
@@ -11,6 +13,7 @@ from datetime import datetime, timezone
 
 class ShopWithReviewsDTO(ShopResponse):
     recent_reviews: List[ReviewResponse] = []
+    menu: List[DrinkResponse] = []
 
 class ShopService:
     @staticmethod
@@ -40,6 +43,18 @@ class ShopService:
                 # Log but don't crash — a bad review doc shouldn't kill the shop detail page
                 print(f"[ShopService] Skipping malformed review: {review_err}", flush=True)
 
+        # ✅ Lấy thực đơn (menu) đồ uống của quán
+        drink_dicts = await DrinkRepository.get_by_shop(canonical_id)
+        menu = []
+        for d in drink_dicts:
+            d.pop("_id", None)
+            if "image_url" in d and "image" not in d:
+                d["image"] = d["image_url"]
+            try:
+                menu.append(DrinkResponse(**d))
+            except Exception as drink_err:
+                print(f"[ShopService] Skipping malformed drink: {drink_err}", flush=True)
+
         shop_dict.pop("_id", None)
         try:
             shop_dto = ShopWithReviewsDTO(**shop_dict)
@@ -52,6 +67,7 @@ class ShopService:
             )
 
         shop_dto.recent_reviews = recent_reviews
+        shop_dto.menu = menu
         return shop_dto
 
     @staticmethod
@@ -60,9 +76,17 @@ class ShopService:
         return [ShopResponse(**s) for s in shops_dicts]
 
     @staticmethod
-    async def get_nearby_shops(lng: float, lat: float, max_distance: int, category: Optional[str], user_prefs: Optional[List[str]]) -> List[ShopSummaryResponse]:
-        shops_dicts = await ShopRepository.get_nearby_shops(lng, lat, max_distance, category, user_prefs)
-        return [ShopSummaryResponse(**s) for s in shops_dicts]
+    async def get_nearby_shops(
+        lng: float, lat: float, radius_km: float,
+        beverage_types: Optional[str] = None,
+        price_range: Optional[int] = None,
+        q: Optional[str] = None,
+        user_prefs: Optional[dict] = None
+    ) -> List[ShopSummaryResponse]:
+        shops = await ShopRepository.get_nearby_shops(
+            lng, lat, radius_km, beverage_types, price_range, q, user_prefs
+        )
+        return [ShopSummaryResponse(**s) for s in shops]
 
     @staticmethod
     async def create_shop(shop_data: ShopCreateRequest, user_id: str) -> ShopResponse:

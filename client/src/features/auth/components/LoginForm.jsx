@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Lock, ArrowRight, Loader2 } from 'lucide-react';
+import { EnvelopeIcon, LockClosedIcon, ArrowRightIcon, ArrowPathIcon } from '@heroicons/react/24/outline';
 
 export function LoginForm({ onSuccess, onForgotPassword }) {
   const [formData, setFormData] = useState({
@@ -47,7 +47,7 @@ export function LoginForm({ onSuccess, onForgotPassword }) {
 
       {/* Input Group: Email */}
       <div className="relative group">
-        <Mail className={`absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 transition-colors ${formData.email ? 'text-blue-600 dark:text-blue-400' : 'text-zinc-400 group-focus-within:text-blue-600 dark:group-focus-within:text-blue-400'}`} />
+        <EnvelopeIcon className={`absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 transition-colors ${formData.email ? 'text-emerald-600 dark:text-emerald-400' : 'text-zinc-400 group-focus-within:text-emerald-600 dark:group-focus-within:text-emerald-400'}`} />
         <input 
           required
           name="email"
@@ -56,13 +56,13 @@ export function LoginForm({ onSuccess, onForgotPassword }) {
           type="email" 
           placeholder="Địa chỉ Email" 
           disabled={isLoading}
-          className="w-full pl-12 pr-4 py-3.5 bg-zinc-50 dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800 rounded-2xl text-[15px] text-zinc-900 dark:text-white placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-blue-500/40 focus:border-blue-500/40 focus:bg-white dark:focus:bg-zinc-900 hover:border-zinc-300 dark:hover:border-zinc-700 transition-all font-medium disabled:opacity-60"
+          className="w-full pl-12 pr-4 py-3.5 bg-zinc-50 dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800 rounded-2xl text-[15px] text-zinc-900 dark:text-white placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/40 focus:border-emerald-500/40 focus:bg-white dark:focus:bg-zinc-900 hover:border-zinc-300 dark:hover:border-zinc-700 transition-all font-medium disabled:opacity-60"
         />
       </div>
 
       {/* Input Group: Password */}
       <div className="relative group">
-        <Lock className={`absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 transition-colors ${formData.password ? 'text-blue-600 dark:text-blue-400' : 'text-zinc-400 group-focus-within:text-blue-600 dark:group-focus-within:text-blue-400'}`} />
+        <LockClosedIcon className={`absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 transition-colors ${formData.password ? 'text-emerald-600 dark:text-emerald-400' : 'text-zinc-400 group-focus-within:text-emerald-600 dark:group-focus-within:text-emerald-400'}`} />
         <input 
           required
           name="password"
@@ -71,7 +71,7 @@ export function LoginForm({ onSuccess, onForgotPassword }) {
           type="password" 
           placeholder="Mật khẩu" 
           disabled={isLoading}
-          className="w-full pl-12 pr-4 py-3.5 bg-zinc-50 dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800 rounded-2xl text-[15px] text-zinc-900 dark:text-white placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-blue-500/40 focus:border-blue-500/40 focus:bg-white dark:focus:bg-zinc-900 hover:border-zinc-300 dark:hover:border-zinc-700 transition-all font-medium disabled:opacity-60"
+          className="w-full pl-12 pr-4 py-3.5 bg-zinc-50 dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800 rounded-2xl text-[15px] text-zinc-900 dark:text-white placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/40 focus:border-emerald-500/40 focus:bg-white dark:focus:bg-zinc-900 hover:border-zinc-300 dark:hover:border-zinc-700 transition-all font-medium disabled:opacity-60"
         />
       </div>
 
@@ -79,7 +79,7 @@ export function LoginForm({ onSuccess, onForgotPassword }) {
       <div className="flex justify-between items-center pt-1 pb-1">
         <label className="flex items-center gap-2 cursor-pointer group">
           <div className="relative flex items-center justify-center">
-            <input type="checkbox" className="peer w-4 h-4 rounded appearance-none border-2 border-zinc-300 dark:border-zinc-700 checked:bg-blue-600 checked:border-blue-600 transition-all cursor-pointer" />
+            <input type="checkbox" className="peer w-4 h-4 rounded appearance-none border-2 border-zinc-300 dark:border-zinc-700 checked:bg-emerald-600 checked:border-emerald-600 transition-all cursor-pointer" />
             <div className="absolute opacity-0 peer-checked:opacity-100 pointer-events-none text-white transition-opacity">
               <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
@@ -92,7 +92,7 @@ export function LoginForm({ onSuccess, onForgotPassword }) {
         <button 
           onClick={onForgotPassword}
           type="button" 
-          className="text-[13px] font-bold text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition-colors focus:outline-none focus:underline"
+          className="text-[13px] font-bold text-emerald-600 hover:text-emerald-700 dark:text-emerald-400 dark:hover:text-emerald-300 transition-colors focus:outline-none focus:underline"
         >
           Quên mật khẩu?
         </button>
@@ -106,12 +106,12 @@ export function LoginForm({ onSuccess, onForgotPassword }) {
       >
         <span className={`flex items-center gap-2 transition-all ${isLoading ? 'opacity-0 translate-y-2' : 'opacity-100 translate-y-0'}`}>
           Đăng nhập
-          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 group-disabled:translate-x-0 transition-transform" />
+          <ArrowRightIcon className="w-4 h-4 group-hover:translate-x-1 group-disabled:translate-x-0 transition-transform" />
         </span>
         
         {/* Loading Spinner */}
         <div className={`absolute inset-0 flex items-center justify-center transition-all ${isLoading ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2'}`}>
-          <Loader2 className="w-5 h-5 animate-spin" />
+          <ArrowPathIcon className="w-5 h-5 animate-spin" />
         </div>
       </button>
     </form>

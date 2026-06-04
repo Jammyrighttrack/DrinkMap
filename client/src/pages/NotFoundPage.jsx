@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Home, MapPin, ArrowLeft, Coffee } from 'lucide-react';
+import { HomeIcon, MapPinIcon, ArrowLeftIcon, BuildingStorefrontIcon } from '@heroicons/react/24/outline';
 
 // Dành cho việc điều hướng - Có thể thay thế bằng useNavigate nếu dùng react-router-dom
 export default function NotFoundPage() {
@@ -20,7 +20,7 @@ export default function NotFoundPage() {
         <motion.div 
           animate={{ scale: [1, 1.05, 1], rotate: [0, 90, 0] }}
           transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-          className="absolute inset-0 rounded-full bg-gradient-to-tr from-blue-100/40 via-blue-200/20 to-transparent blur-3xl"
+          className="absolute inset-0 rounded-full bg-gradient-to-tr from-emerald-100/40 via-emerald-200/20 to-transparent blur-3xl"
         />
         <motion.div 
           animate={{ scale: [1, 1.1, 1], rotate: [0, -90, 0] }}
@@ -43,16 +43,16 @@ export default function NotFoundPage() {
           transition={{ type: "spring", stiffness: 200, damping: 20, delay: 0.2 }}
           className="mx-auto w-24 h-24 mb-6 relative"
         >
-          <div className="absolute inset-0 bg-blue-100 dark:bg-blue-900/30 rounded-[28px] rotate-6" />
-          <div className="absolute inset-0 bg-blue-50 dark:bg-blue-800/20 rounded-[28px] -rotate-3 backdrop-blur-md border border-white/50 dark:border-blue-700/30 flex items-center justify-center shadow-lg">
-            <MapPin className="w-10 h-10 text-blue-600 dark:text-blue-400 drop-shadow-sm" />
+          <div className="absolute inset-0 bg-emerald-100 dark:bg-emerald-900/30 rounded-[28px] rotate-6" />
+          <div className="absolute inset-0 bg-emerald-50 dark:bg-emerald-800/20 rounded-[28px] -rotate-3 backdrop-blur-md border border-white/50 dark:border-emerald-700/30 flex items-center justify-center shadow-lg">
+            <MapPinIcon className="w-10 h-10 text-emerald-600 dark:text-emerald-400 drop-shadow-sm" />
           </div>
           <motion.div 
             animate={{ y: [-4, 4, -4], rotate: [-10, 10, -10] }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
             className="absolute -top-3 -right-3 w-10 h-10 bg-yellow-100 dark:bg-yellow-900/40 rounded-full border border-white dark:border-zinc-800 flex items-center justify-center"
           >
-            <Coffee className="w-5 h-5 text-yellow-600 dark:text-yellow-500" />
+            <BuildingStorefrontIcon className="w-5 h-5 text-yellow-600 dark:text-yellow-500" />
           </motion.div>
         </motion.div>
 
@@ -77,7 +77,7 @@ export default function NotFoundPage() {
             onClick={handleGoBack}
             className="flex-1 flex items-center justify-center gap-2 py-3.5 px-6 rounded-2xl bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 text-zinc-700 dark:text-zinc-300 font-bold transition-colors border border-zinc-200 dark:border-zinc-700 shadow-sm"
           >
-            <ArrowLeft className="w-5 h-5" />
+            <ArrowLeftIcon className="w-5 h-5" />
             Trở lại
           </motion.button>
           
@@ -85,9 +85,9 @@ export default function NotFoundPage() {
             whileHover={{ scale: 1.02, boxShadow: "0 10px 25px -5px rgba(37, 99, 235, 0.4)" }}
             whileTap={{ scale: 0.98 }}
             onClick={handleGoHome}
-            className="flex-1 flex items-center justify-center gap-2 py-3.5 px-6 rounded-2xl bg-blue-600 text-white font-bold transition-all shadow-lg shadow-blue-600/20"
+            className="flex-1 flex items-center justify-center gap-2 py-3.5 px-6 rounded-2xl bg-emerald-600 text-white font-bold transition-all shadow-lg shadow-emerald-600/20"
           >
-            <Home className="w-5 h-5" />
+            <HomeIcon className="w-5 h-5" />
             Về trang chủ
           </motion.button>
         </div>

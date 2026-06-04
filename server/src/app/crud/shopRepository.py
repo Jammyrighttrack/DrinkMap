@@ -2,17 +2,17 @@ from app.core.database import Database
 from typing import Optional, List, Dict, Any
 from datetime import datetime, timezone
 import math
-
+   
 
 def _haversine_m(lat1: float, lng1: float, lat2: float, lng2: float) -> float:
     """Khoảng cách Haversine giữa 2 điểm (mét)."""
-    R = 6_371_000  # bán kính Trái Đất (m)
+    R = 6_371_000  # bán kính Trái Đất (m) 
     phi1, phi2 = math.radians(lat1), math.radians(lat2)
     dphi = math.radians(lat2 - lat1)
     dlam = math.radians(lng2 - lng1)
     a = math.sin(dphi / 2) ** 2 + math.cos(phi1) * math.cos(phi2) * math.sin(dlam / 2) ** 2
     return R * 2 * math.atan2(math.sqrt(a), math.sqrt(1 - a))
-
+   
 
 def _shop_centroid(shop: dict) -> tuple[float, float] | tuple[None, None]:
     """Tính lat/lng từ GeoJSON Point hoặc Polygon."""
@@ -81,37 +81,62 @@ class ShopRepository:
         cls,
         lng: float,
         lat: float,
-        max_distance: int = 5000,
-        category: Optional[str] = None,
+        radius_km: float = 5.0,
+        beverage_types: Optional[str] = None,
+        price_range: Optional[int] = None,
+        q: Optional[str] = None,
         user_prefs: Optional[List[str]] = None,
     ) -> List[dict]:
         """
         [CORE FEATURE] Tìm quán gần vị trí người dùng.
-
-        Atlas M0 Free Tier KHÔNG hỗ trợ $geoNear (aggregation) lẫn $near (find).
-        Giải pháp: lấy toàn bộ shops active, lọc/sort bằng Haversine trong Python.
-        Với ~79 shops hiện tại, overhead là không đáng kể.
+        Hỗ trợ lọc theo 3 tiêu chí: Khoảng cách, Sở thích (tags), và Mức giá.
         """
         match: Dict[str, Any] = {"is_active": True}
-        if category:
-            match["category"] = category
+        
+        # 1. Lọc theo Price Range (1, 2, 3)
+        if price_range is not None:
+            match["price_range"] = price_range
 
-        # Lấy tất cả shops active (tối đa 200 để không quá nặng)
-        all_shops = await cls.get_collection().find(match, {"_id": 0}).to_list(length=200)
-        print(f"[ShopRepo] Loaded {len(all_shops)} shops for Haversine filter", flush=True)
+        # 2. Ánh xạ và lọc theo Beverage Type / Tags
+        BEVERAGE_TAG_MAP = {
+            "date": "date lãng mạn",
+            "work": "working space",
+            "delicious": "đồ uống ngon",
+            "chill": "view đẹp & chill",
+            "classic": "cổ điển",
+            "modern": "hiện đại"
+        }
+        if beverage_types and beverage_types in BEVERAGE_TAG_MAP:
+            match["tags"] = BEVERAGE_TAG_MAP[beverage_types]
+            
+        # 3. Text search nếu người dùng gõ từ khóa
+        if q and q.strip():
+            match["$or"] = [
+                {"name": {"$regex": q.strip(), "$options": "i"}},
+                {"address": {"$regex": q.strip(), "$options": "i"}}
+            ]
+            # Mở rộng bán kính tìm kiếm nếu có text query để tìm được toàn bộ thành phố
+            radius_km = max(radius_km, 50.0)
 
-        # ── Tính khoảng cách Haversine & lọc theo max_distance ────────────────
+        # Lấy tất cả shops khớp điều kiện lọc (tối đa 2000 để bao phủ hết 1176 shops trong DB)
+        all_shops = await cls.get_collection().find(match, {"_id": 0}).to_list(length=2000)
+        print(f"[ShopRepo] Loaded {len(all_shops)} shops filtering by {match}", flush=True)
+
+        # Đổi bán kính từ km sang mét
+        max_distance_m = radius_km * 1000
+
+        # ── Tính khoảng cách Haversine & lọc theo max_distance_m ────────────────
         nearby: list[dict] = []
         for shop in all_shops:
             slat, slng = _shop_centroid(shop)
             if slat is None:
                 continue
             dist_m = _haversine_m(lat, lng, slat, slng)
-            if dist_m <= max_distance:
+            if dist_m <= max_distance_m:
                 shop["distance"] = round(dist_m)
                 nearby.append(shop)
 
-        print(f"[ShopRepo] Haversine -> {len(nearby)} shops within {max_distance}m", flush=True)
+        print(f"[ShopRepo] Haversine -> {len(nearby)} shops within {max_distance_m}m", flush=True)
 
         # ── Nếu không có quán trong bán kính, trả về tất cả sort theo rating ──
         if not nearby:
@@ -130,7 +155,7 @@ class ShopRepository:
         else:
             nearby.sort(key=lambda s: s.get("distance", 999_999))
 
-        return nearby[:50]
+        return nearby
 
 
     @classmethod

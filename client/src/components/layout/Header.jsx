@@ -8,7 +8,7 @@ const Header = ({ onLoginClick, user }) => {
     <header className="sticky top-0 z-50 w-full border-b border-gray-200 bg-white/80 backdrop-blur-md shadow-sm">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 md:px-6">
         <div className="flex cursor-pointer items-center gap-2">
-          <div className="flex items-center justify-center rounded-lg bg-orange-600 p-2">
+          <div className="flex items-center justify-center rounded-lg bg-emerald-600 p-2">
             <svg
               className="h-5 w-5 text-white"
               fill="none"
@@ -29,7 +29,7 @@ const Header = ({ onLoginClick, user }) => {
               />
             </svg>
           </div>
-          <span className="hidden bg-gradient-to-r from-orange-600 to-amber-500 bg-clip-text text-xl font-bold text-transparent sm:inline-block">
+          <span className="hidden bg-gradient-to-r from-emerald-600 to-amber-500 bg-clip-text text-xl font-bold text-transparent sm:inline-block">
             DrinkMap
           </span>
         </div>
@@ -47,7 +47,7 @@ const Header = ({ onLoginClick, user }) => {
           </div>
           <input
             type="text"
-            className="block w-full rounded-full border-gray-200 bg-gray-50 py-2 pl-10 pr-4 text-sm outline-none transition-all focus:border-orange-500 focus:bg-white focus:ring-2 focus:ring-orange-200"
+            className="block w-full rounded-full border-gray-200 bg-gray-50 py-2 pl-10 pr-4 text-sm outline-none transition-all focus:border-emerald-500 focus:bg-white focus:ring-2 focus:ring-emerald-200"
             placeholder="Tim quan cafe, tra sua quanh ban..."
           />
         </div>
@@ -83,13 +83,13 @@ const Header = ({ onLoginClick, user }) => {
               <img
                 src={user.avatar || 'https://ui-avatars.com/api/?name=User&background=f97316&color=fff'}
                 alt="Avatar"
-                className="h-9 w-9 rounded-full border-2 border-orange-100 object-cover"
+                className="h-9 w-9 rounded-full border-2 border-emerald-100 object-cover"
               />
             </div>
           ) : (
             <button
               onClick={onLoginClick}
-              className="rounded-full bg-orange-600 px-4 py-2 text-sm font-medium text-white transition-all hover:bg-orange-700 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 active:scale-95"
+              className="rounded-full bg-emerald-600 px-4 py-2 text-sm font-medium text-white transition-all hover:bg-emerald-700 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 active:scale-95"
             >
               Dang nhap / Dang ky
             </button>

@@ -109,7 +109,7 @@ const FilterDrawer = ({ isOpen, onClose }) => {
           <div className="space-y-4">
             <div className="flex justify-between items-end">
               <label className="text-[15px] font-semibold text-gray-800">Bán kính tìm kiếm</label>
-              <span className="text-sm font-bold text-blue-600 bg-blue-50 px-3 py-1 rounded-full">
+              <span className="text-sm font-bold text-emerald-600 bg-emerald-50 px-3 py-1 rounded-full">
                 {localFilters.max_distance >= 1000 
                   ? `${localFilters.max_distance / 1000} km` 
                   : `${localFilters.max_distance} m`}
@@ -121,7 +121,7 @@ const FilterDrawer = ({ isOpen, onClose }) => {
               min="500" max="15000" step="500"
               value={localFilters.max_distance}
               onChange={(e) => handleChange('max_distance', parseInt(e.target.value))}
-              className="w-full h-2.5 bg-gray-200 rounded-full appearance-none cursor-pointer accent-blue-600"
+              className="w-full h-2.5 bg-gray-200 rounded-full appearance-none cursor-pointer accent-emerald-600"
             />
             <div className="flex justify-between text-xs text-gray-400 font-medium">
               <span>Gần (500m)</span>
@@ -142,7 +142,7 @@ const FilterDrawer = ({ isOpen, onClose }) => {
                     className={`
                       py-2.5 rounded-xl text-sm font-medium border transition-all duration-200 flex justify-center items-center gap-1
                       ${isActive 
-                        ? 'bg-blue-50 text-blue-600 border-blue-500 shadow-sm ring-1 ring-blue-500/50' 
+                        ? 'bg-emerald-50 text-emerald-600 border-emerald-500 shadow-sm ring-1 ring-emerald-500/50' 
                         : 'bg-white text-gray-600 border-gray-200 hover:bg-gray-50'
                       }
                     `}
@@ -171,7 +171,7 @@ const FilterDrawer = ({ isOpen, onClose }) => {
                   className={`
                     flex-1 py-2 text-sm font-semibold rounded-xl transition-all duration-300
                     ${localFilters.priceRange === price.id
-                      ? 'bg-white text-blue-600 shadow-sm'
+                      ? 'bg-white text-emerald-600 shadow-sm'
                       : 'text-gray-500 hover:text-gray-700'
                     }
                   `}
@@ -195,7 +195,7 @@ const FilterDrawer = ({ isOpen, onClose }) => {
           
           <button 
             onClick={handleApply}
-            className="flex-[2] py-3.5 px-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-2xl shadow-[0_4px_12px_rgba(37,99,235,0.3)] hover:shadow-[0_6px_16px_rgba(37,99,235,0.4)] transition-all transform active:scale-[0.98] flex items-center justify-center gap-2"
+            className="flex-[2] py-3.5 px-4 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-2xl shadow-[0_4px_12px_rgba(37,99,235,0.3)] hover:shadow-[0_6px_16px_rgba(37,99,235,0.4)] transition-all transform active:scale-[0.98] flex items-center justify-center gap-2"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />

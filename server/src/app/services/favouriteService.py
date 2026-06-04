@@ -16,52 +16,53 @@ class FavouriteService:
         """
         Xử lý logic thêm quán vào danh sách yêu thích.
         """
-        # 1. Xác thực dữ liệu chéo: Kiểm tra quán có thực sự tồn tại không
-        shop_exists = await ShopRepository.check_exists(shop_id)
-        if not shop_exists:
+        # 1. Xác thực: Kiểm tra quán có tồn tại không (hỗ trợ cả UUID lẫn slug)
+        shop = await ShopRepository.get_by_id_or_slug(shop_id)
+        if not shop:
             raise HTTPException(
-                status_code=status.HTTP_404_NOT_FOUND, 
+                status_code=status.HTTP_404_NOT_FOUND,
                 detail="Quán không tồn tại trong hệ thống DrinkMap AI."
             )
-            
-        # 2. Xử lý Logic: Ngăn chặn lưu trùng lặp
-        is_fav = await FavouriteRepository.check_is_favourite(user_id, shop_id)
+
+        # Dùng canonical UUID của quán (phòng trường hợp id truyền vào là slug)
+        canonical_shop_id = shop.get("id", shop_id)
+
+        # 2. Ngăn chặn lưu trùng lặp
+        is_fav = await FavouriteRepository.check_is_favourite(user_id, canonical_shop_id)
         if is_fav:
             return {"message": "Quán đã nằm trong danh sách yêu thích", "already_exists": True}
-            
-        # 3. Chuẩn bị dữ liệu (Data Preparation)
+
+        # 3. Chuẩn bị dữ liệu
         fav_data = {
             "id": str(uuid.uuid4()),
             "user_id": user_id,
-            "shop_id": shop_id,
+            "shop_id": canonical_shop_id,
             "created_at": datetime.now(timezone.utc).isoformat()
         }
-        
-        # 4. Giao việc lưu trữ cho Repository
+
+        # 4. Lưu vào DB favourites
         fav_id = await FavouriteRepository.create(fav_data)
-        
-        # 5. Đồng bộ dữ liệu (Cập nhật mảng saved_shops của User)
-        await UserRepository.add_saved_shop(user_id, shop_id)
-        
+
+        # 5. Đồng bộ saved_shops của User
+        await UserRepository.add_saved_shop(user_id, canonical_shop_id)
+
         return {"message": "Đã thêm vào danh sách yêu thích", "id": fav_id, "already_exists": False}
 
     @staticmethod
     async def remove_favourite(user_id: str, shop_id: str) -> dict:
         """
         Xử lý logic xóa quán khỏi danh sách yêu thích.
+        Hỗ trợ cả UUID lẫn slug — resolve canonical UUID trước khi xóa.
         """
-        deleted_count = await FavouriteRepository.remove(user_id, shop_id)
-        
-        # Nếu không có record nào bị xóa, nghĩa là dữ liệu không hợp lệ
-        if deleted_count == 0:
-            raise HTTPException(
-                status_code=status.HTTP_404_NOT_FOUND, 
-                detail="Quán chưa nằm trong danh sách yêu thích."
-            )
-            
-        # Đồng bộ xóa khỏi bảng User
-        await UserRepository.remove_saved_shop(user_id, shop_id)
-        
+        # Resolve canonical UUID (phòng trường hợp truyền slug)
+        shop = await ShopRepository.get_by_id_or_slug(shop_id)
+        canonical_shop_id = shop.get("id", shop_id) if shop else shop_id
+
+        deleted_count = await FavouriteRepository.remove(user_id, canonical_shop_id)
+
+        # Đồng bộ xóa khỏi User ngay cả khi record không tìm thấy (idempotent)
+        await UserRepository.remove_saved_shop(user_id, canonical_shop_id)
+
         return {"message": "Đã xóa khỏi danh sách yêu thích"}
 
     @staticmethod
@@ -95,6 +96,11 @@ class FavouriteService:
     async def check_status(user_id: str, shop_id: str) -> dict:
         """
         Trả về trạng thái yêu thích để UI tô màu nút thả tim.
+        Hỗ trợ cả UUID lẫn slug.
         """
-        is_fav = await FavouriteRepository.check_is_favourite(user_id, shop_id)
+        # Resolve canonical UUID để check đúng
+        shop = await ShopRepository.get_by_id_or_slug(shop_id)
+        canonical_shop_id = shop.get("id", shop_id) if shop else shop_id
+
+        is_fav = await FavouriteRepository.check_is_favourite(user_id, canonical_shop_id)
         return {"is_favourite": is_fav}

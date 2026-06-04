@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Star, SlidersHorizontal, Edit3, MessageSquareOff } from 'lucide-react';
+import { StarIcon, AdjustmentsHorizontalIcon, PencilSquareIcon, ChatBubbleBottomCenterTextIcon } from '@heroicons/react/24/outline';
 import { RatingStars } from '../../../components/ui/RatingStars';
 import { ReviewItem } from './ReviewItem';
 
@@ -102,7 +102,7 @@ export function ReviewList({ shopId, onWriteReview }) {
               return (
                 <div key={star} className="flex items-center gap-3 text-sm">
                   <span className="shrink-0 w-12 text-zinc-600 dark:text-zinc-400 font-bold flex items-center justify-end gap-1">
-                    {star} <Star className="w-3.5 h-3.5 fill-current" />
+                    {star} <StarIcon className="w-3.5 h-3.5 fill-current" />
                   </span>
                   
                   <div className="flex-1 h-2 rounded-full bg-zinc-200 dark:bg-zinc-800 overflow-hidden relative">
@@ -133,11 +133,11 @@ export function ReviewList({ shopId, onWriteReview }) {
         
         {/* Dropdown Sắp xếp (Dùng native select cực mượt trên Mobile) */}
         <div className="relative w-full sm:w-auto">
-          <SlidersHorizontal className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-zinc-500" />
+          <AdjustmentsHorizontalIcon className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-zinc-500" />
           <select 
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value)}
-            className="w-full sm:w-auto appearance-none bg-zinc-50 dark:bg-zinc-900 border border-zinc-200/60 dark:border-zinc-800 text-zinc-700 dark:text-zinc-200 text-sm font-bold rounded-xl pl-10 pr-10 py-2.5 focus:outline-none focus:ring-2 focus:ring-blue-500/30 cursor-pointer"
+            className="w-full sm:w-auto appearance-none bg-zinc-50 dark:bg-zinc-900 border border-zinc-200/60 dark:border-zinc-800 text-zinc-700 dark:text-zinc-200 text-sm font-bold rounded-xl pl-10 pr-10 py-2.5 focus:outline-none focus:ring-2 focus:ring-emerald-500/30 cursor-pointer"
           >
             <option value="newest">Mới nhất</option>
             <option value="highest">Đánh giá cao nhất</option>
@@ -157,7 +157,7 @@ export function ReviewList({ shopId, onWriteReview }) {
           onClick={onWriteReview}
           className="w-full sm:w-auto flex items-center justify-center gap-2 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 px-6 py-2.5 rounded-xl text-sm font-bold shadow-[0_4px_14px_rgba(0,0,0,0.1)] hover:scale-[1.02] active:scale-[0.98] transition-transform"
         >
-          <Edit3 className="w-4 h-4" />
+          <PencilSquareIcon className="w-4 h-4" />
           Viết đánh giá
         </button>
       </div>
@@ -178,7 +178,7 @@ export function ReviewList({ shopId, onWriteReview }) {
           // Empty State nếu Quán chưa có comment nào
           <div className="flex flex-col items-center justify-center py-20 text-center">
             <div className="w-16 h-16 bg-zinc-50 dark:bg-zinc-900 rounded-full flex items-center justify-center mb-4">
-              <MessageSquareOff className="w-8 h-8 text-zinc-300 dark:text-zinc-600" />
+              <ChatBubbleBottomCenterTextIcon className="w-8 h-8 text-zinc-300 dark:text-zinc-600" />
             </div>
             <h4 className="text-[17px] font-extrabold text-zinc-900 dark:text-white mb-1">Chưa có đánh giá nào</h4>
             <p className="text-[14px] text-zinc-500 dark:text-zinc-400 max-w-xs mb-6 leading-relaxed">
@@ -186,7 +186,7 @@ export function ReviewList({ shopId, onWriteReview }) {
             </p>
             <button 
               onClick={onWriteReview}
-              className="text-blue-600 dark:text-blue-400 font-bold hover:underline"
+              className="text-emerald-600 dark:text-emerald-400 font-bold hover:underline"
             >
               Viết đánh giá ngay
             </button>
