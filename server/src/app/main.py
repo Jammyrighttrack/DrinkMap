@@ -1,4 +1,8 @@
-import os
+import sys
+from pathlib import Path
+sys.path.append(str(Path(__file__).parent.parent))  # Ép Python nhận diện thư mục src làm gốc tìm kiếm
+
+import os   
 from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
