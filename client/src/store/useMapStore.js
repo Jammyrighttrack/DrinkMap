@@ -7,6 +7,7 @@ export const useMapStore = create((set) => ({
   userLocation: null, // Object: { lat, lng }
   
   setActiveShops: (shops) => set({ activeShops: shops }),
+  clearActiveShops: () => set({ activeShops: [] }),
   setFocusedShop: (shop) => set({ focusedShop: shop }),
   clearFocusedShop: () => set({ focusedShop: null }),
   setActiveRoute: (route) => set({ activeRoute: route }),

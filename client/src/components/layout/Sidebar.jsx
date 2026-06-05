@@ -30,7 +30,7 @@ const Sidebar = ({ isOpen, onClose, visibleShopsCount, isLoading }) => {
             <h2 className="text-lg font-black text-zinc-900">Bộ lọc quán nước</h2>
             <p className="text-xs text-zinc-500 mt-1">Tìm kiếm theo 3 tiêu chí của bạn</p>
           </div>
-          <button 
+          <button
             onClick={onClose}
             className="p-1.5 rounded-lg text-zinc-400 hover:bg-zinc-100 hover:text-zinc-600 lg:hidden"
           >

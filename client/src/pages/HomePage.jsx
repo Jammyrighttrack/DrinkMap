@@ -373,6 +373,7 @@ const HomePage = () => {
   const activeRoute = useMapStore((state) => state.activeRoute);
   const clearActiveRoute = useMapStore((state) => state.clearActiveRoute);
   const setUserLocation = useMapStore((state) => state.setUserLocation);
+  const clearActiveShops = useMapStore((state) => state.clearActiveShops);
 
   useEffect(() => {
     requestLocation();
@@ -422,6 +423,7 @@ const HomePage = () => {
     if (hasChanged) {
       handleDeselectShop();
       clearActiveRoute();
+      clearActiveShops();
       
       prevFilters.current = {
         beverage_types: filters.beverage_types,
@@ -430,7 +432,7 @@ const HomePage = () => {
         q: filters.q,
       };
     }
-  }, [filters.beverage_types, filters.price_range, filters.radius_km, filters.q, handleDeselectShop, clearActiveRoute]);
+  }, [filters.beverage_types, filters.price_range, filters.radius_km, filters.q, handleDeselectShop, clearActiveRoute, clearActiveShops]);
 
   const visibleShops = useMemo(() => {
     return shops
@@ -504,7 +506,15 @@ const HomePage = () => {
               onClick={() => navigate('/filters')}
               className="flex items-center gap-2 cursor-pointer hover:opacity-85 transition-opacity"
             >
-              <span className="text-xl bg-gradient-to-br from-emerald-400 to-emerald-600 text-white rounded-lg p-1.5 leading-none shadow-sm">🍹</span>
+              <div className="flex items-center justify-center bg-gradient-to-br from-emerald-400 to-emerald-600 text-white rounded-2xl p-1.5 shadow-sm">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M17 8h1a4 4 0 1 1 0 8h-1" />
+                  <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z" />
+                  <line x1="6" x2="6" y1="2" y2="4" />
+                  <line x1="10" x2="10" y1="2" y2="4" />
+                  <line x1="14" x2="14" y1="2" y2="4" />
+                </svg>
+              </div>
               <span className="font-black text-xl tracking-tight text-gray-900 hidden lg:block">DrinkMap</span>
             </div>
           </div>

@@ -187,7 +187,11 @@ export function useSSEStream() {
 
             case 'finish': {
               console.log(`[SSE FINISH] total_time=${data.total_time}s, accumulatedContent.length=${accumulatedContent.length}`);
-              store().finishBotMessage(msgId, data.total_time);
+              // Chỉ đánh dấu done nếu chưa bị lỗi
+              const currentStatus = store().messages.find(m => m.id === msgId)?.status;
+              if (currentStatus !== 'error') {
+                store().finishBotMessage(msgId, data.total_time);
+              }
               console.log(`[DEBUG ID] finishBotMessage → msgId=${msgId}, status hiện tại=`, store().messages.find(m => m.id === msgId)?.status ?? 'NOT FOUND');
 
               const finalTokens = forceFinalParse(accumulatedContent);
