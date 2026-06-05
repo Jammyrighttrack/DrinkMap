@@ -1,4 +1,4 @@
-const FALLBACK_API_URL = 'http://localhost:8000/api';
+const FALLBACK_API_URL = 'https://drinkmap.onrender.com';
 
 export const resolveApiBaseUrl = (rawUrl) => {
   if (!rawUrl || typeof rawUrl !== 'string') {
