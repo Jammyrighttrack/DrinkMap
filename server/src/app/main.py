@@ -5,16 +5,18 @@ from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
 from pathlib import Path
     
-# Import Router tổng (nơi gom tất cả auth, shops, users...)
-from app.api.main import api_router
-from app.core.database import Database
-from app.core.ai_config import init_redis, close_redis
+# Dùng dấu chấm tương đối để nhận diện đúng folder core và api trong cùng gói app
+from .api.main import api_router
+from .core.database import Database
+from .core.ai_config import init_redis, close_redis
 
-# 1. Khởi chạy môi trường
-ROOT_DIR = Path(__file__).parent.parent.parent # Trỏ ra thư mục gốc chứa .env
-load_dotenv(ROOT_DIR / '.env')
+# Khởi chạy môi trường (Chỉ dùng file .env nếu chạy dưới local)
+ROOT_DIR = Path(__file__).parent.parent.parent.parent # Trỏ hẳn ra thư mục gốc dự án
+env_path = ROOT_DIR / '.env'
+if env_path.exists():
+    load_dotenv(env_path)
 
-# 2. Quản lý vòng đời ứng dụng (Lifespan)
+# Quản lý vòng đời ứng dụng (Lifespan)
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     # Startup: Kết nối DB khi bật server
@@ -25,7 +27,7 @@ async def lifespan(app: FastAPI):
     await close_redis()
     await Database.close_db()
         
-# 3. Khởi tạo FastAPI App
+# Khởi tạo FastAPI App
 app = FastAPI(
     title="DrinkMap AI API",
     description="Hệ thống gợi ý quán nước thông minh dựa trên vị trí và sở thích",
@@ -33,14 +35,15 @@ app = FastAPI(
     lifespan=lifespan
 )
 
-# 4. Cấu hình CORS (Middleware)
-# NOTE: allow_credentials=True requires explicit origins (cannot mix with "*").
-# Listing both localhost variants covers React dev server (Vite default).
+# Cấu hình CORS (Middleware)
+# SỬA TẠI ĐÂY: Thêm link Vercel xịn của bạn vào thẳng Backend để thông dòng kết nối
 origins = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
     "http://localhost:3000",
     "http://127.0.0.1:3000",
+    "https://drink-map.vercel.app",             # Link Vercel thật của Giang
+    "https://vite-react-nine-sigma-42.vercel.app" # Link Vercel phụ
 ]
 
 app.add_middleware(
@@ -52,10 +55,9 @@ app.add_middleware(
     expose_headers=["*"],
 )
 
-# 5. Kết nối Router Tổng (Chứa tất cả các routes đã tách)
+# Kết nối Router Tổng
 app.include_router(api_router, prefix="/api")
 
-# Route kiểm tra nhanh tại trang chủ
 @app.get("/", tags=["Root"])
 async def root():
     return {"message": "Welcome to DrinkMap AI API. Go to /docs for documentation."}
