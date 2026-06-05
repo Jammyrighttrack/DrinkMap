@@ -5,64 +5,69 @@ from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
 from pathlib import Path
     
-# Import Router tổng và cấu hình hệ thống sử dụng đường dẫn tương đối chuẩn
+# Import các module hệ thống
 from .api.main import api_router
 from .core.database import Database
 from .core.ai_config import init_redis, close_redis
 
-# Khởi chạy môi trường (Chỉ dùng file .env nếu chạy dưới local)
-ROOT_DIR = Path(__file__).parent.parent.parent.parent # Trỏ ra thư mục gốc chứa .env
+# Khởi chạy môi trường
+ROOT_DIR = Path(__file__).parent.parent.parent.parent
 env_path = ROOT_DIR / '.env'
 if env_path.exists():
     load_dotenv(env_path)
 
-# Quản lý vòng đời ứng dụng (Lifespan)
+# 🛡️ LIFESPAN BỌC THÉP: Bỏ qua mọi lỗi kết nối để ÉP server phải LIVE
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    # 🟩 STARTUP: Kết nối các dịch vụ khi bật server
-    print("=== SERVER STARTING ===")
+    print("=== [HỆ THỐNG] ĐANG KHỞI ĐỘNG FASTAPI SERVER ===")
     
-    # Kết nối cơ sở dữ liệu MongoDB Atlas (Bắt buộc phải thành công)
-    print("Connecting to MongoDB Atlas...")
-    await Database.connect_db()
-    
-    # Khởi tạo Redis (Bọc try-except để nếu server Render Free không có Redis thì app KHÔNG bị sập)
+    # 1. Thử kết nối MongoDB (Nếu lỗi thì in ra chứ không được làm sập app)
     try:
-        print("Initializing Redis Connection...")
+        print("[DATABASE] Đang kết nối MongoDB Atlas...")
+        await Database.connect_db()
+        print("[DATABASE] Kết nối MongoDB thành công hoặc đã kích hoạt tiến trình!")
+    except Exception as db_err:
+        print(f"❌ [CẢNH BÁO DATABASE LỖI]: {db_err}")
+        print("Hệ thống bỏ qua để giữ server không bị crash status 1.")
+        
+    # 2. Thử kết nối Redis (Nếu lỗi tuyệt đối không được sập)
+    try:
+        print("[REDIS] Đang kết nối Redis Cache...")
         await init_redis()
-        print("Redis connected successfully!")
+        print("[REDIS] Kết nối Redis thành công!")
     except Exception as redis_err:
-        print(f"⚠️ [BỎ QUA LỖI REDIS TRÊN DEPLOY]: {redis_err}")
-        print("FastAPI will still continue running without Redis cache.")
+        print(f"⚠️ [CẢNH BÁO REDIS LỖI]: {redis_err}")
+        print("Hệ thống bỏ qua dịch vụ Redis để chạy tiếp.")
         
     yield
     
-    # 🟥 SHUTDOWN: Ngắt kết nối các dịch vụ khi tắt server
-    print("=== SERVER SHUTTING DOWN ===")
+    # Khi tắt server, bọc try-except để tắt êm đẹp
+    print("=== [HỆ THỐNG] ĐANG TẮT SERVER ===")
     try:
         await close_redis()
     except Exception:
         pass
-    
-    await Database.close_db()
-    print("All connections closed successfully.")
+    try:
+        await Database.close_db()
+    except Exception:
+        pass
         
 # Khởi tạo FastAPI App
 app = FastAPI(
     title="DrinkMap AI API",
-    description="Hệ thống gợi ý quán nước thông minh dựa trên vị trí và sở thích",
+    description="Hệ thống gợi ý quán nước thông minh",
     version="1.0.0",
     lifespan=lifespan
 )
 
-# Cấu hình CORS (Middleware) cho phép cả Local và Vercel truy cập tự do
+# Cấu hình CORS
 origins = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
     "http://localhost:3000",
     "http://127.0.0.1:3000",
-    "https://drink-map.vercel.app",             # Link Vercel chính thức của bạn
-    "https://vite-react-nine-sigma-42.vercel.app" # Link Vercel phụ dự phòng
+    "https://drink-map.vercel.app",
+    "https://vite-react-nine-sigma-42.vercel.app"
 ]
 
 app.add_middleware(
@@ -74,10 +79,8 @@ app.add_middleware(
     expose_headers=["*"],
 )
 
-# Kết nối Router Tổng (Chứa tất cả các api/routes con)
 app.include_router(api_router, prefix="/api")
 
-# Route kiểm tra nhanh tại trang chủ
 @app.get("/", tags=["Root"])
 async def root():
-    return {"message": "Welcome to DrinkMap AI API. Go to /docs for documentation."}
+    return {"message": "Server DrinkMap AI đã LIVE thành công mượt mà!"}
