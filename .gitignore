@@ -1,4 +1,22 @@
+# Chặn file môi trường ở mọi thư mục (cả gốc, frontend và backend)
+.env
+*.env
 server/.env
+
+# Chặn folder thư viện của NodeJS (Frontend)
 node_modules/
-server/__pycache__/
+**/node_modules/
+
+# Chặn folder thư viện ảo của Python (Backend)
+.venv/
+venv/
+**/.venv/
+**/venv/
+
+# Chặn cache biên dịch của Python và hệ thống
+__pycache__/
+**/__pycache__/
+*.pyc
+*.pyo
+*.pyd
 .DS_Store
