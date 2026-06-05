@@ -1,0 +1,12 @@
+data: {"type": "status", "task": "Đang tìm kiếm quán cafe...", "status": "running"}
+
+data: {"type": "status", "task": "Đang tìm kiếm quán cafe...", "status": "done", "time": 4.444}
+
+data: {"type": "status", "task": "Đang tổng hợp menu...", "status": "running"}
+
+data: {"type": "error", "text": "Lỗi tạo nội dung: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}"}
+
+data: {"type": "status", "task": "Đang tổng hợp menu...", "status": "done", "time": 0.78}
+
+data: {"type": "finish", "total_time": 5.22}
+

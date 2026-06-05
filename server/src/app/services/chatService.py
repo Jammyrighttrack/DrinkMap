@@ -115,11 +115,11 @@ class ChatService:
             if content:
                 contents.append(types.Content(
                     role=role,
-                    parts=[types.Part(text=content)]
+                    parts=[types.Part.from_text(text=content)]
                 ))
         contents.append(types.Content(
             role="user",
-            parts=[types.Part(text=enhanced_message)]
+            parts=[types.Part.from_text(text=enhanced_message)]
         ))
 
         logger.info(
@@ -127,6 +127,7 @@ class ChatService:
             f"mode={'QUERY_DB' if has_context else 'GENERAL_CHAT'}, "
             f"history={len(history)}, context_len={len(context_text)}"
         )
+        print("DEBUG CONTENTS:", [c.role for c in contents])
 
         # ── Step 5: Stream Gemini response ────────────────────────────────────
         total_content_sent = 0
