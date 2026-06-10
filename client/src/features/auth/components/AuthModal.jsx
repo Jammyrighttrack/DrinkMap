@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { XMarkIcon, EnvelopeIcon, LockClosedIcon, UserIcon, ArrowRightIcon } from '@heroicons/react/24/outline';
 import { useDispatch, useSelector } from 'react-redux';
-import { loginApi, registerApi, googleLoginApi, clearError, verifyOtpApi, resendOtpApi } from '../authSlice';
+import { loginApi, registerApi, googleLoginApi, clearError, verifyOtpApi, resendOtpApi, forgotPasswordApi, resetPasswordApi } from '../authSlice';
 
 export default function AuthModal({ isOpen, onClose }) {
   const dispatch = useDispatch();
   const { isLoading, error } = useSelector((state) => state.auth);
-  const [mode, setMode] = useState('login'); // 'login' | 'register' | 'verify_otp'
+  const [mode, setMode] = useState('login'); // 'login' | 'register' | 'verify_otp' | 'forgot_password' | 'reset_password'
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -79,7 +79,11 @@ export default function AuthModal({ isOpen, onClose }) {
     dispatch(clearError());
     setLocalError(null);
     try {
-      await dispatch(resendOtpApi({ email: formData.email })).unwrap();
+      if (mode === 'reset_password') {
+        await dispatch(forgotPasswordApi({ email: formData.email })).unwrap();
+      } else {
+        await dispatch(resendOtpApi({ email: formData.email })).unwrap();
+      }
       setCooldown(60);
     } catch (err) {
       console.error('Resend OTP failed:', err);
@@ -101,6 +105,48 @@ export default function AuthModal({ isOpen, onClose }) {
         onClose();
       } catch (err) {
         console.error('OTP verification failed:', err);
+      }
+      return;
+    }
+
+    if (mode === 'forgot_password') {
+      const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      if (!emailRegex.test(formData.email)) {
+        setLocalError("Email không đúng định dạng!");
+        return;
+      }
+      try {
+        await dispatch(forgotPasswordApi({ email: formData.email })).unwrap();
+        setMode('reset_password');
+        setOtpCode('');
+        setFormData(prev => ({ ...prev, password: '' }));
+        setCooldown(60);
+      } catch (err) {
+        console.error('Forgot password failed:', err);
+      }
+      return;
+    }
+
+    if (mode === 'reset_password') {
+      if (otpCode.length !== 6 || isNaN(otpCode)) {
+        setLocalError("Vui lòng nhập đúng mã OTP gồm 6 chữ số!");
+        return;
+      }
+      if (formData.password.length < 6) {
+        setLocalError("Mật khẩu mới phải có ít nhất 6 ký tự!");
+        return;
+      }
+      try {
+        await dispatch(resetPasswordApi({ 
+          email: formData.email, 
+          otp_code: otpCode, 
+          new_password: formData.password 
+        })).unwrap();
+        setLocalError("Đổi mật khẩu thành công! Vui lòng đăng nhập lại.");
+        setMode('login');
+        setFormData(prev => ({ ...prev, password: '' }));
+      } catch (err) {
+        console.error('Reset password failed:', err);
       }
       return;
     }
@@ -201,13 +247,15 @@ export default function AuthModal({ isOpen, onClose }) {
                 <span className="text-2xl font-black text-white transform rotate-6 font-serif">DM</span>
               </div>
               <h2 className="text-2xl font-extrabold text-zinc-900 dark:text-white mb-2">
-                {mode === 'login' ? 'Mừng bạn trở lại' : mode === 'verify_otp' ? 'Xác thực tài khoản' : 'Bắt đầu hành trình'}
+                {mode === 'login' ? 'Mừng bạn trở lại' : mode === 'verify_otp' ? 'Xác thực tài khoản' : mode === 'forgot_password' ? 'Quên mật khẩu' : mode === 'reset_password' ? 'Đặt lại mật khẩu' : 'Bắt đầu hành trình'}
               </h2>
               <p className="text-sm font-medium text-zinc-500 dark:text-zinc-400">
                 {mode === 'login'
                   ? 'Khám phá quán quen, lưu giữ hương vị mới.'
-                  : mode === 'verify_otp'
+                  : mode === 'verify_otp' || mode === 'reset_password'
                   ? `Mã xác thực đã được gửi tới: ${formData.email}`
+                  : mode === 'forgot_password'
+                  ? 'Nhập email của bạn để nhận mã xác nhận đổi mật khẩu.'
                   : 'Gia nhập cộng đồng DrinkMap Việt Nam ngay hôm nay.'}
               </p>
             </div>
@@ -215,7 +263,7 @@ export default function AuthModal({ isOpen, onClose }) {
             {/* Form & Actions */}
             <div className="px-8 pb-10">
 
-              {mode !== 'verify_otp' && (
+              {(mode === 'login' || mode === 'register') && (
                 <>
                   {/* Nút Đăng nhập bằng Google */}
                   <button
@@ -248,7 +296,7 @@ export default function AuthModal({ isOpen, onClose }) {
 
               <form onSubmit={handleSubmit} className="space-y-4">
 
-                {mode !== 'verify_otp' ? (
+                {(mode === 'login' || mode === 'register' || mode === 'forgot_password') ? (
                   <>
                     <AnimatePresence mode="popLayout">
                       {mode === 'register' && (
@@ -285,22 +333,24 @@ export default function AuthModal({ isOpen, onClose }) {
                       />
                     </div>
 
-                    <div className="relative">
-                      <LockClosedIcon className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-zinc-400" />
-                      <input
-                        required
-                        name="password"
-                        value={formData.password}
-                        onChange={handleInputChange}
-                        type="password"
-                        placeholder="Mật khẩu"
-                        className="w-full pl-12 pr-4 py-3.5 bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl text-[15px] text-zinc-900 dark:text-white placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/40 focus:border-emerald-500/40 transition-all font-medium"
-                      />
-                    </div>
+                    {mode !== 'forgot_password' && (
+                      <div className="relative">
+                        <LockClosedIcon className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-zinc-400" />
+                        <input
+                          required
+                          name="password"
+                          value={formData.password}
+                          onChange={handleInputChange}
+                          type="password"
+                          placeholder="Mật khẩu"
+                          className="w-full pl-12 pr-4 py-3.5 bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl text-[15px] text-zinc-900 dark:text-white placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/40 focus:border-emerald-500/40 transition-all font-medium"
+                        />
+                      </div>
+                    )}
 
                     {mode === 'login' && (
                       <div className="flex justify-end pt-1">
-                        <button type="button" className="text-[13px] font-bold text-emerald-600 hover:text-emerald-700 dark:text-emerald-400 dark:hover:text-emerald-300 transition-colors">
+                        <button type="button" onClick={() => { setMode('forgot_password'); setLocalError(null); dispatch(clearError()); }} className="text-[13px] font-bold text-emerald-600 hover:text-emerald-700 dark:text-emerald-400 dark:hover:text-emerald-300 transition-colors">
                           Quên mật khẩu?
                         </button>
                       </div>
@@ -320,6 +370,21 @@ export default function AuthModal({ isOpen, onClose }) {
                         className="w-full pl-12 pr-4 py-3.5 bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl text-[15px] text-center tracking-[0.5em] font-bold text-zinc-900 dark:text-white placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/40 focus:border-emerald-500/40 transition-all placeholder:tracking-normal"
                       />
                     </div>
+
+                    {mode === 'reset_password' && (
+                      <div className="relative">
+                        <LockClosedIcon className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-zinc-400" />
+                        <input
+                          required
+                          name="password"
+                          value={formData.password}
+                          onChange={handleInputChange}
+                          type="password"
+                          placeholder="Mật khẩu mới (ít nhất 6 ký tự)"
+                          className="w-full pl-12 pr-4 py-3.5 bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl text-[15px] text-zinc-900 dark:text-white placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/40 focus:border-emerald-500/40 transition-all font-medium"
+                        />
+                      </div>
+                    )}
 
                     <div className="flex justify-between items-center text-[13px]">
                       <button
@@ -357,7 +422,7 @@ export default function AuthModal({ isOpen, onClose }) {
                     <div className="w-5 h-5 border-2 border-white dark:border-zinc-900 border-t-transparent rounded-full animate-spin" />
                   ) : (
                     <>
-                      {mode === 'login' ? 'Đăng nhập' : mode === 'verify_otp' ? 'Xác thực mã OTP' : 'Tạo tài khoản'}
+                      {mode === 'login' ? 'Đăng nhập' : mode === 'verify_otp' ? 'Xác thực mã OTP' : mode === 'forgot_password' ? 'Gửi mã xác nhận' : mode === 'reset_password' ? 'Xác nhận đổi mật khẩu' : 'Tạo tài khoản'}
                       <ArrowRightIcon className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </>
                   )}
@@ -365,17 +430,25 @@ export default function AuthModal({ isOpen, onClose }) {
               </form>
 
               {/* Toggle Mode */}
-              {mode !== 'verify_otp' && (
+              {(mode === 'login' || mode === 'register' || mode === 'forgot_password') && (
                 <div className="mt-8 text-center text-[14px]">
                   <span className="text-zinc-500 font-medium">
-                    {mode === 'login' ? 'Chưa có tài khoản? ' : 'Đã có tài khoản? '}
+                    {mode === 'login' ? 'Chưa có tài khoản? ' : mode === 'register' ? 'Đã có tài khoản? ' : ''}
                   </span>
                   <button
                     type="button"
-                    onClick={() => setMode(mode === 'login' ? 'register' : 'login')}
+                    onClick={() => {
+                      if (mode === 'forgot_password') {
+                        setMode('login');
+                      } else {
+                        setMode(mode === 'login' ? 'register' : 'login');
+                      }
+                      setLocalError(null);
+                      dispatch(clearError());
+                    }}
                     className="font-bold text-zinc-900 dark:text-white hover:underline transition-all"
                   >
-                    {mode === 'login' ? 'Đăng ký ngay' : 'Đăng nhập'}
+                    {mode === 'login' ? 'Đăng ký ngay' : mode === 'register' ? 'Đăng nhập' : 'Quay lại đăng nhập'}
                   </button>
                 </div>
               )}

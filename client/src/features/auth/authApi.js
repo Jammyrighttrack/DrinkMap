@@ -42,9 +42,14 @@ export const authApi = {
     return extractObjectPayload(response.data);
   },
 
-  recoverPassword: async (email) => {
-    const response = await authClient.post('/recover-password', { email });
-    return extractObjectPayload(response.data);
+  forgotPassword: async (payload) => {
+    const response = await authClient.post('/forgot-password', payload);
+    return response.data;
+  },
+
+  resetPassword: async (payload) => {
+    const response = await authClient.post('/reset-password', payload);
+    return response.data;
   },
 
   loginWithGoogle: async (googleToken) => {

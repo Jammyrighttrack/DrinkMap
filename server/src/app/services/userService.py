@@ -269,6 +269,109 @@ class UserService:
         threading.Thread(target=UserService.send_otp_email, args=(email, otp_code), daemon=True).start()
 
     @staticmethod
+    async def request_password_reset(email: str) -> None:
+        user_dict = await UserRepository.get_by_email(email)
+        if not user_dict:
+            raise HTTPException(status_code=404, detail="Không tìm thấy tài khoản với email này!")
+
+        if not user_dict.get("is_verified"):
+            raise HTTPException(status_code=400, detail="Tài khoản chưa được xác thực email!")
+
+        import random
+        import threading
+        from datetime import datetime, timezone, timedelta
+
+        otp_code = f"{random.randint(100000, 999999)}"
+        expires_at = datetime.now(timezone.utc) + timedelta(minutes=10)
+
+        await UserRepository.update(user_dict["id"], {
+            "reset_password_code": otp_code,
+            "reset_password_expires_at": expires_at.isoformat()
+        })
+
+        # Send OTP for reset password
+        threading.Thread(target=UserService.send_reset_password_email, args=(email, otp_code), daemon=True).start()
+
+    @staticmethod
+    def send_reset_password_email(email: str, otp_code: str) -> None:
+        import os
+        import smtplib
+        from email.mime.text import MIMEText
+        from email.header import Header
+
+        # Console banner for testing without SMTP
+        print("\n" + "=" * 60)
+        print(f"               [DRINKMAP FORGOT PASSWORD OTP]")
+        print(f"  To:       {email}")
+        print(f"  OTP Code: {otp_code}")
+        print(f"  Expires:  In 10 minutes")
+        print("=" * 60 + "\n")
+
+        smtp_host = os.getenv("SMTP_HOST")
+        smtp_port_str = os.getenv("SMTP_PORT", "587")
+        smtp_user = os.getenv("SMTP_USER")
+        smtp_password = os.getenv("SMTP_PASSWORD")
+        smtp_sender = os.getenv("SMTP_SENDER", smtp_user)
+
+        if smtp_host and smtp_user and smtp_password:
+            try:
+                smtp_port = int(smtp_port_str)
+                msg = MIMEText(
+                    f"Chào bạn,\n\nBạn đã yêu cầu đặt lại mật khẩu cho tài khoản DrinkMap của mình.\n"
+                    f"Mã xác thực OTP của bạn là: {otp_code}\n"
+                    "Mã này có hiệu lực trong vòng 10 phút.\n\n"
+                    "Nếu bạn không yêu cầu đặt lại mật khẩu, vui lòng bỏ qua email này.",
+                    "plain",
+                    "utf-8"
+                )
+                msg["Subject"] = Header("Mã xác nhận đổi mật khẩu DrinkMap", "utf-8")
+                msg["From"] = smtp_sender
+                msg["To"] = email
+
+                if smtp_port == 465:
+                    server = smtplib.SMTP_SSL(smtp_host, smtp_port, timeout=10)
+                else:
+                    server = smtplib.SMTP(smtp_host, smtp_port, timeout=10)
+                    server.starttls()
+
+                server.login(smtp_user, smtp_password)
+                server.sendmail(smtp_sender, [email], msg.as_string())
+                server.quit()
+                print(f"[SMTP] Reset password email sent successfully to {email}")
+            except Exception as e:
+                print(f"[SMTP ERROR] Failed to send reset password email via SMTP: {str(e)}")
+
+    @staticmethod
+    async def reset_password(email: str, otp_code: str, new_password: str) -> None:
+        user_dict = await UserRepository.get_by_email(email)
+        if not user_dict:
+            raise HTTPException(status_code=404, detail="Không tìm thấy tài khoản!")
+
+        saved_code = user_dict.get("reset_password_code")
+        expires_str = user_dict.get("reset_password_expires_at")
+
+        if not saved_code or not expires_str:
+            raise HTTPException(status_code=400, detail="Bạn chưa yêu cầu đặt lại mật khẩu!")
+
+        from datetime import datetime, timezone
+        expires_at = datetime.fromisoformat(expires_str)
+        if datetime.now(timezone.utc) > expires_at:
+            raise HTTPException(status_code=400, detail="Mã xác thực đã hết hạn! Vui lòng yêu cầu mã mới.")
+
+        if saved_code != otp_code:
+            raise HTTPException(status_code=400, detail="Mã xác thực không chính xác!")
+
+        from app.core.auth import get_password_hash
+        hashed_password = get_password_hash(new_password)
+
+        # Update password and clear reset fields
+        await UserRepository.update(user_dict["id"], {
+            "password_hash": hashed_password,
+            "reset_password_code": None,
+            "reset_password_expires_at": None
+        })
+
+    @staticmethod
     async def authenticate_user(email: str, password: str) -> Optional[dict]:
         user_dict = await UserRepository.get_by_email(email)
         if not user_dict:

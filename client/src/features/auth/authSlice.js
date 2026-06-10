@@ -141,6 +141,34 @@ export const resendOtpApi = createAsyncThunk(
   }
 );
 
+// 5c. Yêu cầu đổi mật khẩu (Quên mật khẩu)
+export const forgotPasswordApi = createAsyncThunk(
+  'auth/forgotPassword',
+  async (payload, { rejectWithValue }) => {
+    try {
+      const data = await authApi.forgotPassword(payload);
+      return data;
+    } catch (error) {
+      const message = extractErrorMessage(error, 'Email không tồn tại hoặc có lỗi xảy ra.');
+      return rejectWithValue(message);
+    }
+  }
+);
+
+// 5d. Đặt lại mật khẩu mới
+export const resetPasswordApi = createAsyncThunk(
+  'auth/resetPassword',
+  async (payload, { rejectWithValue }) => {
+    try {
+      const data = await authApi.resetPassword(payload);
+      return data;
+    } catch (error) {
+      const message = extractErrorMessage(error, 'Mã xác thực không đúng hoặc đã hết hạn.');
+      return rejectWithValue(message);
+    }
+  }
+);
+
 // 6. Cập nhật sở thích cá nhân
 export const updatePreferencesApi = createAsyncThunk(
   'auth/updatePreferences',
@@ -360,6 +388,34 @@ const authSlice = createSlice({
         state.isLoading = false;
       })
       .addCase(resendOtpApi.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      });
+
+    // ------- FORGOT PASSWORD PIPELINE -------
+    builder
+      .addCase(forgotPasswordApi.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(forgotPasswordApi.fulfilled, (state) => {
+        state.isLoading = false;
+      })
+      .addCase(forgotPasswordApi.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      });
+
+    // ------- RESET PASSWORD PIPELINE -------
+    builder
+      .addCase(resetPasswordApi.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(resetPasswordApi.fulfilled, (state) => {
+        state.isLoading = false;
+      })
+      .addCase(resetPasswordApi.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
       });

@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends, Response, HTTPException, status
 from fastapi.security import OAuth2PasswordRequestForm
 from app.core.auth import create_access_token, get_current_user
-from app.dtos.userDTO import GoogleMockPayload, UserResponse, UserRegisterRequest, VerifyOTPRequest, ResendOTPRequest
+from app.dtos.userDTO import GoogleMockPayload, UserResponse, UserRegisterRequest, VerifyOTPRequest, ResendOTPRequest, ForgotPasswordRequest, ResetPasswordRequest
 from app.services.userService import UserService
 from typing import Dict, Any
 
@@ -61,6 +61,26 @@ async def resend_otp(otp_data: ResendOTPRequest):
     """
     await UserService.resend_otp(email=otp_data.email)
     return {"message": "Mã OTP mới đã được gửi thành công!"}
+
+@router.post("/forgot-password")
+async def forgot_password(request_data: ForgotPasswordRequest):
+    """
+    Yêu cầu đặt lại mật khẩu. Gửi OTP đến email người dùng.
+    """
+    await UserService.request_password_reset(email=request_data.email)
+    return {"message": "Mã xác nhận đã được gửi đến email của bạn!"}
+
+@router.post("/reset-password")
+async def reset_password(request_data: ResetPasswordRequest):
+    """
+    Đặt lại mật khẩu với mã OTP.
+    """
+    await UserService.reset_password(
+        email=request_data.email,
+        otp_code=request_data.otp_code,
+        new_password=request_data.new_password
+    )
+    return {"message": "Đặt lại mật khẩu thành công!"}
 
 @router.post("/login/access-token")
 async def login_access_token(
