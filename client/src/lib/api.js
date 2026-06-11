@@ -1,4 +1,4 @@
-const FALLBACK_API_URL = 'https://drinkmap.onrender.com';
+const FALLBACK_API_URL = 'https://drinkmap.onrender.com/api';
 
 export const resolveApiBaseUrl = (rawUrl) => {
   if (!rawUrl || typeof rawUrl !== 'string') {
