@@ -10,7 +10,7 @@ import re
 # 1. CẤU HÌNH KẾT NỐI
 load_dotenv("../.env") 
 
-MONGO_URI = os.getenv("MONGO_URL")
+MONGO_URI = os.getenv("MONGO_URI")  
 DB_NAME = os.getenv("DB_NAME")
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 
