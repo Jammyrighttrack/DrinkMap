@@ -17,7 +17,7 @@ from .core.ai_config import init_redis, close_redis
 # Khởi chạy môi trường
 ROOT_DIR = Path(__file__).parent.parent.parent.parent
 env_path = ROOT_DIR / '.env'
-if env_path.exists():
+if env_path.exists():   
     load_dotenv(env_path)
 
 # 🛡️ LIFESPAN BỌC THÉP: Bỏ qua mọi lỗi kết nối để ÉP server phải LIVE
@@ -66,12 +66,12 @@ app = FastAPI(
 
 # Cấu hình CORS
 origins = [
-    "http://localhost:5173",
+    "http://localhost:5173",  
     "http://127.0.0.1:5173",
     "http://localhost:3000",
     "http://127.0.0.1:3000",
-    "https://drink-map.vercel.app",
-    "https://vite-react-nine-sigma-42.vercel.app"
+    "https://drink-map-rouge.vercel.app",  
+    "https://drink-w6mko2rn-james-projects-b8d2915b.vercel.app"
 ]
 
 app.add_middleware(
