@@ -7,15 +7,15 @@ class Database:
           
     @classmethod
     async def connect_db(cls) -> AsyncIOMotorDatabase:
-        """Connect to MongoDB and create indexes"""
-        mongo_url = os.getenv('MONGO_URL')
-        db_name = os.getenv('DB_NAME')  
-        if not mongo_url or not db_name:
-            raise ValueError("Environment variables MONGO_URL and DB_NAME must be set")
-             
-        cls.client = AsyncIOMotorClient(mongo_url)
+        """Connect to MongoDB and create indexes""" 
+        mongo_uri = os.getenv('MONGO_URI') 
+        db_name = os.getenv('DB_NAME')     
+        if not mongo_uri or not db_name:
+            raise ValueError("Environment variables MONGO_URI and DB_NAME must be set")
+                      
+        cls.client = AsyncIOMotorClient(mongo_uri)
         db = cls.client[db_name]
-              
+                
         # Create 2dsphere index for geospatial queries
         await db.shops.create_index([("location", "2dsphere")])
               
