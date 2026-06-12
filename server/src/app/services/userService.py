@@ -4,10 +4,10 @@ from app.dtos.userDTO import UserResponse, UpdateProfileRequest, UpdateSettingsR
 from app.dtos.shopDTO import ShopSummaryResponse
 from pydantic import BaseModel
 from typing import Optional, List
-from fastapi import HTTPException
+from fastapi import HTTPException, BackgroundTasks # 🛡️ Đã sửa: Import BackgroundTasks từ FastAPI
 
 class UserProfileDTO(UserResponse):
-    # Kế thừa UserResponse nhưng thêm thông tin dánh sách các quán đã lưu
+    # Kế thừa UserResponse nhưng thêm thông tin danh sách các quán đã lưu
     saved_shops_details: List[ShopSummaryResponse] = []
 
 class UserService:
@@ -47,14 +47,10 @@ class UserService:
     @staticmethod
     async def verify_email_exists(email: str) -> None:
         from email_validator import validate_email, EmailNotValidError
-        import dns.resolver
-        import smtplib
-        import socket
 
-        # 1. Validate syntax and domain existence / MX configuration via email-validator
+        # 1. Kiểm tra cú pháp và sự tồn tại của máy chủ nhận thư (Cực kỳ chính xác và nhanh)
         try:
             valid = validate_email(email, check_deliverability=True)
-            normalized_email = valid.normalized
             domain = valid.domain
         except EmailNotValidError as e:
             raise HTTPException(
@@ -62,7 +58,7 @@ class UserService:
                 detail=f"Email không hợp lệ hoặc tên miền không tồn tại: {str(e)}"
             )
 
-        # 2. Filter disposable email domains
+        # 2. Bộ lọc chặn các email rác dùng một lần (Disposable email)
         DISPOSABLE_DOMAINS = {
             "yopmail.com", "mailinator.com", "tempmail.com", "temp-mail.org",
             "10minutemail.com", "guerrillamail.com", "sharklasers.com",
@@ -74,45 +70,12 @@ class UserService:
                 status_code=400,
                 detail="Không chấp nhận đăng ký bằng email dùng một lần (disposable email)!"
             )
-
-        # 3. SMTP probing (mailbox existence check)
-        try:
-            records = dns.resolver.resolve(domain, 'MX')
-            mx_hosts = [str(r.exchange).rstrip('.') for r in records]
-            mx_hosts.sort()
-        except Exception:
-            # Fallback to True (success) if DNS MX query fails here but email-validator deliverability succeeded
-            return
-
-        if not mx_hosts:
-            raise HTTPException(
-                status_code=400,
-                detail="Tên miền email không có máy chủ nhận thư (MX record)!"
-            )
-
-        smtp_host = mx_hosts[0]
-        try:
-            server = smtplib.SMTP(timeout=3)
-            server.connect(smtp_host, 25)
-            server.helo(socket.gethostname())
-            server.mail('verify-agent@drinkmap.com')
-            code, message = server.rcpt(normalized_email)
-            server.quit()
-
-            if code == 550:
-                # 550 Mailbox not found
-                raise HTTPException(
-                    status_code=400,
-                    detail="Hộp thư email này không tồn tại!"
-                )
-        except HTTPException:
-            raise
-        except Exception:
-            # Safe fallback if SMTP port 25 is blocked or times out
-            return
+            
+        # 🛡️ ĐÃ XÓA SỔ ĐOẠN SMTP PORT 25 BỊ RENDER BLOCK GÂY TREO APP HỆ THỐNG
+        return
 
     @staticmethod
-    async def register_local_user(email: str, password: str, full_name: str) -> UserResponse:
+    async def register_local_user(email: str, password: str, full_name: str, background_tasks: BackgroundTasks) -> UserResponse:
         await UserService.verify_email_exists(email)
         user_dict = await UserRepository.get_by_email(email)
         if user_dict:
@@ -120,7 +83,6 @@ class UserService:
             
         import uuid
         import random
-        import threading
         from datetime import datetime, timezone, timedelta
         from app.core.auth import get_password_hash
         
@@ -153,8 +115,8 @@ class UserService:
         }
         await UserRepository.create(new_user)
         
-        # Send OTP code in a background thread
-        threading.Thread(target=UserService.send_otp_email, args=(email, otp_code), daemon=True).start()
+        # 🛡️ Sử dụng BackgroundTasks của FastAPI chạy ổn định trên môi trường Cloud
+        background_tasks.add_task(UserService.send_otp_email, email, otp_code)
 
         new_user.pop("_id", None)
         new_user.pop("password_hash", None)
@@ -168,7 +130,7 @@ class UserService:
         from email.mime.text import MIMEText
         from email.header import Header
 
-        # 1. Print a beautiful console banner
+        # 1. Print console banner Render gỡ lỗi nhanh
         print("\n" + "=" * 60)
         print(f"               [DRINKMAP EMAIL VERIFICATION OTP]")
         print(f"  To:       {email}")
@@ -176,7 +138,7 @@ class UserService:
         print(f"  Expires:  In 10 minutes")
         print("=" * 60 + "\n")
 
-        # 2. Attempt to send real SMTP email if configured
+        # 2. Đọc biến cấu hình SMTP bọc bảo hiểm
         smtp_host = os.getenv("SMTP_HOST")
         smtp_port_str = os.getenv("SMTP_PORT", "587")
         smtp_user = os.getenv("SMTP_USER")
@@ -233,19 +195,17 @@ class UserService:
         if saved_code != otp_code:
             raise HTTPException(status_code=400, detail="Mã xác thực không chính xác!")
 
-        # Update user status to verified
         await UserRepository.update(user_dict["id"], {
             "is_verified": True,
             "verification_code": None,
             "verification_expires_at": None
         })
 
-        # Fetch updated user info
         updated_user = await UserRepository.get_by_id(user_dict["id"])
         return updated_user
 
     @staticmethod
-    async def resend_otp(email: str) -> None:
+    async def resend_otp(email: str, background_tasks: BackgroundTasks) -> None:
         user_dict = await UserRepository.get_by_email(email)
         if not user_dict:
             raise HTTPException(status_code=404, detail="Không tìm thấy tài khoản!")
@@ -254,7 +214,6 @@ class UserService:
             raise HTTPException(status_code=400, detail="Tài khoản này đã được xác thực trước đó!")
 
         import random
-        import threading
         from datetime import datetime, timezone, timedelta
 
         otp_code = f"{random.randint(100000, 999999)}"
@@ -265,11 +224,10 @@ class UserService:
             "verification_expires_at": expires_at.isoformat()
         })
 
-        # Send OTP
-        threading.Thread(target=UserService.send_otp_email, args=(email, otp_code), daemon=True).start()
+        background_tasks.add_task(UserService.send_otp_email, email, otp_code)
 
     @staticmethod
-    async def request_password_reset(email: str) -> None:
+    async def request_password_reset(email: str, background_tasks: BackgroundTasks) -> None:
         user_dict = await UserRepository.get_by_email(email)
         if not user_dict:
             raise HTTPException(status_code=404, detail="Không tìm thấy tài khoản với email này!")
@@ -278,7 +236,6 @@ class UserService:
             raise HTTPException(status_code=400, detail="Tài khoản chưa được xác thực email!")
 
         import random
-        import threading
         from datetime import datetime, timezone, timedelta
 
         otp_code = f"{random.randint(100000, 999999)}"
@@ -289,8 +246,7 @@ class UserService:
             "reset_password_expires_at": expires_at.isoformat()
         })
 
-        # Send OTP for reset password
-        threading.Thread(target=UserService.send_reset_password_email, args=(email, otp_code), daemon=True).start()
+        background_tasks.add_task(UserService.send_reset_password_email, email, otp_code)
 
     @staticmethod
     def send_reset_password_email(email: str, otp_code: str) -> None:
@@ -299,7 +255,6 @@ class UserService:
         from email.mime.text import MIMEText
         from email.header import Header
 
-        # Console banner for testing without SMTP
         print("\n" + "=" * 60)
         print(f"               [DRINKMAP FORGOT PASSWORD OTP]")
         print(f"  To:       {email}")
@@ -364,7 +319,6 @@ class UserService:
         from app.core.auth import get_password_hash
         hashed_password = get_password_hash(new_password)
 
-        # Update password and clear reset fields
         await UserRepository.update(user_dict["id"], {
             "password_hash": hashed_password,
             "reset_password_code": None,
@@ -374,7 +328,7 @@ class UserService:
     @staticmethod
     async def authenticate_user(email: str, password: str) -> Optional[dict]:
         user_dict = await UserRepository.get_by_email(email)
-        if not user_dict:
+        if not user_dict:  
             return None
         from app.core.auth import verify_password
         pwd_hash = user_dict.get("password_hash")
@@ -426,9 +380,6 @@ class UserService:
 
     @staticmethod
     async def get_user_profile(user_id: str) -> Optional[UserProfileDTO]:
-        """
-        Format data user, trả về DTO type-safe.
-        """
         user_dict = await UserRepository.get_by_id(user_id)
         if not user_dict:
             return None
@@ -509,4 +460,4 @@ class UserService:
         user_dict["reviews_count"] = reviews_count
         user_dict["points"] = points
         user_dict["level"] = level
-        return user_dict
+        return user_dict   

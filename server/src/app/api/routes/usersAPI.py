@@ -52,7 +52,7 @@ async def update_settings(
     settings_data: UpdateSettingsRequest,
     current_user: dict = Depends(get_current_user)
 ):
-    """
+    """  
     Cập nhật các thiết lập thông báo và quyền riêng tư.
     """
     return await UserService.update_settings(current_user["id"], settings_data)
