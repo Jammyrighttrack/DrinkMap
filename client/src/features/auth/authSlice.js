@@ -5,7 +5,7 @@ import { authApi, userApi } from './authApi';
 const extractErrorMessage = (error, defaultMsg) => {
   const detail = error.response?.data?.detail;
   if (!detail) {
-    return error.response?.data?.message 
+    return error.response?.data?.message
       || (typeof error.response?.data === 'string' ? error.response.data : null)
       || defaultMsg;
   }
@@ -32,13 +32,13 @@ export const loginApi = createAsyncThunk(
     try {
       // Gọi API lấy Access Token (FastAPI)
       const data = await authApi.login(credentials);
-      
+
       // Khắc cờ token vào trình duyệt
       sessionStorage.setItem('token', data.access_token);
-      
+
       // Song song đó, dùng chính token vừa sinh ra để truy vấn Profile của User
       const userProfile = await authApi.getCurrentUser(data.access_token);
-      
+
       return { token: data.access_token, user: userProfile };
     } catch (error) {
       const message = extractErrorMessage(error, 'Đăng nhập không thành công, vui lòng kiểm tra lại email/mật khẩu.');
@@ -70,7 +70,7 @@ export const fetchCurrentUser = createAsyncThunk(
       if (!token) {
         return rejectWithValue('No token found');
       }
-      
+
       // Gửi verify token xuống lấy thông tin cá nhân
       const userProfile = await authApi.getCurrentUser(token);
       return { token, user: userProfile };
@@ -247,9 +247,9 @@ export const deleteAccountApi = createAsyncThunk(
 const initialState = {
   currentUser: null,
   // Đọc mồi token từ Storage để tránh chớp nhoáng (Flash) UI
-  token: sessionStorage.getItem('token') || null, 
-  isAuthenticated: !!sessionStorage.getItem('token'), 
-  isLoading: false, 
+  token: sessionStorage.getItem('token') || null,
+  isAuthenticated: !!sessionStorage.getItem('token'),
+  isLoading: false,
   error: null,
   isInitializing: true, // Trạng thái App đang chật vật tải Auth Profile ở giây đầu tiên mở màn hình
 };
@@ -315,7 +315,7 @@ const authSlice = createSlice({
     // ------- INITIALIZING (FETCH ME) -------
     builder
       .addCase(fetchCurrentUser.pending, (state) => {
-        state.isInitializing = true; 
+        state.isInitializing = true;
         state.error = null;
       })
       .addCase(fetchCurrentUser.fulfilled, (state, action) => {
@@ -328,7 +328,7 @@ const authSlice = createSlice({
         state.isInitializing = false;
         state.isAuthenticated = false;
         state.currentUser = null;
-        state.token = null; 
+        state.token = null;
         // Lỗi chạy ngầm sẽ ko in ra màn hình cản trở UX
       });
 
@@ -338,7 +338,7 @@ const authSlice = createSlice({
         state.isAuthenticated = false;
         state.token = null;
         state.currentUser = null;
-        state.error = null; 
+        state.error = null;
         // Lúc logout thành công sẽ xóa sạch
       });
 

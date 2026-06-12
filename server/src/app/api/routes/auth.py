@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends, Response, HTTPException, status
+from fastapi import APIRouter, Depends, Response, HTTPException, status, BackgroundTasks
 from fastapi.security import OAuth2PasswordRequestForm
 from app.core.auth import create_access_token, get_current_user
 from app.dtos.userDTO import GoogleMockPayload, UserResponse, UserRegisterRequest, VerifyOTPRequest, ResendOTPRequest, ForgotPasswordRequest, ResetPasswordRequest
@@ -8,14 +8,15 @@ from typing import Dict, Any
 router = APIRouter()
 
 @router.post("/register", response_model=UserResponse)
-async def register(user_data: UserRegisterRequest):
+async def register(user_data: UserRegisterRequest, background_tasks: BackgroundTasks):
     """
     Đăng ký tài khoản người dùng cục bộ mới bằng Email/Mật khẩu.
     """
     return await UserService.register_local_user(
         email=user_data.email,
         password=user_data.password,
-        full_name=user_data.full_name
+        full_name=user_data.full_name,
+        background_tasks=background_tasks
     )
 
 @router.post("/verify-otp")
@@ -55,19 +56,19 @@ async def verify_otp(
     }
 
 @router.post("/resend-otp")
-async def resend_otp(otp_data: ResendOTPRequest):
+async def resend_otp(otp_data: ResendOTPRequest, background_tasks: BackgroundTasks):
     """
     Gửi lại mã OTP mới cho người dùng.
     """
-    await UserService.resend_otp(email=otp_data.email)
+    await UserService.resend_otp(email=otp_data.email, background_tasks=background_tasks)
     return {"message": "Mã OTP mới đã được gửi thành công!"}
 
 @router.post("/forgot-password")
-async def forgot_password(request_data: ForgotPasswordRequest):
+async def forgot_password(request_data: ForgotPasswordRequest, background_tasks: BackgroundTasks):
     """
     Yêu cầu đặt lại mật khẩu. Gửi OTP đến email người dùng.
     """
-    await UserService.request_password_reset(email=request_data.email)
+    await UserService.request_password_reset(email=request_data.email, background_tasks=background_tasks)
     return {"message": "Mã xác nhận đã được gửi đến email của bạn!"}
 
 @router.post("/reset-password")
