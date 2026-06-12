@@ -64,24 +64,21 @@ app = FastAPI(
     lifespan=lifespan
 )
 
-# Cấu hình CORS
-origins = [
-    "http://localhost:5173",  
-    "http://127.0.0.1:5173",
-    "http://localhost:3000",
-    "http://127.0.0.1:3000",
-    "https://drink-map-rouge.vercel.app",  
-    "https://drink-w6mko2rn-james-projects-b8d2915b.vercel.app"
-]
-
+# Cấu hình CORS mới
 app.add_middleware(
     CORSMiddleware, 
-    allow_origins=origins,
-    allow_credentials=False, 
+    allow_origins=[
+        "http://localhost:5173",  
+        "http://127.0.0.1:5173",
+        "http://localhost:3000",
+        "http://127.0.0.1:3000",
+        "https://drink-map-rouge.vercel.app"
+    ],
+    allow_credentials=True,   # 🛡️ PHẢI LÀ TRUE để Frontend gửi request xác thực qua cửa thành công!
     allow_methods=["*"],
     allow_headers=["*"],
     expose_headers=["*"],
-)
+)   
 
 app.include_router(api_router, prefix="/api")
 
